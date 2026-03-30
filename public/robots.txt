@@ -1,0 +1,7 @@
+# robots.txt for DevTools Box
+# https://www.vikinghd.me
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.vikinghd.me/sitemap.xml

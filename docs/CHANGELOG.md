@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-03-30
+
+### Added
+- 新增 SEO 相关文件
+  - robots.txt - 搜索引擎爬虫规则
+  - sitemap.xml - 网站地图
+  - docs/SEO.md - 搜索引擎提交指南
+- 新增 SEO meta 标签
+  - 关键词 meta 标签
+  - Open Graph (Facebook) 标签
+  - Twitter Card 标签
+  - canonical URL
+- 扩展页面描述和关键词
+
 ## [0.3.0] - 2026-03-30
 
 ### Added
