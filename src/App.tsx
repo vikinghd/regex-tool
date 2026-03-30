@@ -27,9 +27,9 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Sidebar currentToolId={currentToolId} onToolSelect={handleToolSelect} />
 
-      <main className="lg:pl-64 min-h-screen">
-        <header className="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-10">
-          <div className="px-6 py-4 lg:px-8">
+      <main className="lg:ml-64 min-h-screen">
+        <header className="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-20">
+          <div className="px-4 py-4 lg:px-8">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-xl font-bold text-slate-200">{currentTool.name}</h1>
@@ -44,7 +44,7 @@ function App() {
           </div>
         </header>
 
-        <div className="p-6 lg:p-8">
+        <div className="p-4 lg:p-8">
           <ToolComponent />
         </div>
       </main>
