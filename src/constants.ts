@@ -3,16 +3,16 @@ import { RegexExample } from './types';
 export const REGEX_EXAMPLES: RegexExample[] = [
   {
     name: '邮箱验证',
-    pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
-    flags: '',
-    description: '验证标准邮箱格式',
+    pattern: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}',
+    flags: 'g',
+    description: '匹配邮箱地址',
     testText: 'contact@example.com, user.name+tag@domain.co.uk'
   },
   {
     name: '手机号（中国）',
-    pattern: '^1[3-9]\\d{9}$',
-    flags: '',
-    description: '验证中国大陆手机号',
+    pattern: '1[3-9]\\d{9}',
+    flags: 'g',
+    description: '匹配中国大陆手机号',
     testText: '13812345678, 15987654321'
   },
   {
@@ -24,29 +24,29 @@ export const REGEX_EXAMPLES: RegexExample[] = [
   },
   {
     name: 'IP地址（IPv4）',
-    pattern: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$',
-    flags: '',
-    description: '验证IPv4地址',
+    pattern: '(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)',
+    flags: 'g',
+    description: '匹配IPv4地址',
     testText: '192.168.1.1, 10.0.0.1, 255.255.255.0'
   },
   {
     name: '身份证号（中国）',
-    pattern: '^[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]$',
-    flags: '',
-    description: '验证18位中国身份证号',
-    testText: '110101199001011234'
+    pattern: '[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]',
+    flags: 'g',
+    description: '匹配18位中国身份证号',
+    testText: '110101199001011234, 44010120001231567X'
   },
   {
     name: '日期（YYYY-MM-DD）',
-    pattern: '^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$',
-    flags: '',
+    pattern: '\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])',
+    flags: 'g',
     description: '匹配年-月-日格式',
     testText: '2024-01-15, 2024-12-31'
   },
   {
     name: '时间（HH:MM:SS）',
-    pattern: '^(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d$',
-    flags: '',
+    pattern: '(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d',
+    flags: 'g',
     description: '匹配24小时制时间',
     testText: '14:30:00, 09:05:30'
   },
