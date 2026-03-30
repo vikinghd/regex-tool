@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { ToolMeta } from './types/tool';
 import { TOOLS } from './constants/tools';
@@ -10,16 +10,7 @@ function App() {
 
   const handleToolSelect = (tool: ToolMeta) => {
     setCurrentToolId(tool.id);
-    window.history.pushState(null, '', tool.defaultPath);
   };
-
-  useEffect(() => {
-    const path = window.location.pathname;
-    const tool = TOOLS.find(t => t.defaultPath === path);
-    if (tool) {
-      setCurrentToolId(tool.id);
-    }
-  }, []);
 
   const ToolComponent = currentTool.component;
 
