@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-03-30
+
+### Added
+- 集成 React Router (HashRouter)
+- 每个工具独立 URL (/#/regex, /#/json 等)
+- 新增时间戳转换工具
+  - Unix 时间戳 ↔ 日期时间互转
+  - 多种时间格式展示 (ISO/UTC/本地)
+  - "当前时间"快捷按钮
+- 新增 URL 编解码工具
+  - URL 编码和解码
+  - 编码说明文档
+- 更新网站标题为 DevTools Box
+- 添加网站 favicon
+
+### Changed
+- 侧边栏和主内容区对齐优化
+- 移除 pushState，改用 HashRouter 管理路由
+- 版本号更新至 0.3.0
+
 ## [0.2.0] - 2026-03-30
 
 ### Added

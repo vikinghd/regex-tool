@@ -3,6 +3,8 @@ import { ToolMeta, ToolCategory } from '../types/tool';
 import { RegexTool } from '../tools/RegexTool';
 import { JsonFormatter } from '../tools/JsonFormatter';
 import { Base64Tool } from '../tools/Base64Tool';
+import { TimestampTool } from '../tools/TimestampTool';
+import { UrlTool } from '../tools/UrlTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -31,20 +33,29 @@ export const TOOLS: ToolMeta[] = [
     icon: <ArrowLeftRight size={20} />,
     component: Base64Tool,
     defaultPath: '/base64'
-  }
-];
-
-// 占位工具（用于展示）
-export const PLACEHOLDER_TOOLS: ToolMeta[] = [
+  },
   {
     id: 'timestamp',
     name: '时间戳转换',
     category: ToolCategory.DATA,
     description: 'Unix 时间戳转换',
     icon: <Clock size={20} />,
-    component: () => null,
+    component: TimestampTool,
     defaultPath: '/timestamp'
   },
+  {
+    id: 'url',
+    name: 'URL 编解码',
+    category: ToolCategory.WEB,
+    description: 'URL 编码和解码',
+    icon: <Globe size={20} />,
+    component: UrlTool,
+    defaultPath: '/url'
+  }
+];
+
+// 占位工具（用于展示）
+export const PLACEHOLDER_TOOLS: ToolMeta[] = [
   {
     id: 'color',
     name: '颜色转换',
@@ -53,15 +64,6 @@ export const PLACEHOLDER_TOOLS: ToolMeta[] = [
     icon: <Palette size={20} />,
     component: () => null,
     defaultPath: '/color'
-  },
-  {
-    id: 'url',
-    name: 'URL 编解码',
-    category: ToolCategory.WEB,
-    description: 'URL 编码和解码',
-    icon: <Globe size={20} />,
-    component: () => null,
-    defaultPath: '/url'
   },
   {
     id: 'hash',
