@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-03-30
+
+### Added
+- 集成 react-helmet-async - 动态 meta 标签管理
+- 每个工具独立的标题和描述
+- 添加 Schema.org 结构化数据 (WebApplication)
+- 改用 BrowserRouter 替代 HashRouter
+  - URL 从 /#/regex 改为 /regex
+  - 对 SEO 更友好
+- 更新 Vercel 配置，添加重定向规则
+- 更新 sitemap.xml 使用正常 URL 格式
+
+### Changed
+- 版本号更新至 0.5.0
+
 ## [0.4.0] - 2026-03-30
 
 ### Added
