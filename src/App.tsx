@@ -4,10 +4,12 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Sidebar } from './components/Sidebar';
 import { ToolMeta } from './types/tool';
 import { TOOLS } from './constants/tools';
+import { useI18n } from './i18n';
 
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { language, getToolName, getToolDescription, t } = useI18n();
 
   const currentTool = TOOLS.find((t: ToolMeta) =>
     t.defaultPath === location.pathname ||
@@ -29,10 +31,10 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <Helmet>
-        <title>{currentTool.name} | DevTools Box</title>
-        <meta name="description" content={`${currentTool.description} - 免费在线开发者工具箱`} />
-        <meta property="og:title" content={`${currentTool.name} | DevTools Box`} />
-        <meta property="og:description" content={`${currentTool.description} - 免费在线开发者工具箱`} />
+        <title>{getToolName(currentTool.id)} | DevTools Box</title>
+        <meta name="description" content={`${getToolDescription(currentTool.id)} - ${t('app.description')}`} />
+        <meta property="og:title" content={`${getToolName(currentTool.id)} | DevTools Box`} />
+        <meta property="og:description" content={`${getToolDescription(currentTool.id)} - ${t('app.description')}`} />
         <meta property="og:url" content={`https://www.vikinghd.me${currentTool.defaultPath}`} />
       </Helmet>
 
@@ -40,14 +42,21 @@ function AppContent() {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "DevTools Box",
-        "description": "免费在线开发者工具箱：正则表达式测试、JSON格式化、Base64编解码、时间戳转换、URL编解码等工具",
+        "description": language === 'zh-CN'
+          ? "免费在线开发者工具箱：正则表达式测试、JSON格式化、Base64编解码、时间戳转换、URL编解码等工具"
+          : "Free online developer tools: Regex tester, JSON formatter, Base64 encoder/decoder, timestamp converter, URL encoder/decoder, and more",
         "url": "https://www.vikinghd.me/",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web",
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "CNY"
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "vikinghd",
+          "url": "https://github.com/vikinghd"
         }
       })}} />
 
@@ -58,13 +67,8 @@ function AppContent() {
           <div className="px-4 py-4 lg:px-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-xl font-bold text-slate-200">{currentTool.name}</h1>
-                <p className="text-sm text-slate-400">{currentTool.description}</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 bg-violet-500/20 text-violet-300 text-xs rounded-full border border-violet-500/30">
-                  v0.5.0
-                </span>
+                <h1 className="text-xl font-bold text-slate-200">{getToolName(currentTool.id)}</h1>
+                <p className="text-sm text-slate-400">{getToolDescription(currentTool.id)}</p>
               </div>
             </div>
           </div>

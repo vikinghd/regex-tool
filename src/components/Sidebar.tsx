@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
-import { ToolMeta, ToolCategory, CATEGORY_NAMES } from '../types/tool';
+import { Menu, X, ChevronDown, ChevronRight, Github, Globe } from 'lucide-react';
+import { ToolMeta, ToolCategory } from '../types/tool';
 import { TOOLS, PLACEHOLDER_TOOLS } from '../constants/tools';
+import { useI18n } from '../i18n';
 
 interface SidebarProps {
   currentToolId: string;
@@ -15,6 +16,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<ToolCategory>>(
     new Set([ToolCategory.TEXT])
   );
+  const { language, setLanguage, getToolName, getCategoryName, t } = useI18n();
 
   const toggleCategory = (category: ToolCategory) => {
     setExpandedCategories(prev => {
@@ -47,7 +49,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               onClick={() => toggleCategory(cat)}
               className="w-full flex items-center justify-between px-4 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors"
             >
-              <span className="text-sm font-medium">{CATEGORY_NAMES[cat]}</span>
+              <span className="text-sm font-medium">{getCategoryName(cat)}</span>
               {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             </button>
 
@@ -75,8 +77,8 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                       }`}
                     >
                       <span className={isPlaceholder ? 'opacity-50' : ''}>{tool.icon}</span>
-                      <span className="truncate">{tool.name}</span>
-                      {isPlaceholder && <span className="ml-auto text-xs text-slate-600">即将上线</span>}
+                      <span className="truncate">{getToolName(tool.id)}</span>
+                      {isPlaceholder && <span className="ml-auto text-xs text-slate-600">{t('common.comingSoon')}</span>}
                     </button>
                   );
                 })}
@@ -114,8 +116,26 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
           </h1>
         </div>
         {renderToolList()}
-        <div className="p-4 border-t border-slate-700 text-xs text-slate-500">
-          <p>v0.2.0 · 用 💜 构建</p>
+        <div className="p-4 border-t border-slate-700 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN')}
+              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+              title={language === 'zh-CN' ? 'Switch to English' : '切换到中文'}
+            >
+              <Globe size={18} />
+            </button>
+            <a
+              href="https://github.com/vikinghd/regex-tool"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+              title="GitHub"
+            >
+              <Github size={18} />
+            </a>
+          </div>
+          <span className="text-xs text-slate-500">v0.6.0</span>
         </div>
       </aside>
 
@@ -129,12 +149,28 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
           <h1 className="text-lg font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
             DevTools Box
           </h1>
-          <button
-            onClick={() => setMobileOpen(false)}
-            className="p-2 text-slate-400 hover:text-slate-200"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN')}
+              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+            >
+              <Globe size={18} />
+            </button>
+            <a
+              href="https://github.com/vikinghd/regex-tool"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+            >
+              <Github size={18} />
+            </a>
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="p-2 text-slate-400 hover:text-slate-200"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
         <div className="flex flex-col h-[calc(100vh-65px)]">
           {renderToolList()}

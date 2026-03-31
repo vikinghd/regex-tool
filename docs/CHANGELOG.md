@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-03-31
+
+### Added
+- 添加多语言支持 (i18n)
+  - 中文 (zh-CN) 和英文 (en-US)
+  - 语言切换按钮
+  - 语言选择保存在 localStorage
+- 添加 GitHub 链接到侧边栏
+- 添加 LanguageProvider 和 useI18n Hook
+- 所有界面文本支持国际化
+
+### Changed
+- 版本号更新至 0.6.0
+- 侧边栏底部添加语言切换和 GitHub 链接
+- 简化头部，版本号移至侧边栏
+
 ## [0.5.0] - 2026-03-30
 
 ### Added
