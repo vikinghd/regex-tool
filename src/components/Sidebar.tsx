@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ChevronDown, ChevronRight, Github, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, Github, ChevronUp } from 'lucide-react';
 import { ToolMeta, ToolCategory } from '../types/tool';
 import { TOOLS, PLACEHOLDER_TOOLS } from '../constants/tools';
 import { useI18n } from '../i18n';
@@ -16,6 +16,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
   const [expandedCategories, setExpandedCategories] = useState<Set<ToolCategory>>(
     new Set([ToolCategory.TEXT])
   );
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const { language, setLanguage, getToolName, getCategoryName, t } = useI18n();
 
   const toggleCategory = (category: ToolCategory) => {
@@ -90,6 +91,51 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
     </nav>
   );
 
+  const LanguageSelector = () => (
+    <div className="relative">
+      <button
+        onClick={() => setLangMenuOpen(!langMenuOpen)}
+        className="flex items-center gap-2 px-3 py-2 bg-slate-800 text-slate-200 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+      >
+        <span>{language === 'zh-CN' ? '中文' : 'English'}</span>
+        {langMenuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+      </button>
+
+      {langMenuOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-40"
+            onClick={() => setLangMenuOpen(false)}
+          />
+          <div className="absolute bottom-full left-0 mb-2 w-40 bg-slate-800 rounded-lg border border-slate-700 shadow-xl z-50">
+            <button
+              onClick={() => {
+                setLanguage('zh-CN');
+                setLangMenuOpen(false);
+              }}
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-t-lg ${
+                language === 'zh-CN' ? 'text-violet-400 bg-violet-500/10' : 'text-slate-200'
+              }`}
+            >
+              🇨🇳 中文
+            </button>
+            <button
+              onClick={() => {
+                setLanguage('en-US');
+                setLangMenuOpen(false);
+              }}
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-b-lg ${
+                language === 'en-US' ? 'text-violet-400 bg-violet-500/10' : 'text-slate-200'
+              }`}
+            >
+              🇺🇸 English
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+
   return (
     <>
       {/* Mobile menu button - only on mobile */}
@@ -118,13 +164,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
         {renderToolList()}
         <div className="p-4 border-t border-slate-700 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN')}
-              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
-              title={language === 'zh-CN' ? 'Switch to English' : '切换到中文'}
-            >
-              <Globe size={18} />
-            </button>
+            <LanguageSelector />
             <a
               href="https://github.com/vikinghd/regex-tool"
               target="_blank"
@@ -135,7 +175,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               <Github size={18} />
             </a>
           </div>
-          <span className="text-xs text-slate-500">v0.6.0</span>
+          <span className="text-xs text-slate-500">v0.7.0</span>
         </div>
       </aside>
 
@@ -150,12 +190,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
             DevTools Box
           </h1>
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN')}
-              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
-            >
-              <Globe size={18} />
-            </button>
+            <LanguageSelector />
             <a
               href="https://github.com/vikinghd/regex-tool"
               target="_blank"
