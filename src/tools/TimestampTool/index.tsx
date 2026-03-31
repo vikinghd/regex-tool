@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useI18n } from '../../i18n';
 
 export function TimestampTool() {
   const [timestamp, setTimestamp] = useState('');
   const [dateTime, setDateTime] = useState('');
+  const { t, language } = useI18n();
 
   const now = () => {
     const ts = Math.floor(Date.now() / 1000);
@@ -34,12 +36,13 @@ export function TimestampTool() {
   const formats = timestamp ? (() => {
     const ts = parseInt(timestamp, 10);
     const date = new Date(ts * 1000);
+    const locale = language === 'zh-CN' ? 'zh-CN' : 'en-US';
     return {
       utc: date.toUTCString(),
-      local: date.toLocaleString('zh-CN'),
+      local: date.toLocaleString(locale),
       iso: date.toISOString(),
-      date: date.toLocaleDateString('zh-CN'),
-      time: date.toLocaleTimeString('zh-CN')
+      date: date.toLocaleDateString(locale),
+      time: date.toLocaleTimeString(locale)
     };
   })() : null;
 
@@ -47,18 +50,18 @@ export function TimestampTool() {
     <div className="space-y-6">
       <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-slate-200">时间戳转换</h2>
+          <h2 className="text-lg font-semibold text-slate-200">{t('timestamp.title')}</h2>
           <button
             onClick={now}
             className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
-            当前时间
+            {t('common.now')}
           </button>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <label className="block text-sm text-slate-400">Unix 时间戳（秒）</label>
+            <label className="block text-sm text-slate-400">{t('timestamp.unixLabel')}</label>
             <div className="flex gap-2">
               <input
                 type="number"
@@ -72,13 +75,13 @@ export function TimestampTool() {
                 onClick={copyTimestamp}
                 className="px-3 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm"
               >
-                复制
+                {t('common.copy')}
               </button>
             </div>
           </div>
 
           <div className="space-y-3">
-            <label className="block text-sm text-slate-400">日期时间</label>
+            <label className="block text-sm text-slate-400">{t('timestamp.datetimeLabel')}</label>
             <input
               type="datetime-local"
               value={dateTime}
@@ -92,13 +95,13 @@ export function TimestampTool() {
 
       {formats && (
         <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-          <h2 className="text-lg font-semibold text-slate-200 mb-4">时间格式</h2>
+          <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('timestamp.formats')}</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <FormatItem label="ISO 8601" value={formats.iso} />
-            <FormatItem label="UTC" value={formats.utc} />
-            <FormatItem label="本地日期" value={formats.date} />
-            <FormatItem label="本地时间" value={formats.time} />
-            <FormatItem label="本地完整" value={formats.local} fullWidth />
+            <FormatItem label={t('timestamp.iso')} value={formats.iso} />
+            <FormatItem label={t('common.utc')} value={formats.utc} />
+            <FormatItem label={t('common.localDate')} value={formats.date} />
+            <FormatItem label={t('common.localTime')} value={formats.time} />
+            <FormatItem label={t('common.localFull')} value={formats.local} fullWidth />
           </div>
         </div>
       )}
@@ -107,6 +110,7 @@ export function TimestampTool() {
 }
 
 function FormatItem({ label, value, fullWidth = false }: { label: string; value: string; fullWidth?: boolean }) {
+  const { t } = useI18n();
   const copy = async () => {
     await navigator.clipboard.writeText(value);
   };
@@ -121,7 +125,7 @@ function FormatItem({ label, value, fullWidth = false }: { label: string; value:
         onClick={copy}
         className="px-3 py-1 bg-slate-700 text-slate-300 rounded text-xs hover:bg-slate-600 transition-colors"
       >
-        复制
+        {t('common.copy')}
       </button>
     </div>
   );

@@ -66,7 +66,41 @@ export type TranslationKey =
   | 'common.urlEncodeNote'
   | 'common.urlReserved'
   | 'common.urlSpace'
-  | 'common.urlChinese';
+  | 'common.urlChinese'
+  | 'regex.title'
+  | 'regex.testText'
+  | 'regex.matchResults'
+  | 'regex.invalidRegex'
+  | 'json.input'
+  | 'json.outputPlaceholder'
+  | 'json.invalidJson'
+  | 'base64.inputText'
+  | 'base64.inputBase64'
+  | 'base64.placeholderEncode'
+  | 'base64.placeholderDecode'
+  | 'base64.resultEncode'
+  | 'base64.resultDecode'
+  | 'base64.encodeError'
+  | 'base64.decodeError'
+  | 'timestamp.title'
+  | 'timestamp.unixLabel'
+  | 'timestamp.datetimeLabel'
+  | 'timestamp.formats'
+  | 'timestamp.iso'
+  | 'url.inputText'
+  | 'url.inputUrlEncoded'
+  | 'url.encodeError'
+  | 'url.decodeError'
+  | 'url.note1'
+  | 'url.note2'
+  | 'url.note3'
+  | 'url.note4'
+  | 'flag.g'
+  | 'flag.i'
+  | 'flag.m'
+  | 'flag.s'
+  | 'flag.u'
+  | 'flag.y';
 
 export interface Translations {
   [key: string]: string;
@@ -140,7 +174,41 @@ export const zhCN: Translations = {
   'common.urlEncodeNote': 'URL 编码说明',
   'common.urlReserved': '保留字符',
   'common.urlSpace': '空格会被编码为',
-  'common.urlChinese': '中文会被编码为多个'
+  'common.urlChinese': '中文会被编码为多个',
+  'regex.title': '正则表达式',
+  'regex.testText': '测试文本',
+  'regex.matchResults': '匹配结果',
+  'regex.invalidRegex': '无效的正则表达式',
+  'json.input': 'JSON 输入',
+  'json.outputPlaceholder': '格式化后的 JSON 将显示在这里...',
+  'json.invalidJson': '无效的 JSON',
+  'base64.inputText': '输入文本',
+  'base64.inputBase64': '输入 Base64',
+  'base64.placeholderEncode': '输入要编码的文本...',
+  'base64.placeholderDecode': '输入要解码的 Base64...',
+  'base64.resultEncode': 'Base64 结果',
+  'base64.resultDecode': '解码结果',
+  'base64.encodeError': '编码失败',
+  'base64.decodeError': '无效的 Base64 字符串',
+  'timestamp.title': '时间戳转换',
+  'timestamp.unixLabel': 'Unix 时间戳（秒）',
+  'timestamp.datetimeLabel': '日期时间',
+  'timestamp.formats': '时间格式',
+  'timestamp.iso': 'ISO 8601',
+  'url.inputText': '输入文本',
+  'url.inputUrlEncoded': '输入 URL 编码',
+  'url.encodeError': '编码失败',
+  'url.decodeError': '无效的 URL 编码字符串',
+  'url.note1': 'URL 编码会将特殊字符转换为',
+  'url.note2': '保留字符：A-Z、a-z、0-9、- _ . ~',
+  'url.note3': '空格会被编码为',
+  'url.note4': '中文会被编码为多个',
+  'flag.g': '全局匹配',
+  'flag.i': '忽略大小写',
+  'flag.m': '多行匹配',
+  'flag.s': '. 匹配换行符',
+  'flag.u': 'Unicode 模式',
+  'flag.y': '粘性匹配'
 };
 
 export const enUS: Translations = {
@@ -211,5 +279,39 @@ export const enUS: Translations = {
   'common.urlEncodeNote': 'URL Encoding Notes',
   'common.urlReserved': 'Reserved characters',
   'common.urlSpace': 'Spaces are encoded as',
-  'common.urlChinese': 'Chinese characters become multiple'
+  'common.urlChinese': 'Chinese characters become multiple',
+  'regex.title': 'Regular Expression',
+  'regex.testText': 'Test Text',
+  'regex.matchResults': 'Match Results',
+  'regex.invalidRegex': 'Invalid regular expression',
+  'json.input': 'JSON Input',
+  'json.outputPlaceholder': 'Formatted JSON will appear here...',
+  'json.invalidJson': 'Invalid JSON',
+  'base64.inputText': 'Input Text',
+  'base64.inputBase64': 'Input Base64',
+  'base64.placeholderEncode': 'Enter text to encode...',
+  'base64.placeholderDecode': 'Enter Base64 to decode...',
+  'base64.resultEncode': 'Base64 Result',
+  'base64.resultDecode': 'Decoded Result',
+  'base64.encodeError': 'Encoding failed',
+  'base64.decodeError': 'Invalid Base64 string',
+  'timestamp.title': 'Timestamp Converter',
+  'timestamp.unixLabel': 'Unix Timestamp (seconds)',
+  'timestamp.datetimeLabel': 'Date Time',
+  'timestamp.formats': 'Time Formats',
+  'timestamp.iso': 'ISO 8601',
+  'url.inputText': 'Input Text',
+  'url.inputUrlEncoded': 'Input URL Encoded',
+  'url.encodeError': 'Encoding failed',
+  'url.decodeError': 'Invalid URL encoded string',
+  'url.note1': 'URL encoding converts special characters to',
+  'url.note2': 'Reserved characters: A-Z, a-z, 0-9, - _ . ~',
+  'url.note3': 'Spaces are encoded as',
+  'url.note4': 'Chinese characters become multiple',
+  'flag.g': 'Global match',
+  'flag.i': 'Case-insensitive',
+  'flag.m': 'Multiline',
+  'flag.s': '. matches newline',
+  'flag.u': 'Unicode mode',
+  'flag.y': 'Sticky mode'
 };

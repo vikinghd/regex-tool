@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-03-31
+
+### Changed
+- 所有工具组件完整支持国际化 (i18n)
+  - RegexTool - 正则表达式测试工具
+  - JsonFormatter - JSON 格式化工具
+  - Base64Tool - Base64 编解码工具
+  - TimestampTool - 时间戳转换工具
+  - UrlTool - URL 编解码工具
+- 语言切换为英文时所有界面文本正确显示
+- 版本号更新至 0.8.0
+
 ## [0.7.0] - 2026-03-31
 
 ### Changed

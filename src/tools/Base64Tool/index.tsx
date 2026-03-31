@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useI18n } from '../../i18n';
 
 export function Base64Tool() {
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const { t } = useI18n();
 
   const encode = () => {
     try {
@@ -12,7 +14,7 @@ export function Base64Tool() {
       setOutput(encoded);
       setError(null);
     } catch (e) {
-      setError('编码失败');
+      setError(t('base64.encodeError'));
     }
   };
 
@@ -22,7 +24,7 @@ export function Base64Tool() {
       setOutput(decoded);
       setError(null);
     } catch (e) {
-      setError('无效的 Base64 字符串');
+      setError(t('base64.decodeError'));
     }
   };
 
@@ -73,11 +75,12 @@ export function Base64Tool() {
                   : 'bg-slate-700 text-slate-400 hover:bg-slate-600'
               }`}
             >
-              编码
+              {t('common.encode')}
             </button>
             <button
               onClick={swap}
               className="p-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors"
+              title={t('common.swap')}
             >
               ⇄
             </button>
@@ -89,7 +92,7 @@ export function Base64Tool() {
                   : 'bg-slate-700 text-slate-400 hover:bg-slate-600'
               }`}
             >
-              解码
+              {t('common.decode')}
             </button>
           </div>
           <div className="flex gap-2">
@@ -97,13 +100,13 @@ export function Base64Tool() {
               onClick={process}
               className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
             >
-              {mode === 'encode' ? '编码' : '解码'}
+              {mode === 'encode' ? t('common.encode') : t('common.decode')}
             </button>
             <button
               onClick={clear}
               className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
             >
-              清空
+              {t('common.clear')}
             </button>
           </div>
         </div>
@@ -111,40 +114,40 @@ export function Base64Tool() {
         <div className="space-y-4">
           <div>
             <label className="block text-sm text-slate-400 mb-2">
-              {mode === 'encode' ? '输入文本' : '输入 Base64'}
+              {mode === 'encode' ? t('base64.inputText') : t('base64.inputBase64')}
             </label>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={mode === 'encode' ? '输入要编码的文本...' : '输入要解码的 Base64...'}
+              placeholder={mode === 'encode' ? t('base64.placeholderEncode') : t('base64.placeholderDecode')}
               className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
             />
           </div>
 
           {error && (
             <div className="p-3 bg-red-900/30 border border-red-700/50 rounded-lg text-red-400 text-sm">
-              <span className="font-medium">错误：</span> {error}
+              <span className="font-medium">{t('common.error')}：</span> {error}
             </div>
           )}
 
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm text-slate-400">
-                {mode === 'encode' ? 'Base64 结果' : '解码结果'}
+                {mode === 'encode' ? t('base64.resultEncode') : t('base64.resultDecode')}
               </label>
               {output && (
                 <button
                   onClick={copyOutput}
                   className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
                 >
-                  复制
+                  {t('common.copy')}
                 </button>
               )}
             </div>
             <textarea
               value={output}
               readOnly
-              placeholder="结果将显示在这里..."
+              placeholder={t('common.placeholderResult')}
               className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none resize-none placeholder-slate-500"
             />
           </div>
