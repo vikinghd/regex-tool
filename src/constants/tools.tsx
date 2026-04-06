@@ -90,7 +90,7 @@ export const TOOLS: ToolMeta[] = [
     description: '安全密码生成',
     icon: <Key size={20} />,
     component: PasswordTool,
-    defaultPath: '/password'
+    defaultPath: '/password-generator'
   }
 ];
 
