@@ -6,6 +6,7 @@ import { Base64Tool } from '../tools/Base64Tool';
 import { TimestampTool } from '../tools/TimestampTool';
 import { UrlTool } from '../tools/UrlTool';
 import { HashTool } from '../tools/HashTool';
+import { MarkdownTool } from '../tools/MarkdownTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -61,6 +62,15 @@ export const TOOLS: ToolMeta[] = [
     icon: <Hash size={20} />,
     component: HashTool,
     defaultPath: '/hash'
+  },
+  {
+    id: 'markdown',
+    name: 'Markdown 预览',
+    category: ToolCategory.TEXT,
+    description: '实时预览 Markdown',
+    icon: <Type size={20} />,
+    component: MarkdownTool,
+    defaultPath: '/markdown'
   }
 ];
 
@@ -83,14 +93,5 @@ export const PLACEHOLDER_TOOLS: ToolMeta[] = [
     icon: <Code size={20} />,
     component: () => null,
     defaultPath: '/uuid'
-  },
-  {
-    id: 'markdown',
-    name: 'Markdown 预览',
-    category: ToolCategory.TEXT,
-    description: '实时预览 Markdown',
-    icon: <Type size={20} />,
-    component: () => null,
-    defaultPath: '/markdown'
   }
 ];

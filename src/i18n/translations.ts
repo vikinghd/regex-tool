@@ -107,7 +107,12 @@ export type TranslationKey =
   | 'hash.generate'
   | 'hash.uppercase'
   | 'hash.result'
-  | 'hash.copy';
+  | 'hash.copy'
+  | 'markdown.title'
+  | 'markdown.input'
+  | 'markdown.preview'
+  | 'markdown.clear'
+  | 'markdown.sample';
 
 export interface Translations {
   [key: string]: string;
@@ -222,7 +227,12 @@ export const zhCN: Translations = {
   'hash.generate': '生成',
   'hash.uppercase': '大写',
   'hash.result': '结果',
-  'hash.copy': '复制'
+  'hash.copy': '复制',
+  'markdown.title': 'Markdown 预览',
+  'markdown.input': 'Markdown 输入',
+  'markdown.preview': '预览',
+  'markdown.clear': '清空',
+  'markdown.sample': '示例'
 };
 
 export const enUS: Translations = {
@@ -334,5 +344,10 @@ export const enUS: Translations = {
   'hash.generate': 'Generate',
   'hash.uppercase': 'Uppercase',
   'hash.result': 'Result',
-  'hash.copy': 'Copy'
+  'hash.copy': 'Copy',
+  'markdown.title': 'Markdown Preview',
+  'markdown.input': 'Markdown Input',
+  'markdown.preview': 'Preview',
+  'markdown.clear': 'Clear',
+  'markdown.sample': 'Sample'
 };
