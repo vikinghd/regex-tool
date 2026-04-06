@@ -123,7 +123,23 @@ export type TranslationKey =
   | 'uuid.result'
   | 'uuid.copy'
   | 'uuid.copyAll'
-  | 'uuid.clear';
+  | 'uuid.clear'
+  | 'password.title'
+  | 'password.length'
+  | 'password.includeUppercase'
+  | 'password.includeLowercase'
+  | 'password.includeNumbers'
+  | 'password.includeSymbols'
+  | 'password.excludeSimilar'
+  | 'password.generate'
+  | 'password.result'
+  | 'password.copy'
+  | 'password.strength'
+  | 'password.weak'
+  | 'password.fair'
+  | 'password.good'
+  | 'password.strong'
+  | 'password.excellent';
 
 export interface Translations {
   [key: string]: string;
@@ -254,7 +270,23 @@ export const zhCN: Translations = {
   'uuid.result': '结果',
   'uuid.copy': '复制',
   'uuid.copyAll': '复制全部',
-  'uuid.clear': '清空'
+  'uuid.clear': '清空',
+  'password.title': '密码生成器',
+  'password.length': '长度',
+  'password.includeUppercase': '大写字母',
+  'password.includeLowercase': '小写字母',
+  'password.includeNumbers': '数字',
+  'password.includeSymbols': '特殊符号',
+  'password.excludeSimilar': '排除相似字符',
+  'password.generate': '生成密码',
+  'password.result': '生成的密码',
+  'password.copy': '复制',
+  'password.strength': '密码强度',
+  'password.weak': '弱',
+  'password.fair': '一般',
+  'password.good': '良好',
+  'password.strong': '强',
+  'password.excellent': '非常强'
 };
 
 export const enUS: Translations = {
@@ -382,5 +414,21 @@ export const enUS: Translations = {
   'uuid.result': 'Result',
   'uuid.copy': 'Copy',
   'uuid.copyAll': 'Copy All',
-  'uuid.clear': 'Clear'
+  'uuid.clear': 'Clear',
+  'password.title': 'Password Generator',
+  'password.length': 'Length',
+  'password.includeUppercase': 'Uppercase Letters',
+  'password.includeLowercase': 'Lowercase Letters',
+  'password.includeNumbers': 'Numbers',
+  'password.includeSymbols': 'Symbols',
+  'password.excludeSimilar': 'Exclude Similar Characters',
+  'password.generate': 'Generate Password',
+  'password.result': 'Generated Password',
+  'password.copy': 'Copy',
+  'password.strength': 'Password Strength',
+  'password.weak': 'Weak',
+  'password.fair': 'Fair',
+  'password.good': 'Good',
+  'password.strong': 'Strong',
+  'password.excellent': 'Excellent'
 };

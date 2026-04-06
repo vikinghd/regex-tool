@@ -1,4 +1,4 @@
-import { Search, FileJson, ArrowLeftRight, Palette, Clock, Globe, Code, Type, Hash } from 'lucide-react';
+import { Search, FileJson, ArrowLeftRight, Palette, Clock, Globe, Code, Type, Hash, Key } from 'lucide-react';
 import { ToolMeta, ToolCategory } from '../types/tool';
 import { RegexTool } from '../tools/RegexTool';
 import { JsonFormatter } from '../tools/JsonFormatter';
@@ -8,6 +8,7 @@ import { UrlTool } from '../tools/UrlTool';
 import { HashTool } from '../tools/HashTool';
 import { MarkdownTool } from '../tools/MarkdownTool';
 import { UuidTool } from '../tools/UuidTool';
+import { PasswordTool } from '../tools/PasswordTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -81,6 +82,15 @@ export const TOOLS: ToolMeta[] = [
     icon: <Code size={20} />,
     component: UuidTool,
     defaultPath: '/uuid'
+  },
+  {
+    id: 'password',
+    name: '密码生成器',
+    category: ToolCategory.OTHER,
+    description: '安全密码生成',
+    icon: <Key size={20} />,
+    component: PasswordTool,
+    defaultPath: '/password'
   }
 ];
 
