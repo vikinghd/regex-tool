@@ -175,7 +175,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               <Github size={18} />
             </a>
           </div>
-          <span className="text-xs text-slate-500">v0.8.0</span>
+          <span className="text-xs text-slate-500">v0.9.0</span>
         </div>
       </aside>
 

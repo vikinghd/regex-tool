@@ -100,7 +100,14 @@ export type TranslationKey =
   | 'flag.m'
   | 'flag.s'
   | 'flag.u'
-  | 'flag.y';
+  | 'flag.y'
+  | 'hash.title'
+  | 'hash.input'
+  | 'hash.algorithm'
+  | 'hash.generate'
+  | 'hash.uppercase'
+  | 'hash.result'
+  | 'hash.copy';
 
 export interface Translations {
   [key: string]: string;
@@ -208,7 +215,14 @@ export const zhCN: Translations = {
   'flag.m': '多行匹配',
   'flag.s': '. 匹配换行符',
   'flag.u': 'Unicode 模式',
-  'flag.y': '粘性匹配'
+  'flag.y': '粘性匹配',
+  'hash.title': '哈希生成',
+  'hash.input': '输入文本',
+  'hash.algorithm': '算法',
+  'hash.generate': '生成',
+  'hash.uppercase': '大写',
+  'hash.result': '结果',
+  'hash.copy': '复制'
 };
 
 export const enUS: Translations = {
@@ -313,5 +327,12 @@ export const enUS: Translations = {
   'flag.m': 'Multiline',
   'flag.s': '. matches newline',
   'flag.u': 'Unicode mode',
-  'flag.y': 'Sticky mode'
+  'flag.y': 'Sticky mode',
+  'hash.title': 'Hash Generator',
+  'hash.input': 'Input Text',
+  'hash.algorithm': 'Algorithm',
+  'hash.generate': 'Generate',
+  'hash.uppercase': 'Uppercase',
+  'hash.result': 'Result',
+  'hash.copy': 'Copy'
 };

@@ -5,6 +5,7 @@ import { JsonFormatter } from '../tools/JsonFormatter';
 import { Base64Tool } from '../tools/Base64Tool';
 import { TimestampTool } from '../tools/TimestampTool';
 import { UrlTool } from '../tools/UrlTool';
+import { HashTool } from '../tools/HashTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -51,6 +52,15 @@ export const TOOLS: ToolMeta[] = [
     icon: <Globe size={20} />,
     component: UrlTool,
     defaultPath: '/url'
+  },
+  {
+    id: 'hash',
+    name: '哈希生成',
+    category: ToolCategory.DATA,
+    description: 'MD5/SHA1/SHA256',
+    icon: <Hash size={20} />,
+    component: HashTool,
+    defaultPath: '/hash'
   }
 ];
 
@@ -64,15 +74,6 @@ export const PLACEHOLDER_TOOLS: ToolMeta[] = [
     icon: <Palette size={20} />,
     component: () => null,
     defaultPath: '/color'
-  },
-  {
-    id: 'hash',
-    name: '哈希生成',
-    category: ToolCategory.DATA,
-    description: 'MD5/SHA1/SHA256',
-    icon: <Hash size={20} />,
-    component: () => null,
-    defaultPath: '/hash'
   },
   {
     id: 'uuid',
