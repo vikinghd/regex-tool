@@ -112,7 +112,18 @@ export type TranslationKey =
   | 'markdown.input'
   | 'markdown.preview'
   | 'markdown.clear'
-  | 'markdown.sample';
+  | 'markdown.sample'
+  | 'uuid.title'
+  | 'uuid.version'
+  | 'uuid.generate'
+  | 'uuid.generateMultiple'
+  | 'uuid.count'
+  | 'uuid.uppercase'
+  | 'uuid.hyphens'
+  | 'uuid.result'
+  | 'uuid.copy'
+  | 'uuid.copyAll'
+  | 'uuid.clear';
 
 export interface Translations {
   [key: string]: string;
@@ -232,7 +243,18 @@ export const zhCN: Translations = {
   'markdown.input': 'Markdown 输入',
   'markdown.preview': '预览',
   'markdown.clear': '清空',
-  'markdown.sample': '示例'
+  'markdown.sample': '示例',
+  'uuid.title': 'UUID 生成器',
+  'uuid.version': '版本',
+  'uuid.generate': '生成',
+  'uuid.generateMultiple': '批量生成',
+  'uuid.count': '数量',
+  'uuid.uppercase': '大写',
+  'uuid.hyphens': '含连字符',
+  'uuid.result': '结果',
+  'uuid.copy': '复制',
+  'uuid.copyAll': '复制全部',
+  'uuid.clear': '清空'
 };
 
 export const enUS: Translations = {
@@ -349,5 +371,16 @@ export const enUS: Translations = {
   'markdown.input': 'Markdown Input',
   'markdown.preview': 'Preview',
   'markdown.clear': 'Clear',
-  'markdown.sample': 'Sample'
+  'markdown.sample': 'Sample',
+  'uuid.title': 'UUID Generator',
+  'uuid.version': 'Version',
+  'uuid.generate': 'Generate',
+  'uuid.generateMultiple': 'Generate Multiple',
+  'uuid.count': 'Count',
+  'uuid.uppercase': 'Uppercase',
+  'uuid.hyphens': 'With Hyphens',
+  'uuid.result': 'Result',
+  'uuid.copy': 'Copy',
+  'uuid.copyAll': 'Copy All',
+  'uuid.clear': 'Clear'
 };

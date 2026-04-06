@@ -7,6 +7,7 @@ import { TimestampTool } from '../tools/TimestampTool';
 import { UrlTool } from '../tools/UrlTool';
 import { HashTool } from '../tools/HashTool';
 import { MarkdownTool } from '../tools/MarkdownTool';
+import { UuidTool } from '../tools/UuidTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -71,6 +72,15 @@ export const TOOLS: ToolMeta[] = [
     icon: <Type size={20} />,
     component: MarkdownTool,
     defaultPath: '/markdown'
+  },
+  {
+    id: 'uuid',
+    name: 'UUID 生成器',
+    category: ToolCategory.DATA,
+    description: '生成 UUID v4',
+    icon: <Code size={20} />,
+    component: UuidTool,
+    defaultPath: '/uuid'
   }
 ];
 
@@ -84,14 +94,5 @@ export const PLACEHOLDER_TOOLS: ToolMeta[] = [
     icon: <Palette size={20} />,
     component: () => null,
     defaultPath: '/color'
-  },
-  {
-    id: 'uuid',
-    name: 'UUID 生成器',
-    category: ToolCategory.DATA,
-    description: '生成 UUID v4',
-    icon: <Code size={20} />,
-    component: () => null,
-    defaultPath: '/uuid'
   }
 ];
