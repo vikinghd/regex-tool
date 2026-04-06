@@ -5,6 +5,7 @@ type UuidVersion = 'v4' | 'v1' | 'nil';
 
 export function UuidTool() {
   const [version, setVersion] = useState<UuidVersion>('v4');
+  const [batchMode, setBatchMode] = useState(false);
   const [count, setCount] = useState(1);
   const [uppercase, setUppercase] = useState(false);
   const [withHyphens, setWithHyphens] = useState(true);
@@ -64,17 +65,17 @@ export function UuidTool() {
     return uuid;
   }
 
-  function generateSingle() {
-    const uuid = generateUuid();
-    setResults([uuid]);
-  }
-
-  function generateMultiple() {
-    const newResults: string[] = [];
-    for (let i = 0; i < count; i++) {
-      newResults.push(generateUuid());
+  function generate() {
+    if (batchMode) {
+      const newResults: string[] = [];
+      for (let i = 0; i < count; i++) {
+        newResults.push(generateUuid());
+      }
+      setResults(newResults);
+    } else {
+      const uuid = generateUuid();
+      setResults([uuid]);
     }
-    setResults(newResults);
   }
 
   function copyToClipboard(text: string) {
@@ -98,7 +99,7 @@ export function UuidTool() {
       <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
         <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('uuid.title')}</h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
           <div>
             <label className="block text-sm text-slate-400 mb-2">{t('uuid.version')}</label>
             <select
@@ -112,16 +113,30 @@ export function UuidTool() {
             </select>
           </div>
 
-          <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('uuid.count')}</label>
-            <input
-              type="number"
-              min="1"
-              max="100"
-              value={count}
-              onChange={(e) => setCount(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
-            />
+          {batchMode && (
+            <div>
+              <label className="block text-sm text-slate-400 mb-2">{t('uuid.count')}</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                value={count}
+                onChange={(e) => setCount(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))}
+                className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+              />
+            </div>
+          )}
+
+          <div className="flex flex-col justify-end">
+            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+              <input
+                type="checkbox"
+                checked={batchMode}
+                onChange={(e) => setBatchMode(e.target.checked)}
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+              />
+              {t('uuid.generateMultiple')}
+            </label>
           </div>
 
           <div className="flex flex-col justify-end">
@@ -151,16 +166,10 @@ export function UuidTool() {
 
         <div className="flex gap-2">
           <button
-            onClick={generateSingle}
+            onClick={generate}
             className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('uuid.generate')}
-          </button>
-          <button
-            onClick={generateMultiple}
-            className="px-4 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm"
-          >
-            {t('uuid.generateMultiple')}
           </button>
           <button
             onClick={clear}
