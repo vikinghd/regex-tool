@@ -7,13 +7,7 @@ export function HashTool() {
   const [input, setInput] = useState('');
   const [algorithm, setAlgorithm] = useState<HashAlgorithm>('SHA-256');
   const [uppercase, setUppercase] = useState(false);
-  const [results, setResults] = useState<Record<HashAlgorithm, string>>({
-    'MD5': '',
-    'SHA-1': '',
-    'SHA-256': '',
-    'SHA-384': '',
-    'SHA-512': ''
-  });
+  const [result, setResult] = useState('');
   const { t } = useI18n();
 
   const generateHash = useCallback(async (text: string, algo: HashAlgorithm): Promise<string> => {
@@ -224,16 +218,10 @@ export function HashTool() {
     return (wordToHex(a) + wordToHex(b) + wordToHex(c) + wordToHex(d)).toLowerCase();
   }
 
-  const generateAllHashes = useCallback(async () => {
-    const newResults: Record<HashAlgorithm, string> = { ...results };
-    const algorithms: HashAlgorithm[] = ['MD5', 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
-
-    for (const algo of algorithms) {
-      newResults[algo] = await generateHash(input, algo);
-    }
-
-    setResults(newResults);
-  }, [input, generateHash, results]);
+  const generateSelectedHash = useCallback(async () => {
+    const hash = await generateHash(input, algorithm);
+    setResult(hash);
+  }, [input, algorithm, generateHash]);
 
   const copyToClipboard = async (text: string) => {
     if (text) {
@@ -290,13 +278,13 @@ export function HashTool() {
             </div>
             <div className="flex gap-2">
               <button
-                onClick={generateAllHashes}
+                onClick={generateSelectedHash}
                 className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
               >
                 {t('hash.generate')}
               </button>
               <button
-                onClick={() => { setInput(''); setResults({ MD5: '', 'SHA-1': '', 'SHA-256': '', 'SHA-384': '', 'SHA-512': '' }); }}
+                onClick={() => { setInput(''); setResult(''); }}
                 className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
               >
                 {t('common.clear')}
@@ -308,29 +296,25 @@ export function HashTool() {
 
       <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
         <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('hash.result')}</h2>
-        <div className="space-y-4">
-          {(['MD5', 'SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'] as HashAlgorithm[]).map((algo) => (
-            <div key={algo} className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-slate-300">{algo}</span>
-                {results[algo] && (
-                  <button
-                    onClick={() => copyToClipboard(formatHash(results[algo]))}
-                    className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
-                  >
-                    {t('hash.copy')}
-                  </button>
-                )}
-              </div>
-              <input
-                type="text"
-                readOnly
-                value={formatHash(results[algo])}
-                placeholder={t('common.placeholderResult')}
-                className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none placeholder-slate-500"
-              />
-            </div>
-          ))}
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium text-slate-300">{algorithm}</span>
+            {result && (
+              <button
+                onClick={() => copyToClipboard(formatHash(result))}
+                className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+              >
+                {t('hash.copy')}
+              </button>
+            )}
+          </div>
+          <input
+            type="text"
+            readOnly
+            value={formatHash(result)}
+            placeholder={t('common.placeholderResult')}
+            className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none placeholder-slate-500"
+          />
         </div>
       </div>
     </div>
