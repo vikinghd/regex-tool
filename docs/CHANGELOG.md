@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-04-07
+
+### Changed
+- SEO 优化：所有工具 URL 改为更具描述性的格式
+  - /regex → /regex-tester
+  - /json → /json-formatter
+  - /base64 → /base64-encoder-decoder
+  - /timestamp → /timestamp-converter
+  - /url → /url-encoder-decoder
+  - /hash → /hash-generator
+  - /markdown → /markdown-preview
+  - /uuid → /uuid-generator
+  - /password → /password-generator
+- 添加 Vercel 重定向规则 (301 永久重定向)
+- 更新 sitemap.xml 使用新 URL 格式
+- 版本号更新至 0.13.0
+
 ## [0.12.0] - 2026-04-06
 
 ### Added

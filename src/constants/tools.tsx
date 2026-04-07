@@ -18,7 +18,7 @@ export const TOOLS: ToolMeta[] = [
     description: '实时测试正则表达式',
     icon: <Search size={20} />,
     component: RegexTool,
-    defaultPath: '/regex'
+    defaultPath: '/regex-tester'
   },
   {
     id: 'json',
@@ -27,7 +27,7 @@ export const TOOLS: ToolMeta[] = [
     description: '格式化、压缩 JSON',
     icon: <FileJson size={20} />,
     component: JsonFormatter,
-    defaultPath: '/json'
+    defaultPath: '/json-formatter'
   },
   {
     id: 'base64',
@@ -36,7 +36,7 @@ export const TOOLS: ToolMeta[] = [
     description: 'Base64 编码和解码',
     icon: <ArrowLeftRight size={20} />,
     component: Base64Tool,
-    defaultPath: '/base64'
+    defaultPath: '/base64-encoder-decoder'
   },
   {
     id: 'timestamp',
@@ -45,7 +45,7 @@ export const TOOLS: ToolMeta[] = [
     description: 'Unix 时间戳转换',
     icon: <Clock size={20} />,
     component: TimestampTool,
-    defaultPath: '/timestamp'
+    defaultPath: '/timestamp-converter'
   },
   {
     id: 'url',
@@ -54,7 +54,7 @@ export const TOOLS: ToolMeta[] = [
     description: 'URL 编码和解码',
     icon: <Globe size={20} />,
     component: UrlTool,
-    defaultPath: '/url'
+    defaultPath: '/url-encoder-decoder'
   },
   {
     id: 'hash',
@@ -63,7 +63,7 @@ export const TOOLS: ToolMeta[] = [
     description: 'MD5/SHA1/SHA256',
     icon: <Hash size={20} />,
     component: HashTool,
-    defaultPath: '/hash'
+    defaultPath: '/hash-generator'
   },
   {
     id: 'markdown',
@@ -72,7 +72,7 @@ export const TOOLS: ToolMeta[] = [
     description: '实时预览 Markdown',
     icon: <Type size={20} />,
     component: MarkdownTool,
-    defaultPath: '/markdown'
+    defaultPath: '/markdown-preview'
   },
   {
     id: 'uuid',
@@ -81,7 +81,7 @@ export const TOOLS: ToolMeta[] = [
     description: '生成 UUID v4',
     icon: <Code size={20} />,
     component: UuidTool,
-    defaultPath: '/uuid'
+    defaultPath: '/uuid-generator'
   },
   {
     id: 'password',

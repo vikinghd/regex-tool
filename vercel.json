@@ -3,6 +3,17 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
+  "redirects": [
+    { "source": "/regex", "destination": "/regex-tester", "permanent": true },
+    { "source": "/json", "destination": "/json-formatter", "permanent": true },
+    { "source": "/base64", "destination": "/base64-encoder-decoder", "permanent": true },
+    { "source": "/timestamp", "destination": "/timestamp-converter", "permanent": true },
+    { "source": "/url", "destination": "/url-encoder-decoder", "permanent": true },
+    { "source": "/hash", "destination": "/hash-generator", "permanent": true },
+    { "source": "/markdown", "destination": "/markdown-preview", "permanent": true },
+    { "source": "/uuid", "destination": "/uuid-generator", "permanent": true },
+    { "source": "/password", "destination": "/password-generator", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
