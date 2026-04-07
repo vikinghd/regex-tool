@@ -9,6 +9,7 @@ import { HashTool } from '../tools/HashTool';
 import { MarkdownTool } from '../tools/MarkdownTool';
 import { UuidTool } from '../tools/UuidTool';
 import { PasswordTool } from '../tools/PasswordTool';
+import { ColorTool } from '../tools/ColorTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -91,18 +92,17 @@ export const TOOLS: ToolMeta[] = [
     icon: <Key size={20} />,
     component: PasswordTool,
     defaultPath: '/password-generator'
-  }
-];
-
-// 占位工具（用于展示）
-export const PLACEHOLDER_TOOLS: ToolMeta[] = [
+  },
   {
     id: 'color',
     name: '颜色转换',
     category: ToolCategory.COLOR,
     description: 'HEX/RGB/HSL 转换',
     icon: <Palette size={20} />,
-    component: () => null,
-    defaultPath: '/color'
+    component: ColorTool,
+    defaultPath: '/color-converter'
   }
 ];
+
+// 占位工具（用于展示）
+export const PLACEHOLDER_TOOLS: ToolMeta[] = [];

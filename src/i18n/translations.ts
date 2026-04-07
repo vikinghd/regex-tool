@@ -139,7 +139,22 @@ export type TranslationKey =
   | 'password.fair'
   | 'password.good'
   | 'password.strong'
-  | 'password.excellent';
+  | 'password.excellent'
+  | 'color.title'
+  | 'color.inputFormat'
+  | 'color.outputFormat'
+  | 'color.preview'
+  | 'color.copy'
+  | 'color.swap'
+  | 'color.random'
+  | 'color.clear'
+  | 'color.hex'
+  | 'color.rgb'
+  | 'color.hsl'
+  | 'color.hexPlaceholder'
+  | 'color.rgbPlaceholder'
+  | 'color.hslPlaceholder'
+  | 'color.invalid';
 
 export interface Translations {
   [key: string]: string;
@@ -286,7 +301,22 @@ export const zhCN: Translations = {
   'password.fair': '一般',
   'password.good': '良好',
   'password.strong': '强',
-  'password.excellent': '非常强'
+  'password.excellent': '非常强',
+  'color.title': '颜色转换',
+  'color.inputFormat': '输入格式',
+  'color.outputFormat': '输出格式',
+  'color.preview': '预览',
+  'color.copy': '复制',
+  'color.swap': '互换',
+  'color.random': '随机',
+  'color.clear': '清空',
+  'color.hex': 'HEX',
+  'color.rgb': 'RGB',
+  'color.hsl': 'HSL',
+  'color.hexPlaceholder': '#000000',
+  'color.rgbPlaceholder': 'rgb(0, 0, 0)',
+  'color.hslPlaceholder': 'hsl(0, 0%, 0%)',
+  'color.invalid': '无效的颜色格式'
 };
 
 export const enUS: Translations = {
@@ -430,5 +460,20 @@ export const enUS: Translations = {
   'password.fair': 'Fair',
   'password.good': 'Good',
   'password.strong': 'Strong',
-  'password.excellent': 'Excellent'
+  'password.excellent': 'Excellent',
+  'color.title': 'Color Converter',
+  'color.inputFormat': 'Input Format',
+  'color.outputFormat': 'Output Format',
+  'color.preview': 'Preview',
+  'color.copy': 'Copy',
+  'color.swap': 'Swap',
+  'color.random': 'Random',
+  'color.clear': 'Clear',
+  'color.hex': 'HEX',
+  'color.rgb': 'RGB',
+  'color.hsl': 'HSL',
+  'color.hexPlaceholder': '#000000',
+  'color.rgbPlaceholder': 'rgb(0, 0, 0)',
+  'color.hslPlaceholder': 'hsl(0, 0%, 0%)',
+  'color.invalid': 'Invalid color format'
 };
