@@ -22,7 +22,7 @@ function AppContent() {
 
   useEffect(() => {
     if (location.pathname === '/') {
-      navigate('/regex', { replace: true });
+      navigate('/regex-tester', { replace: true });
     }
   }, [location.pathname, navigate]);
 

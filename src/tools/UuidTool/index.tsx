@@ -133,7 +133,7 @@ export function UuidTool() {
                 type="checkbox"
                 checked={batchMode}
                 onChange={(e) => setBatchMode(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
               />
               {t('uuid.generateMultiple')}
             </label>
@@ -145,7 +145,7 @@ export function UuidTool() {
                 type="checkbox"
                 checked={uppercase}
                 onChange={(e) => setUppercase(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
               />
               {t('uuid.uppercase')}
             </label>
@@ -157,7 +157,7 @@ export function UuidTool() {
                 type="checkbox"
                 checked={withHyphens}
                 onChange={(e) => setWithHyphens(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
               />
               {t('uuid.hyphens')}
             </label>
@@ -167,7 +167,7 @@ export function UuidTool() {
         <div className="flex gap-2">
           <button
             onClick={generate}
-            className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('uuid.generate')}
           </button>
@@ -181,9 +181,9 @@ export function UuidTool() {
       </div>
 
       {results.length > 0 && (
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+        <div className="bg-slate-900/80 rounded-xl border border-slate-700 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-slate-200">{t('uuid.result')}</h2>
+            <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide">{t('uuid.result')}</h2>
             {results.length > 1 && (
               <button
                 onClick={copyAll}
@@ -195,16 +195,12 @@ export function UuidTool() {
           </div>
           <div className="space-y-2">
             {results.map((uuid, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <input
-                  type="text"
-                  readOnly
-                  value={uuid}
-                  className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none placeholder-slate-500"
-                />
+              <div key={index} className="flex items-center gap-3 bg-slate-800/50 rounded-lg p-3 border border-slate-700/50">
+                <span className="text-slate-600 text-xs font-mono w-6">{index + 1}</span>
+                <code className="flex-1 text-amber-400 font-mono text-sm tracking-wide">{uuid}</code>
                 <button
                   onClick={() => copyToClipboard(uuid)}
-                  className="px-3 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm whitespace-nowrap"
+                  className="px-3 py-1 bg-slate-700 text-slate-300 rounded text-xs hover:bg-slate-600 hover:text-amber-400 transition-colors"
                 >
                   {t('uuid.copy')}
                 </button>

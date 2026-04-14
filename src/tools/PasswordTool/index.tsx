@@ -149,7 +149,7 @@ export function PasswordTool() {
                 max="64"
                 value={length}
                 onChange={(e) => setLength(parseInt(e.target.value))}
-                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-violet-500"
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1">
                 <span>4</span>
@@ -190,7 +190,7 @@ export function PasswordTool() {
                 checked={includeUppercase}
                 onChange={(e) => setIncludeUppercase(e.target.checked)}
                 disabled={!includeLowercase && !includeNumbers && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
               />
               {t('password.includeUppercase')} (ABC)
             </label>
@@ -201,7 +201,7 @@ export function PasswordTool() {
                 checked={includeLowercase}
                 onChange={(e) => setIncludeLowercase(e.target.checked)}
                 disabled={!includeUppercase && !includeNumbers && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
               />
               {t('password.includeLowercase')} (abc)
             </label>
@@ -212,7 +212,7 @@ export function PasswordTool() {
                 checked={includeNumbers}
                 onChange={(e) => setIncludeNumbers(e.target.checked)}
                 disabled={!includeUppercase && !includeLowercase && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
               />
               {t('password.includeNumbers')} (123)
             </label>
@@ -223,7 +223,7 @@ export function PasswordTool() {
                 checked={includeSymbols}
                 onChange={(e) => setIncludeSymbols(e.target.checked)}
                 disabled={!includeUppercase && !includeLowercase && !includeNumbers}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
               />
               {t('password.includeSymbols')} (!@#)
             </label>
@@ -234,7 +234,7 @@ export function PasswordTool() {
               type="checkbox"
               checked={excludeSimilar}
               onChange={(e) => setExcludeSimilar(e.target.checked)}
-              className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+              className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
             />
             {t('password.excludeSimilar')} (0, O, 1, l, I)
           </label>
@@ -243,7 +243,7 @@ export function PasswordTool() {
             <button
               onClick={generatePassword}
               disabled={!hasSelection}
-              className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t('password.generate')}
             </button>

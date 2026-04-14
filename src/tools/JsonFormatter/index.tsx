@@ -64,7 +64,7 @@ export function JsonFormatter() {
           <div className="flex gap-2">
             <button
               onClick={format}
-              className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
             >
               {t('common.format')}
             </button>
@@ -87,7 +87,7 @@ export function JsonFormatter() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('common.placeholderJson')}
-          className="w-full h-48 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
+          className="w-full h-48 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
         />
 
         {error && (

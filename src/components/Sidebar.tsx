@@ -49,13 +49,15 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
             <button
               onClick={() => toggleCategory(cat)}
               className="w-full flex items-center justify-between px-4 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors"
+              aria-expanded={isExpanded}
+              aria-controls={`category-${cat}`}
             >
               <span className="text-sm font-medium">{getCategoryName(cat)}</span>
               {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             </button>
 
             {isExpanded && (
-              <div className="space-y-1">
+              <div className="space-y-1" id={`category-${cat}`}>
                 {tools.map((tool: ToolMeta) => {
                   const isActive = currentToolId === tool.id;
                   const isPlaceholder = !TOOLS.find((t: ToolMeta) => t.id === tool.id);
@@ -71,7 +73,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                       disabled={isPlaceholder}
                       className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
                         isActive
-                          ? 'bg-gradient-to-r from-violet-600/30 to-purple-600/30 text-violet-300 border-l-2 border-violet-500'
+                          ? 'bg-gradient-to-r from-amber-600/30 to-orange-600/30 text-amber-300 border-l-2 border-amber-500'
                           : isPlaceholder
                           ? 'text-slate-600 cursor-not-allowed'
                           : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -96,6 +98,8 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       <button
         onClick={() => setLangMenuOpen(!langMenuOpen)}
         className="flex items-center gap-2 px-3 py-2 bg-slate-800 text-slate-200 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+        aria-expanded={langMenuOpen}
+        aria-haspopup="listbox"
       >
         <span>{language === 'zh-CN' ? '中文' : 'English'}</span>
         {langMenuOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -114,7 +118,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                 setLangMenuOpen(false);
               }}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-t-lg ${
-                language === 'zh-CN' ? 'text-violet-400 bg-violet-500/10' : 'text-slate-200'
+                language === 'zh-CN' ? 'text-amber-400 bg-amber-500/10' : 'text-slate-200'
               }`}
             >
               🇨🇳 中文
@@ -125,7 +129,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                 setLangMenuOpen(false);
               }}
               className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-b-lg ${
-                language === 'en-US' ? 'text-violet-400 bg-violet-500/10' : 'text-slate-200'
+                language === 'en-US' ? 'text-amber-400 bg-amber-500/10' : 'text-slate-200'
               }`}
             >
               🇺🇸 English
@@ -142,6 +146,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       <button
         onClick={() => setMobileOpen(true)}
         className="fixed top-4 left-4 z-50 lg:hidden p-2 bg-slate-800 text-slate-200 rounded-lg border border-slate-700"
+        aria-label="Open menu"
       >
         <Menu size={24} />
       </button>
@@ -157,7 +162,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       {/* Desktop sidebar - always visible on lg+ */}
       <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 z-30 w-64 bg-slate-900 border-r border-slate-700">
         <div className="p-4 border-b border-slate-700">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             DevTools Box
           </h1>
         </div>
@@ -170,12 +175,12 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
-              title="GitHub"
+              aria-label="GitHub repository"
             >
               <Github size={18} />
             </a>
           </div>
-          <span className="text-xs text-slate-500">v0.14.0</span>
+          <span className="text-xs text-slate-500">v0.15.0</span>
         </div>
       </aside>
 
@@ -186,7 +191,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
-          <h1 className="text-lg font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-lg font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             DevTools Box
           </h1>
           <div className="flex items-center gap-2">
@@ -196,12 +201,14 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+              aria-label="GitHub repository"
             >
               <Github size={18} />
             </a>
             <button
               onClick={() => setMobileOpen(false)}
               className="p-2 text-slate-400 hover:text-slate-200"
+              aria-label="Close menu"
             >
               <X size={20} />
             </button>

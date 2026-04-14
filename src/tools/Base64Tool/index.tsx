@@ -71,7 +71,7 @@ export function Base64Tool() {
               onClick={() => setMode('encode')}
               className={`px-4 py-2 rounded-lg transition-colors text-sm font-medium ${
                 mode === 'encode'
-                  ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white'
                   : 'bg-slate-700 text-slate-400 hover:bg-slate-600'
               }`}
             >
@@ -80,7 +80,7 @@ export function Base64Tool() {
             <button
               onClick={swap}
               className="p-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors"
-              title={t('common.swap')}
+              aria-label={t('common.swap')}
             >
               ⇄
             </button>
@@ -88,7 +88,7 @@ export function Base64Tool() {
               onClick={() => setMode('decode')}
               className={`px-4 py-2 rounded-lg transition-colors text-sm font-medium ${
                 mode === 'decode'
-                  ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white'
                   : 'bg-slate-700 text-slate-400 hover:bg-slate-600'
               }`}
             >
@@ -98,7 +98,7 @@ export function Base64Tool() {
           <div className="flex gap-2">
             <button
               onClick={process}
-              className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
             >
               {mode === 'encode' ? t('common.encode') : t('common.decode')}
             </button>
@@ -120,7 +120,7 @@ export function Base64Tool() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={mode === 'encode' ? t('base64.placeholderEncode') : t('base64.placeholderDecode')}
-              className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
+              className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
             />
           </div>
 

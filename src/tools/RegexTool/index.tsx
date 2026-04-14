@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { REGEX_EXAMPLES } from '../../constants';
 import { RegexExample, MatchResult } from '../../types';
 import { useI18n } from '../../i18n';
@@ -9,6 +10,14 @@ export function RegexTool() {
   const [testText, setTestText] = useState('');
   const [error, setError] = useState<string | null>(null);
   const { t, language } = useI18n();
+  const location = useLocation();
+
+  useEffect(() => {
+    const state = location.state as { presetRegex?: string };
+    if (state?.presetRegex) {
+      setPattern(state.presetRegex);
+    }
+  }, [location.state]);
 
   const results = useMemo(() => {
     if (!pattern) {
@@ -77,7 +86,7 @@ export function RegexTool() {
       parts.push(
         <mark
           key={`match-${i}`}
-          className="bg-gradient-to-r from-violet-500/80 to-purple-500/80 text-white px-0.5 rounded whitespace-pre-wrap"
+          className="bg-gradient-to-r from-amber-500/80 to-orange-500/80 text-white px-0.5 rounded whitespace-pre-wrap"
         >
           {result.match}
         </mark>
@@ -140,7 +149,7 @@ export function RegexTool() {
             value={pattern}
             onChange={(e) => setPattern(e.target.value)}
             placeholder={t('common.placeholderRegex')}
-            className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border-y border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder-slate-500"
+            className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border-y border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
           />
           <span className="flex items-center px-3 py-2 bg-slate-700 text-slate-400 font-mono text-lg border border-slate-600 border-l-0">
             /
@@ -150,25 +159,27 @@ export function RegexTool() {
             value={flags}
             onChange={(e) => setFlags(e.target.value)}
             placeholder="gimsuy"
-            className="w-32 px-3 py-2 bg-slate-900 text-slate-200 rounded-r-lg border border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder-slate-500"
+            className="w-32 px-3 py-2 bg-slate-900 text-slate-200 rounded-r-lg border border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
           />
         </div>
 
         <div className="mt-3 flex flex-wrap gap-2 text-sm">
           <span className="text-slate-500">{t('common.flags')}：</span>
-          {['g', 'i', 'm', 's', 'u', 'y'].map((f) => (
+          {flagDescriptions.map(({ key, descKey }) => (
             <button
-              key={f}
+              key={key}
               onClick={() => {
-                setFlags(flags.includes(f) ? flags.replace(f, '') : flags + f);
+                setFlags(flags.includes(key) ? flags.replace(key, '') : flags + key);
               }}
+              aria-label={t(descKey as any)}
+              aria-pressed={flags.includes(key)}
               className={`px-2 py-0.5 rounded border transition-colors ${
-                flags.includes(f)
-                  ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white border-violet-500'
+                flags.includes(key)
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white border-amber-500'
                   : 'bg-slate-800 text-slate-400 border-slate-600 hover:bg-slate-700'
               }`}
             >
-              {f}
+              {key}
             </button>
           ))}
         </div>
@@ -192,11 +203,11 @@ export function RegexTool() {
           value={testText}
           onChange={(e) => setTestText(e.target.value)}
           placeholder={t('common.placeholderText')}
-          className="w-full h-40 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
+          className="w-full h-40 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
         />
       </div>
 
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+      <div className="bg-slate-800 rounded-xl shadow-xl border-l-4 border-l-amber-500 border-t border-r border-b border-slate-700 p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-slate-200">{t('regex.matchResults')}</h2>
           <span className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -224,7 +235,7 @@ export function RegexTool() {
               {results.matches.map((result, i) => (
                 <div key={i} className="p-3 bg-slate-900 rounded-lg border border-slate-700">
                   <div className="flex items-center gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full text-sm font-medium">
+                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-sm font-medium">
                       {i + 1}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -241,7 +252,7 @@ export function RegexTool() {
                       <p className="text-xs font-medium text-slate-400 mb-1">{t('common.groups')}：</p>
                       {Object.entries(result.groups).map(([key, value]) => (
                         <p key={key} className="text-xs text-slate-400">
-                          <span className="font-mono text-violet-400">{key}:</span>{' '}
+                          <span className="font-mono text-amber-400">{key}:</span>{' '}
                           <code className="bg-slate-800 px-1 rounded text-slate-200">{JSON.stringify(value)}</code>
                         </p>
                       ))}
@@ -255,17 +266,18 @@ export function RegexTool() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-          <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('common.examples')}</h2>
-          <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+        {/* Examples - lighter reference style */}
+        <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-5">
+          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">{t('common.examples')}</h2>
+          <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1">
             {REGEX_EXAMPLES.map((example, i) => (
               <button
                 key={i}
                 onClick={() => handleExampleClick(example)}
-                className="w-full text-left p-3 rounded-lg border border-slate-700 hover:bg-slate-700/50 hover:border-violet-500/50 transition-all"
+                className="text-left p-2 rounded-lg hover:bg-slate-700/70 transition-colors group"
               >
-                <div className="font-medium text-slate-200 text-sm">{getExampleName(example)}</div>
-                <div className="text-xs text-slate-500 mt-1 truncate font-mono">
+                <div className="font-medium text-slate-300 text-xs group-hover:text-amber-400 transition-colors">{getExampleName(example)}</div>
+                <div className="text-xs text-slate-600 truncate font-mono">
                   /{example.pattern}/{example.flags}
                 </div>
               </button>
@@ -273,13 +285,14 @@ export function RegexTool() {
           </div>
         </div>
 
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-          <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('common.flagRef')}</h2>
-          <div className="space-y-2 text-sm">
+        {/* Flag reference - compact reference style */}
+        <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-5">
+          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">{t('common.flagRef')}</h2>
+          <div className="grid grid-cols-2 gap-2 text-sm">
             {flagDescriptions.map(({ key, descKey }) => (
-              <div key={key} className="flex gap-2 items-center">
-                <code className="w-6 text-center bg-slate-700 text-violet-400 rounded border border-slate-600">{key}</code>
-                <span className="text-slate-400">{t(descKey as any)}</span>
+              <div key={key} className="flex items-center gap-2">
+                <code className="w-6 h-6 text-center bg-slate-700 text-amber-400 rounded border border-slate-600 text-xs">{key}</code>
+                <span className="text-slate-400 text-xs">{t(descKey as any)}</span>
               </div>
             ))}
           </div>

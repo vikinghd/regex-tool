@@ -1,4 +1,4 @@
-import { Search, FileJson, ArrowLeftRight, Palette, Clock, Globe, Code, Type, Hash, Key } from 'lucide-react';
+import { Search, FileJson, ArrowLeftRight, Palette, Clock, Globe, Code, Type, Hash, Key, Sparkles } from 'lucide-react';
 import { ToolMeta, ToolCategory } from '../types/tool';
 import { RegexTool } from '../tools/RegexTool';
 import { JsonFormatter } from '../tools/JsonFormatter';
@@ -10,6 +10,7 @@ import { MarkdownTool } from '../tools/MarkdownTool';
 import { UuidTool } from '../tools/UuidTool';
 import { PasswordTool } from '../tools/PasswordTool';
 import { ColorTool } from '../tools/ColorTool';
+import { RegexGenTool } from '../tools/RegexGenTool';
 
 export const TOOLS: ToolMeta[] = [
   {
@@ -101,6 +102,15 @@ export const TOOLS: ToolMeta[] = [
     icon: <Palette size={20} />,
     component: ColorTool,
     defaultPath: '/color-converter'
+  },
+  {
+    id: 'regexGen',
+    name: '正则表达式生成器',
+    category: ToolCategory.TEXT,
+    description: 'AI 生成正则表达式',
+    icon: <Sparkles size={20} />,
+    component: RegexGenTool,
+    defaultPath: '/regex-generator'
   }
 ];
 

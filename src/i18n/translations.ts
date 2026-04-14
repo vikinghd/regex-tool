@@ -14,6 +14,8 @@ export type TranslationKey =
   | 'tools.url.description'
   | 'tools.color.name'
   | 'tools.color.description'
+  | 'tools.regexGen.name'
+  | 'tools.regexGen.description'
   | 'tools.hash.name'
   | 'tools.hash.description'
   | 'tools.uuid.name'
@@ -154,7 +156,24 @@ export type TranslationKey =
   | 'color.hexPlaceholder'
   | 'color.rgbPlaceholder'
   | 'color.hslPlaceholder'
-  | 'color.invalid';
+  | 'color.invalid'
+  | 'regexGen.title'
+  | 'regexGen.description'
+  | 'regexGen.inputPlaceholder'
+  | 'regexGen.example'
+  | 'regexGen.generate'
+  | 'regexGen.result'
+  | 'regexGen.copy'
+  | 'regexGen.test'
+  | 'regexGen.apiUrl'
+  | 'regexGen.apiKey'
+  | 'regexGen.save'
+  | 'regexGen.loading'
+  | 'regexGen.error'
+  | 'regexGen.example1'
+  | 'regexGen.example2'
+  | 'regexGen.example3'
+  | 'regexGen.example4';
 
 export interface Translations {
   [key: string]: string;
@@ -176,6 +195,8 @@ export const zhCN: Translations = {
   'tools.url.description': 'URL 编码和解码',
   'tools.color.name': '颜色转换',
   'tools.color.description': 'HEX/RGB/HSL 转换',
+  'tools.regexGen.name': '正则表达式生成器',
+  'tools.regexGen.description': 'AI 生成正则表达式',
   'tools.hash.name': '哈希生成',
   'tools.hash.description': 'MD5/SHA1/SHA256',
   'tools.uuid.name': 'UUID 生成器',
@@ -316,7 +337,24 @@ export const zhCN: Translations = {
   'color.hexPlaceholder': '#000000',
   'color.rgbPlaceholder': 'rgb(0, 0, 0)',
   'color.hslPlaceholder': 'hsl(0, 0%, 0%)',
-  'color.invalid': '无效的颜色格式'
+  'color.invalid': '无效的颜色格式',
+  'regexGen.title': '正则表达式生成器',
+  'regexGen.description': '用自然语言描述，AI 帮你生成正则',
+  'regexGen.inputPlaceholder': '描述你想要匹配的内容...',
+  'regexGen.example': '示例',
+  'regexGen.generate': '生成正则',
+  'regexGen.result': '生成的正则',
+  'regexGen.copy': '复制',
+  'regexGen.test': '测试',
+  'regexGen.apiUrl': 'API 地址',
+  'regexGen.apiKey': 'API Key',
+  'regexGen.save': '保存配置',
+  'regexGen.loading': '生成中...',
+  'regexGen.error': '生成失败',
+  'regexGen.example1': '匹配邮箱地址',
+  'regexGen.example2': '匹配手机号（中国）',
+  'regexGen.example3': '匹配 URL',
+  'regexGen.example4': '匹配日期格式 YYYY-MM-DD'
 };
 
 export const enUS: Translations = {
@@ -335,6 +373,8 @@ export const enUS: Translations = {
   'tools.url.description': 'URL encoding and decoding',
   'tools.color.name': 'Color Converter',
   'tools.color.description': 'HEX/RGB/HSL converter',
+  'tools.regexGen.name': 'Regex Generator',
+  'tools.regexGen.description': 'AI-powered regex generator',
   'tools.hash.name': 'Hash Generator',
   'tools.hash.description': 'MD5/SHA1/SHA256',
   'tools.uuid.name': 'UUID Generator',
@@ -475,5 +515,22 @@ export const enUS: Translations = {
   'color.hexPlaceholder': '#000000',
   'color.rgbPlaceholder': 'rgb(0, 0, 0)',
   'color.hslPlaceholder': 'hsl(0, 0%, 0%)',
-  'color.invalid': 'Invalid color format'
+  'color.invalid': 'Invalid color format',
+  'regexGen.title': 'Regex Generator',
+  'regexGen.description': 'Describe in natural language, AI generates regex for you',
+  'regexGen.inputPlaceholder': 'Describe what you want to match...',
+  'regexGen.example': 'Examples',
+  'regexGen.generate': 'Generate Regex',
+  'regexGen.result': 'Generated Regex',
+  'regexGen.copy': 'Copy',
+  'regexGen.test': 'Test',
+  'regexGen.apiUrl': 'API URL',
+  'regexGen.apiKey': 'API Key',
+  'regexGen.save': 'Save Config',
+  'regexGen.loading': 'Generating...',
+  'regexGen.error': 'Generation failed',
+  'regexGen.example1': 'Match email addresses',
+  'regexGen.example2': 'Match phone numbers (China)',
+  'regexGen.example3': 'Match URLs',
+  'regexGen.example4': 'Match date format YYYY-MM-DD'
 };

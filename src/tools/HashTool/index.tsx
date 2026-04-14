@@ -246,7 +246,7 @@ export function HashTool() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={t('common.placeholderText')}
-              className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
+              className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
             />
           </div>
 
@@ -271,7 +271,7 @@ export function HashTool() {
                   type="checkbox"
                   checked={uppercase}
                   onChange={(e) => setUppercase(e.target.checked)}
-                  className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-violet-500 focus:ring-violet-500"
+                  className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
                 />
                 {t('hash.uppercase')}
               </label>
@@ -279,7 +279,7 @@ export function HashTool() {
             <div className="flex gap-2">
               <button
                 onClick={generateSelectedHash}
-                className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
               >
                 {t('hash.generate')}
               </button>

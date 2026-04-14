@@ -263,7 +263,7 @@ export function ColorTool() {
                 value={inputValue}
                 onChange={(e) => handleInputChange(e.target.value)}
                 placeholder={inputFormat === 'hex' ? t('color.hexPlaceholder') : inputFormat === 'rgb' ? t('color.rgbPlaceholder') : t('color.hslPlaceholder')}
-                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder-slate-500"
+                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
               />
               <button
                 onClick={() => copyToClipboard(inputValue)}
@@ -307,7 +307,7 @@ export function ColorTool() {
           </button>
           <button
             onClick={generateRandom}
-            className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('color.random')}
           </button>

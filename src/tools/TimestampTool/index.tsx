@@ -53,7 +53,7 @@ export function TimestampTool() {
           <h2 className="text-lg font-semibold text-slate-200">{t('timestamp.title')}</h2>
           <button
             onClick={now}
-            className="px-4 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('common.now')}
           </button>
@@ -69,7 +69,7 @@ export function TimestampTool() {
                 onChange={(e) => setTimestamp(e.target.value)}
                 onBlur={fromTimestamp}
                 placeholder="1711800000"
-                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
               <button
                 onClick={copyTimestamp}
@@ -87,7 +87,7 @@ export function TimestampTool() {
               value={dateTime}
               onChange={(e) => setDateTime(e.target.value)}
               onBlur={fromDateTime}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
         </div>

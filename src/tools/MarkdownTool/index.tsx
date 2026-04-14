@@ -150,7 +150,7 @@ export function MarkdownTool() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={language === 'zh-CN' ? '在此输入 Markdown...' : 'Enter Markdown here...'}
-              className="w-full h-96 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none placeholder-slate-500"
+              className="w-full h-96 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
             />
           </div>
 
@@ -165,11 +165,11 @@ export function MarkdownTool() {
                     h2: ({ ...props }) => <h2 className="text-xl font-semibold text-slate-200 mt-4 mb-2" {...props} />,
                     h3: ({ ...props }) => <h3 className="text-lg font-medium text-slate-200 mt-3 mb-1" {...props} />,
                     p: ({ ...props }) => <p className="text-slate-300 mb-2" {...props} />,
-                    a: ({ ...props }) => <a className="text-violet-400 hover:text-violet-300 underline" {...props} />,
+                    a: ({ ...props }) => <a className="text-amber-400 hover:text-amber-300 underline" {...props} />,
                     ul: ({ ...props }) => <ul className="list-disc list-inside text-slate-300 mb-2" {...props} />,
                     ol: ({ ...props }) => <ol className="list-decimal list-inside text-slate-300 mb-2" {...props} />,
                     li: ({ ...props }) => <li className="mb-1" {...props} />,
-                    blockquote: ({ ...props }) => <blockquote className="border-l-4 border-violet-500 pl-4 my-4 text-slate-400 italic" {...props} />,
+                    blockquote: ({ ...props }) => <blockquote className="border-l-4 border-amber-500 pl-4 my-4 text-slate-400 italic" {...props} />,
                     code: ({ className, children, ...props }) => {
                       const match = /language-(\w+)/.exec(className || '');
                       return match ? (
@@ -179,7 +179,7 @@ export function MarkdownTool() {
                           </pre>
                         </div>
                       ) : (
-                        <code className="bg-slate-700 text-violet-300 px-1.5 py-0.5 rounded text-sm" {...props}>{children}</code>
+                        <code className="bg-slate-700 text-amber-300 px-1.5 py-0.5 rounded text-sm" {...props}>{children}</code>
                       );
                     },
                     table: ({ ...props }) => (
