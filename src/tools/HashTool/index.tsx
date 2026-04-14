@@ -236,28 +236,28 @@ export function HashTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('hash.title')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('hash.title')}</h2>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('hash.input')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('hash.input')}</label>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={t('common.placeholderText')}
-              className="w-full h-32 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
+              className="w-full h-32 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] resize-none placeholder-[var(--color-text-muted)]"
             />
           </div>
 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <label className="text-slate-400 text-sm">{t('hash.algorithm')}:</label>
+                <label className="text-[var(--color-text-secondary)] text-sm">{t('hash.algorithm')}:</label>
                 <select
                   value={algorithm}
                   onChange={(e) => setAlgorithm(e.target.value as HashAlgorithm)}
-                  className="px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+                  className="px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm"
                 >
                   <option value="MD5">MD5</option>
                   <option value="SHA-1">SHA-1</option>
@@ -266,12 +266,12 @@ export function HashTool() {
                   <option value="SHA-512">SHA-512</option>
                 </select>
               </div>
-              <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+              <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
                 <input
                   type="checkbox"
                   checked={uppercase}
                   onChange={(e) => setUppercase(e.target.checked)}
-                  className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
+                  className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
                 />
                 {t('hash.uppercase')}
               </label>
@@ -279,13 +279,13 @@ export function HashTool() {
             <div className="flex gap-2">
               <button
                 onClick={generateSelectedHash}
-                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+                className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
               >
                 {t('hash.generate')}
               </button>
               <button
                 onClick={() => { setInput(''); setResult(''); }}
-                className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+                className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
               >
                 {t('common.clear')}
               </button>
@@ -294,15 +294,15 @@ export function HashTool() {
         </div>
       </div>
 
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('hash.result')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('hash.result')}</h2>
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-slate-300">{algorithm}</span>
+            <span className="text-sm font-medium text-[var(--color-text-primary)]">{algorithm}</span>
             {result && (
               <button
                 onClick={() => copyToClipboard(formatHash(result))}
-                className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+                className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
               >
                 {t('hash.copy')}
               </button>
@@ -313,7 +313,7 @@ export function HashTool() {
             readOnly
             value={formatHash(result)}
             placeholder={t('common.placeholderResult')}
-            className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none placeholder-slate-500"
+            className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none placeholder-[var(--color-text-muted)]"
           />
         </div>
       </div>

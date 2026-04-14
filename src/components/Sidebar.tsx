@@ -48,7 +48,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
           <div key={category} className="mb-2">
             <button
               onClick={() => toggleCategory(cat)}
-              className="w-full flex items-center justify-between px-4 py-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 transition-colors"
+              className="w-full flex items-center justify-between px-4 py-2 text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50 transition-colors"
               aria-expanded={isExpanded}
               aria-controls={`category-${cat}`}
             >
@@ -73,10 +73,10 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                       disabled={isPlaceholder}
                       className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
                         isActive
-                          ? 'bg-gradient-to-r from-amber-600/30 to-orange-600/30 text-amber-300 border-l-2 border-amber-500'
+                          ? 'bg-gradient-to-r from-[var(--color-accent)]/20 to-[var(--color-accent-hover)]/10 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)]'
                           : isPlaceholder
-                          ? 'text-slate-600 cursor-not-allowed'
-                          : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                          ? 'text-content-muted cursor-not-allowed'
+                          : 'text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50'
                       }`}
                     >
                       <span className={isPlaceholder ? 'opacity-50' : ''}>{tool.icon}</span>
@@ -97,7 +97,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
     <div className="relative">
       <button
         onClick={() => setLangMenuOpen(!langMenuOpen)}
-        className="flex items-center gap-2 px-3 py-2 bg-slate-800 text-slate-200 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+        className="flex items-center gap-2 px-3 py-2 bg-surface-elevated text-content-primary rounded-lg hover:bg-surface-elevated/80 transition-colors text-sm"
         aria-expanded={langMenuOpen}
         aria-haspopup="listbox"
       >
@@ -111,14 +111,14 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
             className="fixed inset-0 z-40"
             onClick={() => setLangMenuOpen(false)}
           />
-          <div className="absolute bottom-full left-0 mb-2 w-40 bg-slate-800 rounded-lg border border-slate-700 shadow-xl z-50">
+          <div className="absolute bottom-full left-0 mb-2 w-40 bg-surface-elevated rounded-lg border border-border shadow-lg z-50">
             <button
               onClick={() => {
                 setLanguage('zh-CN');
                 setLangMenuOpen(false);
               }}
-              className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-t-lg ${
-                language === 'zh-CN' ? 'text-amber-400 bg-amber-500/10' : 'text-slate-200'
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-surface-muted transition-colors rounded-t-lg ${
+                language === 'zh-CN' ? 'text-accent bg-accent-muted' : 'text-content-secondary'
               }`}
             >
               🇨🇳 中文
@@ -128,8 +128,8 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                 setLanguage('en-US');
                 setLangMenuOpen(false);
               }}
-              className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-700 transition-colors rounded-b-lg ${
-                language === 'en-US' ? 'text-amber-400 bg-amber-500/10' : 'text-slate-200'
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-surface-muted transition-colors rounded-b-lg ${
+                language === 'en-US' ? 'text-accent bg-accent-muted' : 'text-content-secondary'
               }`}
             >
               🇺🇸 English
@@ -145,7 +145,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       {/* Mobile menu button - only on mobile */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 bg-slate-800 text-slate-200 rounded-lg border border-slate-700"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 bg-surface-elevated text-content-primary rounded-lg border border-border"
         aria-label="Open menu"
       >
         <Menu size={24} />
@@ -160,38 +160,38 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       )}
 
       {/* Desktop sidebar - always visible on lg+ */}
-      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 z-30 w-64 bg-slate-900 border-r border-slate-700">
-        <div className="p-4 border-b border-slate-700">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 z-30 w-64 bg-surface-base border-r border-border">
+        <div className="p-4 border-b border-border">
+          <h1 className="text-xl font-bold text-[var(--color-accent)] tracking-tight">
             DevTools Box
           </h1>
         </div>
         {renderToolList()}
-        <div className="p-4 border-t border-slate-700 flex items-center justify-between">
+        <div className="p-4 border-t border-border flex items-center justify-between">
           <div className="flex items-center gap-2">
             <LanguageSelector />
             <a
               href="https://github.com/vikinghd/regex-tool"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+              className="p-2 bg-surface-elevated text-content-secondary rounded-lg hover:text-content-primary hover:bg-surface-elevated/80 transition-colors"
               aria-label="GitHub repository"
             >
               <Github size={18} />
             </a>
           </div>
-          <span className="text-xs text-slate-500">v0.15.0</span>
+          <span className="text-xs text-content-muted">v0.15.0</span>
         </div>
       </aside>
 
       {/* Mobile sidebar - slides in */}
       <aside className={`
-        lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-700
+        lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-surface-base border-r border-border
         transform transition-transform duration-300 ease-in-out
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="flex items-center justify-between p-4 border-b border-slate-700">
-          <h1 className="text-lg font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+        <div className="flex items-center justify-between p-4 border-b border-border">
+          <h1 className="text-lg font-bold text-[var(--color-accent)] tracking-tight">
             DevTools Box
           </h1>
           <div className="flex items-center gap-2">
@@ -200,14 +200,14 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
               href="https://github.com/vikinghd/regex-tool"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors"
+              className="p-2 bg-surface-elevated text-content-secondary rounded-lg hover:text-content-primary hover:bg-surface-elevated/80 transition-colors"
               aria-label="GitHub repository"
             >
               <Github size={18} />
             </a>
             <button
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-slate-400 hover:text-slate-200"
+              className="p-2 text-content-secondary hover:text-content-primary"
               aria-label="Close menu"
             >
               <X size={20} />

@@ -215,12 +215,12 @@ export function ColorTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('color.title')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('color.title')}</h2>
 
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('color.inputFormat')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('color.inputFormat')}</label>
             <select
               value={inputFormat}
               onChange={(e) => {
@@ -229,7 +229,7 @@ export function ColorTool() {
                   setInputValue(convertColor(currentColor, e.target.value as ColorFormat));
                 }
               }}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+              className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm"
             >
               <option value="hex">{t('color.hex')}</option>
               <option value="rgb">{t('color.rgb')}</option>
@@ -237,7 +237,7 @@ export function ColorTool() {
             </select>
           </div>
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('color.outputFormat')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('color.outputFormat')}</label>
             <select
               value={outputFormat}
               onChange={(e) => {
@@ -246,7 +246,7 @@ export function ColorTool() {
                   setOutputValue(convertColor(currentColor, e.target.value as ColorFormat));
                 }
               }}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+              className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm"
             >
               <option value="hex">{t('color.hex')}</option>
               <option value="rgb">{t('color.rgb')}</option>
@@ -263,18 +263,18 @@ export function ColorTool() {
                 value={inputValue}
                 onChange={(e) => handleInputChange(e.target.value)}
                 placeholder={inputFormat === 'hex' ? t('color.hexPlaceholder') : inputFormat === 'rgb' ? t('color.rgbPlaceholder') : t('color.hslPlaceholder')}
-                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
+                className="flex-1 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] placeholder-[var(--color-text-muted)]"
               />
               <button
                 onClick={() => copyToClipboard(inputValue)}
                 disabled={!inputValue}
-                className="px-3 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm disabled:opacity-50"
+                className="px-3 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm disabled:opacity-50"
               >
                 {t('color.copy')}
               </button>
             </div>
             {error && (
-              <p className="text-red-400 text-sm">{error}</p>
+              <p className="text-[var(--color-error)] text-sm">{error}</p>
             )}
           </div>
 
@@ -285,12 +285,12 @@ export function ColorTool() {
                 readOnly
                 value={outputValue}
                 placeholder={outputFormat === 'hex' ? t('color.hexPlaceholder') : outputFormat === 'rgb' ? t('color.rgbPlaceholder') : t('color.hslPlaceholder')}
-                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none placeholder-slate-500"
+                className="flex-1 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none placeholder-[var(--color-text-muted)]"
               />
               <button
                 onClick={() => copyToClipboard(outputValue)}
                 disabled={!outputValue}
-                className="px-3 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm disabled:opacity-50"
+                className="px-3 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm disabled:opacity-50"
               >
                 {t('color.copy')}
               </button>
@@ -301,19 +301,19 @@ export function ColorTool() {
         <div className="flex gap-2 mt-6">
           <button
             onClick={swapFormats}
-            className="px-4 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+            className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
           >
             {t('color.swap')}
           </button>
           <button
             onClick={generateRandom}
-            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('color.random')}
           </button>
           <button
             onClick={clear}
-            className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+            className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
           >
             {t('color.clear')}
           </button>
@@ -321,24 +321,24 @@ export function ColorTool() {
       </div>
 
       {(currentColor || inputValue) && (
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-          <h3 className="text-sm font-medium text-slate-400 mb-4">{t('color.preview')}</h3>
+        <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+          <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-4">{t('color.preview')}</h3>
           <div
-            className="w-full h-32 rounded-lg border border-slate-600 transition-colors"
+            className="w-full h-32 rounded-lg border border-[var(--color-border)] transition-colors"
             style={{ backgroundColor: previewColor }}
           />
           <div className="grid grid-cols-3 gap-4 mt-4">
             <div className="text-center">
-              <p className="text-xs text-slate-500 mb-1">{t('color.hex')}</p>
-              <p className="text-sm font-mono text-slate-200">{colorToHex(currentColor || { r: 0, g: 0, b: 0 })}</p>
+              <p className="text-xs text-[var(--color-text-muted)] mb-1">{t('color.hex')}</p>
+              <p className="text-sm font-mono text-[var(--color-text-primary)]">{colorToHex(currentColor || { r: 0, g: 0, b: 0 })}</p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-slate-500 mb-1">{t('color.rgb')}</p>
-              <p className="text-sm font-mono text-slate-200">{colorToRgb(currentColor || { r: 0, g: 0, b: 0 })}</p>
+              <p className="text-xs text-[var(--color-text-muted)] mb-1">{t('color.rgb')}</p>
+              <p className="text-sm font-mono text-[var(--color-text-primary)]">{colorToRgb(currentColor || { r: 0, g: 0, b: 0 })}</p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-slate-500 mb-1">{t('color.hsl')}</p>
-              <p className="text-sm font-mono text-slate-200">{colorToHsl(currentColor || { r: 0, g: 0, b: 0 })}</p>
+              <p className="text-xs text-[var(--color-text-muted)] mb-1">{t('color.hsl')}</p>
+              <p className="text-sm font-mono text-[var(--color-text-primary)]">{colorToHsl(currentColor || { r: 0, g: 0, b: 0 })}</p>
             </div>
           </div>
         </div>

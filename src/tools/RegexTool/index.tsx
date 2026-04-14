@@ -86,7 +86,7 @@ export function RegexTool() {
       parts.push(
         <mark
           key={`match-${i}`}
-          className="bg-gradient-to-r from-amber-500/80 to-orange-500/80 text-white px-0.5 rounded whitespace-pre-wrap"
+          className="bg-gradient-to-r from-[var(--color-accent)]/80 to-[var(--color-accent-hover)]/80 text-white px-0.5 rounded whitespace-pre-wrap"
         >
           {result.match}
         </mark>
@@ -137,11 +137,11 @@ export function RegexTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('regex.title')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('regex.title')}</h2>
 
         <div className="flex gap-2">
-          <span className="flex items-center px-3 py-2 bg-slate-700 text-slate-400 rounded-l-lg font-mono text-lg border border-slate-600 border-r-0">
+          <span className="flex items-center px-3 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded-l-lg font-mono text-lg border border-[var(--color-border)] border-r-0">
             /
           </span>
           <input
@@ -149,9 +149,9 @@ export function RegexTool() {
             value={pattern}
             onChange={(e) => setPattern(e.target.value)}
             placeholder={t('common.placeholderRegex')}
-            className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border-y border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
+            className="flex-1 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border-y border-[var(--color-border)] text-lg font-mono focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] placeholder-[var(--color-text-muted)]"
           />
-          <span className="flex items-center px-3 py-2 bg-slate-700 text-slate-400 font-mono text-lg border border-slate-600 border-l-0">
+          <span className="flex items-center px-3 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] font-mono text-lg border border-[var(--color-border)] border-l-0">
             /
           </span>
           <input
@@ -159,12 +159,12 @@ export function RegexTool() {
             value={flags}
             onChange={(e) => setFlags(e.target.value)}
             placeholder="gimsuy"
-            className="w-32 px-3 py-2 bg-slate-900 text-slate-200 rounded-r-lg border border-slate-600 text-lg font-mono focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-500"
+            className="w-32 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] rounded-r-lg border border-[var(--color-border)] text-lg font-mono focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] placeholder-[var(--color-text-muted)]"
           />
         </div>
 
         <div className="mt-3 flex flex-wrap gap-2 text-sm">
-          <span className="text-slate-500">{t('common.flags')}：</span>
+          <span className="text-[var(--color-text-muted)]">{t('common.flags')}：</span>
           {flagDescriptions.map(({ key, descKey }) => (
             <button
               key={key}
@@ -175,8 +175,8 @@ export function RegexTool() {
               aria-pressed={flags.includes(key)}
               className={`px-2 py-0.5 rounded border transition-colors ${
                 flags.includes(key)
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white border-amber-500'
-                  : 'bg-slate-800 text-slate-400 border-slate-600 hover:bg-slate-700'
+                  ? 'bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white border-[var(--color-accent)]'
+                  : 'bg-[var(--color-bg-surface)] text-[var(--color-text-secondary)] border-[var(--color-border)] hover:bg-[var(--color-bg-elevated)]'
               }`}
             >
               {key}
@@ -185,35 +185,35 @@ export function RegexTool() {
         </div>
 
         {error && (
-          <div className="mt-3 p-3 bg-red-900/30 border border-red-700/50 rounded-lg text-red-400">
+          <div className="mt-3 p-3 bg-[var(--color-error)]/20 border border-[var(--color-error)]/50 rounded-lg text-[var(--color-error)]">
             <span className="font-medium">{t('common.error')}：</span> {error}
           </div>
         )}
 
         {!error && pattern && (
-          <div className="mt-3 p-3 bg-emerald-900/30 border border-emerald-700/50 rounded-lg text-emerald-400">
+          <div className="mt-3 p-3 bg-[var(--color-success)]/20 border border-[var(--color-success)]/50 rounded-lg text-[var(--color-success)]">
             <span className="font-medium">✓</span> {t('common.valid')}
           </div>
         )}
       </div>
 
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('regex.testText')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('regex.testText')}</h2>
         <textarea
           value={testText}
           onChange={(e) => setTestText(e.target.value)}
           placeholder={t('common.placeholderText')}
-          className="w-full h-40 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
+          className="w-full h-40 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] resize-none placeholder-[var(--color-text-muted)]"
         />
       </div>
 
-      <div className="bg-slate-800 rounded-xl shadow-xl border-l-4 border-l-amber-500 border-t border-r border-b border-slate-700 p-6">
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border-l-4 border-l-[var(--color-accent)] border-t border-r border-b border-[var(--color-border)] p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-slate-200">{t('regex.matchResults')}</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">{t('regex.matchResults')}</h2>
           <span className={`px-3 py-1 rounded-full text-sm font-medium ${
             results.matches.length > 0
-              ? 'bg-emerald-900/50 text-emerald-400 border border-emerald-700/50'
-              : 'bg-slate-700 text-slate-400 border border-slate-600'
+              ? 'bg-[var(--color-success)]/20 text-[var(--color-success)] border border-[var(--color-success)]/50'
+              : 'bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'
           }`}>
             {results.matches.length} {t('common.matches')}
           </span>
@@ -221,8 +221,8 @@ export function RegexTool() {
 
         {testText && (
           <div className="mb-6">
-            <h3 className="text-sm font-medium text-slate-400 mb-2">{t('common.highlight')}</h3>
-            <div className="p-4 bg-slate-900 rounded-lg font-mono text-sm border border-slate-700 min-h-24 text-slate-300">
+            <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-2">{t('common.highlight')}</h3>
+            <div className="p-4 bg-[var(--color-bg-muted)] rounded-lg font-mono text-sm border border-[var(--color-border)] min-h-24 text-[var(--color-text-primary)]">
               {highlightedText}
             </div>
           </div>
@@ -230,30 +230,30 @@ export function RegexTool() {
 
         {results.matches.length > 0 && (
           <div>
-            <h3 className="text-sm font-medium text-slate-400 mb-2">{t('common.details')}</h3>
+            <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-2">{t('common.details')}</h3>
             <div className="space-y-2">
               {results.matches.map((result, i) => (
-                <div key={i} className="p-3 bg-slate-900 rounded-lg border border-slate-700">
+                <div key={i} className="p-3 bg-[var(--color-bg-muted)] rounded-lg border border-[var(--color-border)]">
                   <div className="flex items-center gap-3">
-                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-sm font-medium">
+                    <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-full text-sm font-medium">
                       {i + 1}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <code className="text-sm font-mono bg-slate-800 px-2 py-0.5 rounded text-slate-200">
+                      <code className="text-sm font-mono bg-[var(--color-bg-surface)] px-2 py-0.5 rounded text-[var(--color-text-primary)]">
                         {JSON.stringify(result.match)}
                       </code>
-                      <p className="text-xs text-slate-500 mt-1">
+                      <p className="text-xs text-[var(--color-text-muted)] mt-1">
                         {t('common.position')}: {result.index} - {result.index + result.match.length}
                       </p>
                     </div>
                   </div>
                   {result.groups && Object.keys(result.groups).length > 0 && (
-                    <div className="mt-2 ml-11 pl-3 border-l-2 border-slate-600">
-                      <p className="text-xs font-medium text-slate-400 mb-1">{t('common.groups')}：</p>
+                    <div className="mt-2 ml-11 pl-3 border-l-2 border-[var(--color-border)]">
+                      <p className="text-xs font-medium text-[var(--color-text-secondary)] mb-1">{t('common.groups')}：</p>
                       {Object.entries(result.groups).map(([key, value]) => (
-                        <p key={key} className="text-xs text-slate-400">
-                          <span className="font-mono text-amber-400">{key}:</span>{' '}
-                          <code className="bg-slate-800 px-1 rounded text-slate-200">{JSON.stringify(value)}</code>
+                        <p key={key} className="text-xs text-[var(--color-text-secondary)]">
+                          <span className="font-mono text-[var(--color-accent)]">{key}:</span>{' '}
+                          <code className="bg-[var(--color-bg-surface)] px-1 rounded text-[var(--color-text-primary)]">{JSON.stringify(value)}</code>
                         </p>
                       ))}
                     </div>
@@ -267,17 +267,17 @@ export function RegexTool() {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Examples - lighter reference style */}
-        <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-5">
-          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">{t('common.examples')}</h2>
+        <div className="bg-[var(--color-bg-surface)]/50 rounded-xl border border-[var(--color-border)] p-5">
+          <h2 className="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-3">{t('common.examples')}</h2>
           <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1">
             {REGEX_EXAMPLES.map((example, i) => (
               <button
                 key={i}
                 onClick={() => handleExampleClick(example)}
-                className="text-left p-2 rounded-lg hover:bg-slate-700/70 transition-colors group"
+                className="text-left p-2 rounded-lg hover:bg-[var(--color-bg-elevated)]/70 transition-colors group"
               >
-                <div className="font-medium text-slate-300 text-xs group-hover:text-amber-400 transition-colors">{getExampleName(example)}</div>
-                <div className="text-xs text-slate-600 truncate font-mono">
+                <div className="font-medium text-[var(--color-text-primary)] text-xs group-hover:text-[var(--color-accent)] transition-colors">{getExampleName(example)}</div>
+                <div className="text-xs text-[var(--color-text-muted)] truncate font-mono">
                   /{example.pattern}/{example.flags}
                 </div>
               </button>
@@ -286,13 +286,13 @@ export function RegexTool() {
         </div>
 
         {/* Flag reference - compact reference style */}
-        <div className="bg-slate-800/50 rounded-xl border border-slate-700 p-5">
-          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">{t('common.flagRef')}</h2>
+        <div className="bg-[var(--color-bg-surface)]/50 rounded-xl border border-[var(--color-border)] p-5">
+          <h2 className="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide mb-3">{t('common.flagRef')}</h2>
           <div className="grid grid-cols-2 gap-2 text-sm">
             {flagDescriptions.map(({ key, descKey }) => (
               <div key={key} className="flex items-center gap-2">
-                <code className="w-6 h-6 text-center bg-slate-700 text-amber-400 rounded border border-slate-600 text-xs">{key}</code>
-                <span className="text-slate-400 text-xs">{t(descKey as any)}</span>
+                <code className="w-6 h-6 text-center bg-[var(--color-bg-elevated)] text-[var(--color-accent)] rounded border border-[var(--color-border)] text-xs">{key}</code>
+                <span className="text-[var(--color-text-secondary)] text-xs">{t(descKey as any)}</span>
               </div>
             ))}
           </div>

@@ -114,11 +114,11 @@ export function PasswordTool() {
 
   function getStrengthColor(strength: PasswordStrength): string {
     const colors: Record<PasswordStrength, string> = {
-      0: 'bg-red-500',
-      1: 'bg-orange-500',
-      2: 'bg-yellow-500',
-      3: 'bg-lime-500',
-      4: 'bg-emerald-500',
+      0: 'bg-[var(--color-error)]',
+      1: 'bg-[var(--color-warning)]',
+      2: 'bg-[var(--color-warning)]',
+      3: 'bg-[var(--color-success)]',
+      4: 'bg-[var(--color-success)]',
     };
     return colors[strength];
   }
@@ -134,13 +134,13 @@ export function PasswordTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('password.title')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('password.title')}</h2>
 
         <div className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-slate-400 mb-2">
+              <label className="block text-sm text-[var(--color-text-secondary)] mb-2">
                 {t('password.length')}: {length}
               </label>
               <input
@@ -149,9 +149,9 @@ export function PasswordTool() {
                 max="64"
                 value={length}
                 onChange={(e) => setLength(parseInt(e.target.value))}
-                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                className="w-full h-2 bg-[var(--color-bg-elevated)] rounded-lg appearance-none cursor-pointer accent-[var(--color-accent)]"
               />
-              <div className="flex justify-between text-xs text-slate-500 mt-1">
+              <div className="flex justify-between text-xs text-[var(--color-text-muted)] mt-1">
                 <span>4</span>
                 <span>64</span>
               </div>
@@ -159,22 +159,22 @@ export function PasswordTool() {
 
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-4">
-                <span className="text-sm text-slate-400">{t('password.strength')}:</span>
+                <span className="text-sm text-[var(--color-text-secondary)]">{t('password.strength')}:</span>
                 <div className="flex-1">
                   <div className="flex gap-1 h-3 mb-1">
                     {[0, 1, 2, 3, 4].map((i) => (
                       <div
                         key={i}
                         className={`flex-1 rounded-full transition-colors ${
-                          i <= strength ? getStrengthColor(strength) : 'bg-slate-700'
+                          i <= strength ? getStrengthColor(strength) : 'bg-[var(--color-bg-elevated)]'
                         }`}
                       />
                     ))}
                   </div>
                   <span className={`text-sm font-medium ${
-                    strength <= 1 ? 'text-red-400' :
-                    strength === 2 ? 'text-yellow-400' :
-                    'text-emerald-400'
+                    strength <= 1 ? 'text-[var(--color-error)]' :
+                    strength === 2 ? 'text-[var(--color-warning)]' :
+                    'text-[var(--color-success)]'
                   }`}>
                     {getStrengthLabel(strength)}
                   </span>
@@ -184,57 +184,57 @@ export function PasswordTool() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={includeUppercase}
                 onChange={(e) => setIncludeUppercase(e.target.checked)}
                 disabled={!includeLowercase && !includeNumbers && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)] disabled:opacity-50"
               />
               {t('password.includeUppercase')} (ABC)
             </label>
 
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={includeLowercase}
                 onChange={(e) => setIncludeLowercase(e.target.checked)}
                 disabled={!includeUppercase && !includeNumbers && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)] disabled:opacity-50"
               />
               {t('password.includeLowercase')} (abc)
             </label>
 
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={includeNumbers}
                 onChange={(e) => setIncludeNumbers(e.target.checked)}
                 disabled={!includeUppercase && !includeLowercase && !includeSymbols}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)] disabled:opacity-50"
               />
               {t('password.includeNumbers')} (123)
             </label>
 
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={includeSymbols}
                 onChange={(e) => setIncludeSymbols(e.target.checked)}
                 disabled={!includeUppercase && !includeLowercase && !includeNumbers}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500 disabled:opacity-50"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)] disabled:opacity-50"
               />
               {t('password.includeSymbols')} (!@#)
             </label>
           </div>
 
-          <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+          <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
             <input
               type="checkbox"
               checked={excludeSimilar}
               onChange={(e) => setExcludeSimilar(e.target.checked)}
-              className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
+              className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
             />
             {t('password.excludeSimilar')} (0, O, 1, l, I)
           </label>
@@ -243,7 +243,7 @@ export function PasswordTool() {
             <button
               onClick={generatePassword}
               disabled={!hasSelection}
-              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t('password.generate')}
             </button>
@@ -252,12 +252,12 @@ export function PasswordTool() {
       </div>
 
       {password && (
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+        <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-slate-400">{t('password.result')}</h3>
+            <h3 className="text-sm font-medium text-[var(--color-text-secondary)]">{t('password.result')}</h3>
             <button
               onClick={copyToClipboard}
-              className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+              className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
             >
               {t('password.copy')}
             </button>
@@ -266,7 +266,7 @@ export function PasswordTool() {
             type="text"
             readOnly
             value={password}
-            className="w-full px-4 py-3 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-lg text-center tracking-wider focus:outline-none placeholder-slate-500"
+            className="w-full px-4 py-3 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-lg text-center tracking-wider focus:outline-none placeholder-[var(--color-text-muted)]"
           />
         </div>
       )}

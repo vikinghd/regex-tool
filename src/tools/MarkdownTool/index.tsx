@@ -124,19 +124,19 @@ export function MarkdownTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-slate-200">{t('markdown.title')}</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">{t('markdown.title')}</h2>
           <div className="flex gap-2">
             <button
               onClick={loadSample}
-              className="px-4 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+              className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
             >
               {t('markdown.sample')}
             </button>
             <button
               onClick={clear}
-              className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+              className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
             >
               {t('markdown.clear')}
             </button>
@@ -145,55 +145,55 @@ export function MarkdownTool() {
 
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="block text-sm text-slate-400">{t('markdown.input')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)]">{t('markdown.input')}</label>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={language === 'zh-CN' ? '在此输入 Markdown...' : 'Enter Markdown here...'}
-              className="w-full h-96 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none placeholder-slate-500"
+              className="w-full h-96 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] resize-none placeholder-[var(--color-text-muted)]"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm text-slate-400">{t('markdown.preview')}</label>
-            <div className="w-full h-96 px-4 py-3 bg-slate-900 border border-slate-600 rounded-lg overflow-y-auto">
+            <label className="block text-sm text-[var(--color-text-secondary)]">{t('markdown.preview')}</label>
+            <div className="w-full h-96 px-4 py-3 bg-[var(--color-bg-muted)] border border-[var(--color-border)] rounded-lg overflow-y-auto">
               <div className="prose prose-invert max-w-none">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    h1: ({ ...props }) => <h1 className="text-2xl font-bold text-slate-100 mt-4 mb-2" {...props} />,
-                    h2: ({ ...props }) => <h2 className="text-xl font-semibold text-slate-200 mt-4 mb-2" {...props} />,
-                    h3: ({ ...props }) => <h3 className="text-lg font-medium text-slate-200 mt-3 mb-1" {...props} />,
-                    p: ({ ...props }) => <p className="text-slate-300 mb-2" {...props} />,
-                    a: ({ ...props }) => <a className="text-amber-400 hover:text-amber-300 underline" {...props} />,
-                    ul: ({ ...props }) => <ul className="list-disc list-inside text-slate-300 mb-2" {...props} />,
-                    ol: ({ ...props }) => <ol className="list-decimal list-inside text-slate-300 mb-2" {...props} />,
+                    h1: ({ ...props }) => <h1 className="text-2xl font-bold text-[var(--color-text-primary)] mt-4 mb-2" {...props} />,
+                    h2: ({ ...props }) => <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mt-4 mb-2" {...props} />,
+                    h3: ({ ...props }) => <h3 className="text-lg font-medium text-[var(--color-text-primary)] mt-3 mb-1" {...props} />,
+                    p: ({ ...props }) => <p className="text-[var(--color-text-primary)] mb-2" {...props} />,
+                    a: ({ ...props }) => <a className="text-[var(--color-accent)] hover:text-[var(--color-accent)] underline" {...props} />,
+                    ul: ({ ...props }) => <ul className="list-disc list-inside text-[var(--color-text-primary)] mb-2" {...props} />,
+                    ol: ({ ...props }) => <ol className="list-decimal list-inside text-[var(--color-text-primary)] mb-2" {...props} />,
                     li: ({ ...props }) => <li className="mb-1" {...props} />,
-                    blockquote: ({ ...props }) => <blockquote className="border-l-4 border-amber-500 pl-4 my-4 text-slate-400 italic" {...props} />,
+                    blockquote: ({ ...props }) => <blockquote className="border-l-4 border-[var(--color-accent)] pl-4 my-4 text-[var(--color-text-secondary)] italic" {...props} />,
                     code: ({ className, children, ...props }) => {
                       const match = /language-(\w+)/.exec(className || '');
                       return match ? (
                         <div className="my-4">
-                          <pre className="bg-slate-800 rounded-lg p-4 overflow-x-auto">
+                          <pre className="bg-[var(--color-bg-surface)] rounded-lg p-4 overflow-x-auto">
                             <code className={className} {...props}>{children}</code>
                           </pre>
                         </div>
                       ) : (
-                        <code className="bg-slate-700 text-amber-300 px-1.5 py-0.5 rounded text-sm" {...props}>{children}</code>
+                        <code className="bg-[var(--color-bg-elevated)] text-[var(--color-accent)] px-1.5 py-0.5 rounded text-sm" {...props}>{children}</code>
                       );
                     },
                     table: ({ ...props }) => (
                       <div className="my-4 overflow-x-auto">
-                        <table className="w-full text-slate-300" {...props} />
+                        <table className="w-full text-[var(--color-text-primary)]" {...props} />
                       </div>
                     ),
-                    thead: ({ ...props }) => <thead className="bg-slate-800" {...props} />,
-                    th: ({ ...props }) => <th className="px-4 py-2 text-left font-semibold border border-slate-600" {...props} />,
-                    td: ({ ...props }) => <td className="px-4 py-2 border border-slate-600" {...props} />,
-                    hr: ({ ...props }) => <hr className="my-6 border-slate-600" {...props} />,
-                    strong: ({ ...props }) => <strong className="font-semibold text-slate-100" {...props} />,
-                    em: ({ ...props }) => <em className="italic text-slate-200" {...props} />,
-                    del: ({ ...props }) => <del className="line-through text-slate-500" {...props} />,
+                    thead: ({ ...props }) => <thead className="bg-[var(--color-bg-surface)]" {...props} />,
+                    th: ({ ...props }) => <th className="px-4 py-2 text-left font-semibold border border-[var(--color-border)]" {...props} />,
+                    td: ({ ...props }) => <td className="px-4 py-2 border border-[var(--color-border)]" {...props} />,
+                    hr: ({ ...props }) => <hr className="my-6 border-[var(--color-border)]" {...props} />,
+                    strong: ({ ...props }) => <strong className="font-semibold text-[var(--color-text-primary)]" {...props} />,
+                    em: ({ ...props }) => <em className="italic text-[var(--color-text-primary)]" {...props} />,
+                    del: ({ ...props }) => <del className="line-through text-[var(--color-text-muted)]" {...props} />,
                   }}
                 >
                   {input || (language === 'zh-CN' ? '预览将显示在这里...' : 'Preview will appear here...')}

@@ -96,16 +96,16 @@ export function UuidTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-        <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('uuid.title')}</h2>
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+        <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('uuid.title')}</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('uuid.version')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('uuid.version')}</label>
             <select
               value={version}
               onChange={(e) => setVersion(e.target.value as UuidVersion)}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+              className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm"
             >
               <option value="v4">UUID v4 (随机)</option>
               <option value="v1">UUID v1 (时间戳)</option>
@@ -115,49 +115,49 @@ export function UuidTool() {
 
           {batchMode && (
             <div>
-              <label className="block text-sm text-slate-400 mb-2">{t('uuid.count')}</label>
+              <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('uuid.count')}</label>
               <input
                 type="number"
                 min="1"
                 max="100"
                 value={count}
                 onChange={(e) => setCount(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))}
-                className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm"
+                className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm"
               />
             </div>
           )}
 
           <div className="flex flex-col justify-end">
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={batchMode}
                 onChange={(e) => setBatchMode(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
               />
               {t('uuid.generateMultiple')}
             </label>
           </div>
 
           <div className="flex flex-col justify-end">
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={uppercase}
                 onChange={(e) => setUppercase(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
               />
               {t('uuid.uppercase')}
             </label>
           </div>
 
           <div className="flex flex-col justify-end">
-            <label className="flex items-center gap-2 text-slate-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-[var(--color-text-secondary)] text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={withHyphens}
                 onChange={(e) => setWithHyphens(e.target.checked)}
-                className="w-4 h-4 rounded bg-slate-900 border-slate-600 text-amber-500 focus:ring-amber-500"
+                className="w-4 h-4 rounded bg-[var(--color-bg-muted)] border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
               />
               {t('uuid.hyphens')}
             </label>
@@ -167,13 +167,13 @@ export function UuidTool() {
         <div className="flex gap-2">
           <button
             onClick={generate}
-            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('uuid.generate')}
           </button>
           <button
             onClick={clear}
-            className="px-4 py-2 bg-slate-700 text-slate-400 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+            className="px-4 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded-lg hover:bg-[var(--color-bg-muted)] transition-colors text-sm"
           >
             {t('uuid.clear')}
           </button>
@@ -181,13 +181,13 @@ export function UuidTool() {
       </div>
 
       {results.length > 0 && (
-        <div className="bg-slate-900/80 rounded-xl border border-slate-700 p-6">
+        <div className="bg-[var(--color-bg-muted)] rounded-xl border border-[var(--color-border)] p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide">{t('uuid.result')}</h2>
+            <h2 className="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide">{t('uuid.result')}</h2>
             {results.length > 1 && (
               <button
                 onClick={copyAll}
-                className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+                className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded text-xs hover:bg-[var(--color-bg-surface)] transition-colors"
               >
                 {t('uuid.copyAll')}
               </button>
@@ -195,12 +195,12 @@ export function UuidTool() {
           </div>
           <div className="space-y-2">
             {results.map((uuid, index) => (
-              <div key={index} className="flex items-center gap-3 bg-slate-800/50 rounded-lg p-3 border border-slate-700/50">
-                <span className="text-slate-600 text-xs font-mono w-6">{index + 1}</span>
-                <code className="flex-1 text-amber-400 font-mono text-sm tracking-wide">{uuid}</code>
+              <div key={index} className="flex items-center gap-3 bg-[var(--color-bg-surface)] rounded-lg p-3 border border-[var(--color-border)]">
+                <span className="text-[var(--color-text-muted)] text-xs font-mono w-6">{index + 1}</span>
+                <code className="flex-1 text-[var(--color-accent)] font-mono text-sm tracking-wide">{uuid}</code>
                 <button
                   onClick={() => copyToClipboard(uuid)}
-                  className="px-3 py-1 bg-slate-700 text-slate-300 rounded text-xs hover:bg-slate-600 hover:text-amber-400 transition-colors"
+                  className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-secondary)] rounded text-xs hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-accent)] transition-colors"
                 >
                   {t('uuid.copy')}
                 </button>

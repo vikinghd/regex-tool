@@ -115,47 +115,47 @@ export function RegexGenTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-slate-200">{t('regexGen.title')}</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">{t('regexGen.title')}</h2>
           <button
             onClick={() => setShowConfig(!showConfig)}
-            className="px-3 py-1 text-sm bg-slate-700 text-slate-300 rounded hover:bg-slate-600 transition-colors"
+            className="px-3 py-1 text-sm bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded hover:bg-[var(--color-bg-elevated)] transition-colors"
           >
             ⚙️ {t('regexGen.apiUrl')}
           </button>
         </div>
 
         {showConfig && (
-          <div className="mb-6 p-4 bg-slate-900/50 rounded-lg border border-slate-600">
-            <h3 className="text-sm font-medium text-slate-300 mb-3">API Configuration</h3>
+          <div className="mb-6 p-4 bg-[var(--color-bg-muted)]/50 rounded-lg border border-[var(--color-border)]">
+            <h3 className="text-sm font-medium text-[var(--color-text-primary)] mb-3">API Configuration</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm text-slate-400 mb-1">{t('regexGen.apiUrl')}</label>
+                <label className="block text-sm text-[var(--color-text-secondary)] mb-1">{t('regexGen.apiUrl')}</label>
                 <input
                   type="text"
                   value={apiConfig.apiUrl}
                   onChange={(e) => setApiConfig({ ...apiConfig, apiUrl: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:border-amber-500"
+                  className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm focus:outline-none focus:border-[var(--color-accent)]"
                   placeholder="https://api.deepseek.com/v1/chat/completions"
                 />
               </div>
               <div>
-                <label className="block text-sm text-slate-400 mb-1">{t('regexGen.apiKey')}</label>
+                <label className="block text-sm text-[var(--color-text-secondary)] mb-1">{t('regexGen.apiKey')}</label>
                 <input
                   type="password"
                   value={apiConfig.apiKey}
                   onChange={(e) => setApiConfig({ ...apiConfig, apiKey: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:border-amber-500"
+                  className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm focus:outline-none focus:border-[var(--color-accent)]"
                   placeholder="sk-..."
                 />
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-[var(--color-text-muted)] mt-1">
                   🔒 API Key 仅保存在本地浏览器中，不会上传到任何服务器
                 </p>
               </div>
               <button
                 onClick={saveConfig}
-                className="px-4 py-2 bg-amber-500 text-white rounded-lg text-sm hover:bg-orange-600 transition-colors"
+                className="px-4 py-2 bg-[var(--color-accent)] text-white rounded-lg text-sm hover:bg-[var(--color-accent-hover)] transition-colors"
               >
                 {t('regexGen.save')}
               </button>
@@ -165,11 +165,11 @@ export function RegexGenTool() {
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('regexGen.description')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('regexGen.description')}</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:border-amber-500 resize-none"
+              className="w-full px-4 py-3 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm focus:outline-none focus:border-[var(--color-accent)] resize-none"
               rows={3}
               placeholder={t('regexGen.inputPlaceholder')}
               onKeyDown={(e) => {
@@ -181,13 +181,13 @@ export function RegexGenTool() {
           </div>
 
           <div>
-            <label className="block text-sm text-slate-400 mb-2">{t('regexGen.example')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)] mb-2">{t('regexGen.example')}</label>
             <div className="flex flex-wrap gap-2">
               {examples.map((example, idx) => (
                 <button
                   key={idx}
                   onClick={() => setDescription(example)}
-                  className="px-3 py-1.5 bg-slate-700 text-slate-300 rounded-lg text-xs hover:bg-slate-600 transition-colors"
+                  className="px-3 py-1.5 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
                 >
                   {example}
                 </button>
@@ -199,7 +199,7 @@ export function RegexGenTool() {
             <button
               onClick={generateRegex}
               disabled={loading || !description.trim()}
-              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {loading ? (
                 <>
@@ -216,7 +216,7 @@ export function RegexGenTool() {
           </div>
 
           {error && (
-            <div className="p-3 bg-red-900/30 border border-red-700 rounded-lg text-sm text-red-300">
+            <div className="p-3 bg-[var(--color-error)]/20 border border-[var(--color-error)] rounded-lg text-sm text-[var(--color-error)]">
               {error}
             </div>
           )}
@@ -224,35 +224,35 @@ export function RegexGenTool() {
       </div>
 
       {generatedRegex && (
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+        <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-medium text-slate-400">{t('regexGen.result')}</h3>
+            <h3 className="text-sm font-medium text-[var(--color-text-secondary)]">{t('regexGen.result')}</h3>
             <div className="flex gap-2">
               <button
                 onClick={testRegex}
-                className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+                className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
               >
                 🧪 {t('regexGen.test')}
               </button>
               <button
                 onClick={copyToClipboard}
-                className="px-3 py-1 bg-slate-700 text-slate-200 rounded text-xs hover:bg-slate-600 transition-colors"
+                className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
               >
                 📋 {t('regexGen.copy')}
               </button>
             </div>
           </div>
-          <div className="p-4 bg-slate-900 rounded-lg border border-slate-600">
-            <code className="text-lg font-mono text-amber-300 break-all">
+          <div className="p-4 bg-[var(--color-bg-muted)] rounded-lg border border-[var(--color-border)]">
+            <code className="text-lg font-mono text-[var(--color-accent)] break-all">
               {generatedRegex}
             </code>
           </div>
         </div>
       )}
 
-      <div className="bg-amber-900/20 border border-amber-700/50 rounded-xl p-4">
-        <h3 className="text-sm font-semibold text-amber-400 mb-2">🔐 安全提示</h3>
-        <ul className="text-xs text-amber-200/80 space-y-1">
+      <div className="bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 rounded-xl p-4">
+        <h3 className="text-sm font-semibold text-[var(--color-accent)] mb-2">🔐 安全提示</h3>
+        <ul className="text-xs text-[var(--color-accent)]/70 space-y-1">
           <li>• API Key 仅存储在浏览器本地 (localStorage)，不会被发送到任何第三方服务器</li>
           <li>• 建议使用后端代理来保护 API Key，避免在前端直接暴露</li>
           <li>• 可以设置 API Key 的使用限额和监控，防止意外超额使用</li>

@@ -48,12 +48,12 @@ export function TimestampTool() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
+      <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-slate-200">{t('timestamp.title')}</h2>
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">{t('timestamp.title')}</h2>
           <button
             onClick={now}
-            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
+            className="px-4 py-2 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm"
           >
             {t('common.now')}
           </button>
@@ -61,7 +61,7 @@ export function TimestampTool() {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-3">
-            <label className="block text-sm text-slate-400">{t('timestamp.unixLabel')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)]">{t('timestamp.unixLabel')}</label>
             <div className="flex gap-2">
               <input
                 type="number"
@@ -69,11 +69,11 @@ export function TimestampTool() {
                 onChange={(e) => setTimestamp(e.target.value)}
                 onBlur={fromTimestamp}
                 placeholder="1711800000"
-                className="flex-1 px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="flex-1 px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               />
               <button
                 onClick={copyTimestamp}
-                className="px-3 py-2 bg-slate-700 text-slate-200 rounded-lg hover:bg-slate-600 transition-colors text-sm"
+                className="px-3 py-2 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded-lg hover:bg-[var(--color-bg-elevated)] transition-colors text-sm"
               >
                 {t('common.copy')}
               </button>
@@ -81,21 +81,21 @@ export function TimestampTool() {
           </div>
 
           <div className="space-y-3">
-            <label className="block text-sm text-slate-400">{t('timestamp.datetimeLabel')}</label>
+            <label className="block text-sm text-[var(--color-text-secondary)]">{t('timestamp.datetimeLabel')}</label>
             <input
               type="datetime-local"
               value={dateTime}
               onChange={(e) => setDateTime(e.target.value)}
               onBlur={fromDateTime}
-              className="w-full px-3 py-2 bg-slate-900 text-slate-200 border border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] border border-[var(--color-border)] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             />
           </div>
         </div>
       </div>
 
       {formats && (
-        <div className="bg-slate-800 rounded-xl shadow-xl border border-slate-700 p-6">
-          <h2 className="text-lg font-semibold text-slate-200 mb-4">{t('timestamp.formats')}</h2>
+        <div className="bg-[var(--color-bg-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-6">
+          <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">{t('timestamp.formats')}</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <FormatItem label={t('timestamp.iso')} value={formats.iso} />
             <FormatItem label={t('common.utc')} value={formats.utc} />
@@ -116,14 +116,14 @@ function FormatItem({ label, value, fullWidth = false }: { label: string; value:
   };
 
   return (
-    <div className={`${fullWidth ? 'md:col-span-2' : ''} flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-700`}>
+    <div className={`${fullWidth ? 'md:col-span-2' : ''} flex items-center justify-between p-3 bg-[var(--color-bg-muted)] rounded-lg border border-[var(--color-border)]`}>
       <div>
-        <p className="text-xs text-slate-500">{label}</p>
-        <p className="text-sm text-slate-200 font-mono">{value}</p>
+        <p className="text-xs text-[var(--color-text-muted)]">{label}</p>
+        <p className="text-sm text-[var(--color-text-primary)] font-mono">{value}</p>
       </div>
       <button
         onClick={copy}
-        className="px-3 py-1 bg-slate-700 text-slate-300 rounded text-xs hover:bg-slate-600 transition-colors"
+        className="px-3 py-1 bg-[var(--color-bg-elevated)] text-[var(--color-text-primary)] rounded text-xs hover:bg-[var(--color-bg-elevated)] transition-colors"
       >
         {t('common.copy')}
       </button>
