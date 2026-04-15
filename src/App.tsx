@@ -9,7 +9,7 @@ import { useI18n } from './i18n';
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, getToolName, getToolDescription, t } = useI18n();
+  const { language, getToolName, getToolDescription, getToolSeoDescription, getCategoryName } = useI18n();
 
   const currentTool = TOOLS.find((t: ToolMeta) =>
     t.defaultPath === location.pathname ||
@@ -32,20 +32,20 @@ function AppContent() {
     <div className="min-h-screen bg-gradient-to-br from-[var(--color-bg-base)] via-[var(--color-bg-surface)] to-[var(--color-bg-base)]">
       <Helmet>
         <title>{getToolName(currentTool.id)} | DevTools Box</title>
-        <meta name="description" content={`${getToolDescription(currentTool.id)} - ${t('app.description')}`} />
+        <meta name="description" content={getToolSeoDescription(currentTool.id)} />
         <meta property="og:title" content={`${getToolName(currentTool.id)} | DevTools Box`} />
-        <meta property="og:description" content={`${getToolDescription(currentTool.id)} - ${t('app.description')}`} />
+        <meta property="og:description" content={getToolSeoDescription(currentTool.id)} />
         <meta property="og:url" content={`https://www.vikinghd.me${currentTool.defaultPath}`} />
+        <link rel="canonical" href={`https://www.vikinghd.me${currentTool.defaultPath}`} />
+        <meta name="keywords" content={`${getToolName(currentTool.id)}, ${getToolDescription(currentTool.id)}, online tool, developer tools, free tools`} />
       </Helmet>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "DevTools Box",
-        "description": language === 'zh-CN'
-          ? "免费在线开发者工具箱：正则表达式测试、JSON格式化、Base64编解码、时间戳转换、URL编解码等工具"
-          : "Free online developer tools: Regex tester, JSON formatter, Base64 encoder/decoder, timestamp converter, URL encoder/decoder, and more",
-        "url": "https://www.vikinghd.me/",
+        "name": `${getToolName(currentTool.id)} | DevTools Box`,
+        "description": getToolSeoDescription(currentTool.id),
+        "url": `https://www.vikinghd.me${currentTool.defaultPath}`,
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Web",
         "offers": {
@@ -58,6 +58,31 @@ function AppContent() {
           "name": "vikinghd",
           "url": "https://github.com/vikinghd"
         }
+      })}} />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": language === 'zh-CN' ? '首页' : 'Home',
+            "item": "https://www.vikinghd.me/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": getCategoryName(currentTool.category),
+            "item": `https://www.vikinghd.me${currentTool.defaultPath}`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": getToolName(currentTool.id),
+            "item": `https://www.vikinghd.me${currentTool.defaultPath}`
+          }
+        ]
       })}} />
 
       <Sidebar currentToolId={currentTool.id} onToolSelect={handleToolSelect} />

@@ -4,24 +4,37 @@ export type TranslationKey =
   | 'app.version'
   | 'tools.regex.name'
   | 'tools.regex.description'
+  | 'tools.regex.seoDescription'
   | 'tools.json.name'
   | 'tools.json.description'
+  | 'tools.json.seoDescription'
   | 'tools.base64.name'
   | 'tools.base64.description'
+  | 'tools.base64.seoDescription'
   | 'tools.timestamp.name'
   | 'tools.timestamp.description'
+  | 'tools.timestamp.seoDescription'
   | 'tools.url.name'
   | 'tools.url.description'
+  | 'tools.url.seoDescription'
   | 'tools.color.name'
   | 'tools.color.description'
+  | 'tools.color.seoDescription'
   | 'tools.regexGen.name'
   | 'tools.regexGen.description'
+  | 'tools.regexGen.seoDescription'
   | 'tools.hash.name'
   | 'tools.hash.description'
+  | 'tools.hash.seoDescription'
   | 'tools.uuid.name'
   | 'tools.uuid.description'
+  | 'tools.uuid.seoDescription'
   | 'tools.markdown.name'
   | 'tools.markdown.description'
+  | 'tools.markdown.seoDescription'
+  | 'tools.password.name'
+  | 'tools.password.description'
+  | 'tools.password.seoDescription'
   | 'category.text'
   | 'category.data'
   | 'category.color'
@@ -185,24 +198,37 @@ export const zhCN: Translations = {
   'app.version': '版本',
   'tools.regex.name': '正则表达式测试',
   'tools.regex.description': '实时测试正则表达式',
+  'tools.regex.seoDescription': '免费在线正则表达式测试工具，支持实时匹配、修饰符切换、匹配高亮显示。正则表达式（Regex）调试器，支持全局匹配、忽略大小写、多行模式等修饰符。',
   'tools.json.name': 'JSON 格式化',
   'tools.json.description': '格式化、压缩 JSON',
+  'tools.json.seoDescription': 'JSON 格式化工具，支持美化格式、压缩 JSON、语法检查。快速将混乱的 JSON 数据整理成易读的格式，或压缩 JSON 以减小体积。',
   'tools.base64.name': 'Base64 编解码',
   'tools.base64.description': 'Base64 编码和解码',
+  'tools.base64.seoDescription': 'Base64 在线编码解码工具，支持文本和文件的 Base64 加密解密。快速将任意字符串或文件转换为 Base64 格式，或将 Base64 还原为原始内容。',
   'tools.timestamp.name': '时间戳转换',
   'tools.timestamp.description': 'Unix 时间戳转换',
+  'tools.timestamp.seoDescription': 'Unix 时间戳转换器，支持秒/毫秒互转、日期格式转换、时区转换。在线将时间戳与日期相互转换，支持多种日期格式和世界时区。',
   'tools.url.name': 'URL 编解码',
   'tools.url.description': 'URL 编码和解码',
+  'tools.url.seoDescription': 'URL 编码解码工具，将中文和特殊字符转为 %XX 格式。URLEncode/URLDecode 在线转换，支持 URL 保留字符处理，解决 URL 中文字符乱码问题。',
   'tools.color.name': '颜色转换',
   'tools.color.description': 'HEX/RGB/HSL 转换',
+  'tools.color.seoDescription': '颜色代码转换工具，支持 HEX、RGB、RGBA、HSL、HSLA 等格式互转。设计师和开发者必备的颜色格式转换器，即时预览颜色效果。',
   'tools.regexGen.name': '正则表达式生成器',
   'tools.regexGen.description': 'AI 生成正则表达式',
+  'tools.regexGen.seoDescription': 'AI 智能正则表达式生成器，根据描述自动生成正则表达式。支持邮箱、手机号、URL、IP地址等常见模式，快速生成精准的正则表达式。',
   'tools.hash.name': '哈希生成',
   'tools.hash.description': 'MD5/SHA1/SHA256',
+  'tools.hash.seoDescription': '哈希值计算工具，支持 MD5、SHA-1、SHA-256、SHA-384、SHA-512 等算法。在线文本哈希加密工具，常用于密码存储和数据完整性验证。',
   'tools.uuid.name': 'UUID 生成器',
   'tools.uuid.description': '生成 UUID v4',
+  'tools.uuid.seoDescription': 'UUID v4 在线生成器，快速生成符合 RFC 4122 标准的通用唯一标识符。支持批量生成、大小写切换、带不带连字符选择。',
   'tools.markdown.name': 'Markdown 预览',
   'tools.markdown.description': '实时预览 Markdown',
+  'tools.markdown.seoDescription': 'Markdown 在线编辑器，实时预览渲染效果。支持标题、列表、代码块、链接、图片等常见 Markdown 语法，即写即看。',
+  'tools.password.name': '密码生成器',
+  'tools.password.description': '安全密码生成',
+  'tools.password.seoDescription': '随机密码生成器，在线生成高强度安全密码。支持自定义长度、字符类型（大小写字母、数字、特殊符号），密码强度可视化显示。',
   'category.text': '文本处理',
   'category.data': '数据转换',
   'category.color': '颜色工具',
@@ -363,24 +389,37 @@ export const enUS: Translations = {
   'app.version': 'Version',
   'tools.regex.name': 'Regex Tester',
   'tools.regex.description': 'Test regular expressions in real-time',
+  'tools.regex.seoDescription': 'Free online regular expression tester with real-time matching, flag support, and match highlighting. Debug your regex patterns with visual match results and detailed group information.',
   'tools.json.name': 'JSON Formatter',
   'tools.json.description': 'Format and minify JSON',
+  'tools.json.seoDescription': 'JSON formatter and minifier tool. Beautify messy JSON data into readable format or compress JSON to reduce file size. Includes syntax validation and error highlighting.',
   'tools.base64.name': 'Base64 Encode/Decode',
   'tools.base64.description': 'Base64 encoding and decoding',
+  'tools.base64.seoDescription': 'Base64 encoder decoder tool. Convert text or files to Base64 format, or decode Base64 back to original content. Fast, free, and browser-based Base64 converter.',
   'tools.timestamp.name': 'Timestamp Converter',
   'tools.timestamp.description': 'Unix timestamp converter',
+  'tools.timestamp.seoDescription': 'Unix timestamp converter with second/millisecond conversion, date format options, and timezone support. Convert timestamps to human-readable dates and vice versa instantly.',
   'tools.url.name': 'URL Encode/Decode',
   'tools.url.description': 'URL encoding and decoding',
+  'tools.url.seoDescription': 'URL encoder decoder tool. Encode Chinese and special characters to %XX format for safe URLs. URLEncode/URLDecode online converter with reserved character handling.',
   'tools.color.name': 'Color Converter',
   'tools.color.description': 'HEX/RGB/HSL converter',
+  'tools.color.seoDescription': 'Color code converter supporting HEX, RGB, RGBA, HSL, HSLA formats. Instant color preview and conversion between color formats. Essential tool for designers and developers.',
   'tools.regexGen.name': 'Regex Generator',
   'tools.regexGen.description': 'AI-powered regex generator',
+  'tools.regexGen.seoDescription': 'AI-powered regex pattern generator. Automatically generate regular expressions from natural language descriptions. Common patterns for email, phone, URL, IP address and more.',
   'tools.hash.name': 'Hash Generator',
-  'tools.hash.description': 'MD5/SHA1/SHA256',
+  'tools.hash.description': 'MD5/SHA1/SHA256 and more',
+  'tools.hash.seoDescription': 'Hash generator supporting MD5, SHA-1, SHA-256, SHA-384, SHA-512 algorithms. Compute cryptographic hashes of text online. Useful for password storage and data integrity verification.',
   'tools.uuid.name': 'UUID Generator',
   'tools.uuid.description': 'Generate UUID v4',
+  'tools.uuid.seoDescription': 'UUID v4 generator. Create RFC 4122 compliant universal unique identifiers instantly. Supports batch generation, uppercase/lowercase toggle, and hyphen format options.',
   'tools.markdown.name': 'Markdown Preview',
   'tools.markdown.description': 'Real-time Markdown preview',
+  'tools.markdown.seoDescription': 'Markdown editor with live preview. Write and preview Markdown syntax including headings, lists, code blocks, links, and images. Instant rendering as you type.',
+  'tools.password.name': 'Password Generator',
+  'tools.password.description': 'Generate secure passwords',
+  'tools.password.seoDescription': 'Random password generator. Create high-strength secure passwords online. Customize length, character types (uppercase, lowercase, numbers, symbols). Visual password strength indicator.',
   'category.text': 'Text Processing',
   'category.data': 'Data Conversion',
   'category.color': 'Color Tools',

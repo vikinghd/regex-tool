@@ -9,6 +9,7 @@ interface I18nContextType {
   t: (key: TranslationKey) => string;
   getToolName: (id: string) => string;
   getToolDescription: (id: string) => string;
+  getToolSeoDescription: (id: string) => string;
   getCategoryName: (category: string) => string;
 }
 
@@ -48,6 +49,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     return translations[language][key] || '';
   };
 
+  const getToolSeoDescription = (id: string): string => {
+    const key = `tools.${id}.seoDescription` as TranslationKey;
+    return translations[language][key] || translations[language][`tools.${id}.description` as TranslationKey] || '';
+  };
+
   const getCategoryName = (category: string): string => {
     const key = `category.${category}` as TranslationKey;
     return translations[language][key] || category;
@@ -55,7 +61,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   return (
     <I18nContext.Provider
-      value={{ language, setLanguage, t, getToolName, getToolDescription, getCategoryName }}
+      value={{ language, setLanguage, t, getToolName, getToolDescription, getToolSeoDescription, getCategoryName }}
     >
       {children}
     </I18nContext.Provider>
