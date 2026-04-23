@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useI18n } from '../../i18n';
+import { useI18n } from '../../../../i18n';
 
 type HashAlgorithm = 'MD5' | 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
 

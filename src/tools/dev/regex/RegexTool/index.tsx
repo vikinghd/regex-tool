@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { REGEX_EXAMPLES } from '../../constants';
-import { RegexExample, MatchResult } from '../../types';
-import { useI18n } from '../../i18n';
+import { REGEX_EXAMPLES } from '../../../../constants';
+import { RegexExample, MatchResult } from '../../../../types';
+import { useI18n } from '../../../../i18n';
 
 export function RegexTool() {
   const [pattern, setPattern] = useState('');

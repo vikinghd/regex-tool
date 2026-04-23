@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useI18n } from '../../../i18n';
-import { Globe, Copy, Check, AlertCircle } from 'lucide-react';
+import { Copy, Check, AlertCircle } from 'lucide-react';
 
 function isValidIPv4(ip: string): boolean {
   const parts = ip.split('.');
@@ -34,7 +33,6 @@ function ipToNumber(ip: string): number {
 }
 
 export function IpInfoTool() {
-  const { t } = useI18n();
   const [input, setInput] = useState('');
   const [copied, setCopied] = useState('');
 

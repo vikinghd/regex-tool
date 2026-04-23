@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useI18n } from '../../i18n';
+import { useI18n } from '../../../../i18n';
 
 const UPPERCASE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWERCASE_CHARS = 'abcdefghijklmnopqrstuvwxyz';

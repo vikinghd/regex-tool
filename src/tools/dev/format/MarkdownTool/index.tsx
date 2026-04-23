@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { useI18n } from '../../i18n';
+import { useI18n } from '../../../../i18n';
 
 const SAMPLE_MARKDOWN = {
   'zh-CN': `# 标题一

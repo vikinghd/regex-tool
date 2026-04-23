@@ -7,7 +7,6 @@ import { TOOLS } from './constants/tools';
 import { useI18n } from './i18n';
 
 function HomePageWrapper({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
-  const { language } = useI18n();
   return (
     <>
       <Helmet>
