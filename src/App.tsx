@@ -1,30 +1,18 @@
-import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Sidebar } from './components/Sidebar';
+import { HomePage } from './pages/HomePage';
 import { ToolMeta } from './types/tool';
 import { TOOLS } from './constants/tools';
 import { useI18n } from './i18n';
 
-function AppContent() {
-  const navigate = useNavigate();
+function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
   const location = useLocation();
   const { language, getToolName, getToolDescription, getToolSeoDescription, getCategoryName } = useI18n();
 
   const currentTool = TOOLS.find((t: ToolMeta) =>
-    t.defaultPath === location.pathname ||
-    (location.pathname === '/' && t.id === 'regex')
+    t.defaultPath === location.pathname
   ) || TOOLS[0];
-
-  const handleToolSelect = (tool: ToolMeta) => {
-    navigate(tool.defaultPath);
-  };
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      navigate('/regex-tester', { replace: true });
-    }
-  }, [location.pathname, navigate]);
 
   const ToolComponent = currentTool.component;
 
@@ -85,7 +73,7 @@ function AppContent() {
         ]
       })}} />
 
-      <Sidebar currentToolId={currentTool.id} onToolSelect={handleToolSelect} />
+      <Sidebar currentToolId={currentTool.id} onToolSelect={onToolSelect} />
 
       <main className="lg:ml-64 min-h-screen">
         <header className="bg-[var(--color-bg-surface)]/80 backdrop-blur-sm border-b border-[var(--color-border)] sticky top-0 z-20">
@@ -108,11 +96,18 @@ function AppContent() {
 }
 
 function App() {
+  const navigate = useNavigate();
+
+  const handleToolSelect = (tool: ToolMeta) => {
+    navigate(tool.defaultPath);
+  };
+
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/*" element={<AppContent />} />
+          <Route path="/" element={<HomePage onToolSelect={handleToolSelect} />} />
+          <Route path="/*" element={<AppContent onToolSelect={handleToolSelect} />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
