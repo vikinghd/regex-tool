@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown, ChevronRight, Github, ChevronUp } from 'lucide-react';
-import { ToolMeta, ToolCategory } from '../types/tool';
+import { ToolMeta, ToolCategory, ToolGroup } from '../types/tool';
 import { TOOLS, PLACEHOLDER_TOOLS } from '../constants/tools';
 import { useI18n } from '../i18n';
 
@@ -13,76 +13,90 @@ const ALL_TOOLS = [...TOOLS, ...PLACEHOLDER_TOOLS];
 
 export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [expandedCategories, setExpandedCategories] = useState<Set<ToolCategory>>(
-    new Set([ToolCategory.TEXT])
+  const [expandedGroups, setExpandedGroups] = useState<Set<ToolGroup>>(
+    new Set([ToolGroup.DEV])
   );
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const { language, setLanguage, getToolName, getCategoryName, t } = useI18n();
+  const { language, setLanguage, getToolName, getCategoryName, getGroupName, t } = useI18n();
 
-  const toggleCategory = (category: ToolCategory) => {
-    setExpandedCategories(prev => {
+  const toggleGroup = (group: ToolGroup) => {
+    setExpandedGroups(prev => {
       const next = new Set(prev);
-      if (next.has(category)) {
-        next.delete(category);
+      if (next.has(group)) {
+        next.delete(group);
       } else {
-        next.add(category);
+        next.add(group);
       }
       return next;
     });
   };
 
-  const toolsByCategory = ALL_TOOLS.reduce((acc, tool) => {
-    if (!acc[tool.category]) {
-      acc[tool.category] = [];
+  const toolsByGroup = ALL_TOOLS.reduce((acc, tool) => {
+    if (!acc[tool.group]) {
+      acc[tool.group] = {} as Record<ToolCategory, ToolMeta[]>;
     }
-    acc[tool.category].push(tool);
+    const group = acc[tool.group]!;
+    if (!group[tool.category]) {
+      group[tool.category] = [];
+    }
+    group[tool.category]!.push(tool);
     return acc;
-  }, {} as Record<ToolCategory, ToolMeta[]>);
+  }, {} as Record<ToolGroup, Record<ToolCategory, ToolMeta[]>>);
 
   const renderToolList = () => (
     <nav className="flex-1 overflow-y-auto py-4">
-      {Object.entries(toolsByCategory).map(([category, tools]) => {
-        const cat = category as ToolCategory;
-        const isExpanded = expandedCategories.has(cat);
+      {Object.entries(toolsByGroup).map(([group, categories]) => {
+        const grp = group as ToolGroup;
+        const isExpanded = expandedGroups.has(grp);
         return (
-          <div key={category} className="mb-2">
+          <div key={group} className="mb-2">
             <button
-              onClick={() => toggleCategory(cat)}
+              onClick={() => toggleGroup(grp)}
               className="w-full flex items-center justify-between px-4 py-2 text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50 transition-colors"
               aria-expanded={isExpanded}
-              aria-controls={`category-${cat}`}
+              aria-controls={`group-${grp}`}
             >
-              <span className="text-sm font-medium">{getCategoryName(cat)}</span>
+              <span className="text-sm font-medium">{getGroupName(grp)}</span>
               {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             </button>
 
             {isExpanded && (
-              <div className="space-y-1" id={`category-${cat}`}>
-                {tools.map((tool: ToolMeta) => {
-                  const isActive = currentToolId === tool.id;
-                  const isPlaceholder = !TOOLS.find((t: ToolMeta) => t.id === tool.id);
+              <div className="space-y-1" id={`group-${grp}`}>
+                {Object.entries(categories).map(([category, tools]) => {
+                  const cat = category as ToolCategory;
                   return (
-                    <button
-                      key={tool.id}
-                      onClick={() => {
-                        if (!isPlaceholder) {
-                          onToolSelect(tool);
-                          setMobileOpen(false);
-                        }
-                      }}
-                      disabled={isPlaceholder}
-                      className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
-                        isActive
-                          ? 'bg-gradient-to-r from-[var(--color-accent)]/20 to-[var(--color-accent-hover)]/10 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)]'
-                          : isPlaceholder
-                          ? 'text-content-muted cursor-not-allowed'
-                          : 'text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50'
-                      }`}
-                    >
-                      <span className={isPlaceholder ? 'opacity-50' : ''}>{tool.icon}</span>
-                      <span className="truncate">{getToolName(tool.id)}</span>
-                      {isPlaceholder && <span className="ml-auto text-xs text-slate-600">{t('common.comingSoon')}</span>}
-                    </button>
+                    <div key={category} className="mt-1">
+                      <div className="px-4 py-1 text-xs font-medium text-content-muted uppercase tracking-wider">
+                        {getCategoryName(cat)}
+                      </div>
+                      {tools.map((tool: ToolMeta) => {
+                        const isActive = currentToolId === tool.id;
+                        const isPlaceholder = !TOOLS.find((t: ToolMeta) => t.id === tool.id);
+                        return (
+                          <button
+                            key={tool.id}
+                            onClick={() => {
+                              if (!isPlaceholder) {
+                                onToolSelect(tool);
+                                setMobileOpen(false);
+                              }
+                            }}
+                            disabled={isPlaceholder}
+                            className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                              isActive
+                                ? 'bg-gradient-to-r from-[var(--color-accent)]/20 to-[var(--color-accent-hover)]/10 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)]'
+                                : isPlaceholder
+                                ? 'text-content-muted cursor-not-allowed'
+                                : 'text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50'
+                            }`}
+                          >
+                            <span className={isPlaceholder ? 'opacity-50' : ''}>{tool.icon}</span>
+                            <span className="truncate">{getToolName(tool.id)}</span>
+                            {isPlaceholder && <span className="ml-auto text-xs text-slate-600">{t('common.comingSoon')}</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </div>

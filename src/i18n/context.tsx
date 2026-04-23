@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { zhCN, enUS, Translations, TranslationKey } from './translations';
+import { ToolGroup, GROUP_NAMES, GROUP_NAMES_EN } from '../types/tool';
 
 type Language = 'zh-CN' | 'en-US';
 
@@ -11,6 +12,7 @@ interface I18nContextType {
   getToolDescription: (id: string) => string;
   getToolSeoDescription: (id: string) => string;
   getCategoryName: (category: string) => string;
+  getGroupName: (group: ToolGroup) => string;
 }
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
@@ -59,9 +61,13 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     return translations[language][key] || category;
   };
 
+  const getGroupName = (group: ToolGroup): string => {
+    return language === 'zh-CN' ? GROUP_NAMES[group] : GROUP_NAMES_EN[group];
+  };
+
   return (
     <I18nContext.Provider
-      value={{ language, setLanguage, t, getToolName, getToolDescription, getToolSeoDescription, getCategoryName }}
+      value={{ language, setLanguage, t, getToolName, getToolDescription, getToolSeoDescription, getCategoryName, getGroupName }}
     >
       {children}
     </I18nContext.Provider>
