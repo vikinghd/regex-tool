@@ -35,11 +35,16 @@ export type TranslationKey =
   | 'tools.password.name'
   | 'tools.password.description'
   | 'tools.password.seoDescription'
+  | 'tools.ipinfo.name'
+  | 'tools.ipinfo.description'
+  | 'tools.ipinfo.seoDescription'
   | 'category.text'
   | 'category.data'
   | 'category.color'
   | 'category.web'
   | 'category.other'
+  | 'category.dev'
+  | 'category.net'
   | 'common.comingSoon'
   | 'common.copy'
   | 'common.clear'
@@ -229,11 +234,16 @@ export const zhCN: Translations = {
   'tools.password.name': '密码生成器',
   'tools.password.description': '安全密码生成',
   'tools.password.seoDescription': '随机密码生成器，在线生成高强度安全密码。支持自定义长度、字符类型（大小写字母、数字、特殊符号），密码强度可视化显示。',
+  'tools.ipinfo.name': 'IP 信息解析',
+  'tools.ipinfo.description': 'IP 地址类型与进制转换',
+  'tools.ipinfo.seoDescription': 'IP地址信息解析工具，判断公网/私有IP类型，查看二进制、十六进制表示。网络工程师必备工具。',
   'category.text': '文本处理',
   'category.data': '数据转换',
   'category.color': '颜色工具',
   'category.web': 'Web开发',
   'category.other': '其他工具',
+  'category.dev': '开发者工具',
+  'category.net': '网络工具',
   'common.comingSoon': '即将上线',
   'common.copy': '复制',
   'common.clear': '清空',
@@ -420,11 +430,16 @@ export const enUS: Translations = {
   'tools.password.name': 'Password Generator',
   'tools.password.description': 'Generate secure passwords',
   'tools.password.seoDescription': 'Random password generator. Create high-strength secure passwords online. Customize length, character types (uppercase, lowercase, numbers, symbols). Visual password strength indicator.',
+  'tools.ipinfo.name': 'IP Info',
+  'tools.ipinfo.description': 'IP address type and base conversion',
+  'tools.ipinfo.seoDescription': 'IP address information parser. Identify public/private IP types, view binary and hex representations. Essential tool for network engineers.',
   'category.text': 'Text Processing',
   'category.data': 'Data Conversion',
   'category.color': 'Color Tools',
   'category.web': 'Web Development',
   'category.other': 'Other Tools',
+  'category.dev': 'Developer Tools',
+  'category.net': 'Network Tools',
   'common.comingSoon': 'Coming Soon',
   'common.copy': 'Copy',
   'common.clear': 'Clear',
