@@ -6,6 +6,24 @@ import { ToolMeta } from './types/tool';
 import { TOOLS } from './constants/tools';
 import { useI18n } from './i18n';
 
+function HomePageWrapper({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
+  const { language } = useI18n();
+  return (
+    <>
+      <Helmet>
+        <title>DevTools Box - 开发者与网络工具箱</title>
+        <meta name="description" content="免费在线开发者工具箱，包含正则表达式、JSON格式化、Base64编解码、哈希生成、颜色转换等工具。同时提供IP信息解析等网络工程师必备工具。" />
+        <meta property="og:title" content="DevTools Box - 开发者与网络工具箱" />
+        <meta property="og:description" content="免费在线开发者工具与网络工程师工具箱" />
+        <meta property="og:url" content="https://www.vikinghd.me/" />
+        <link rel="canonical" href="https://www.vikinghd.me/" />
+        <meta name="keywords" content="开发者工具, 正则表达式, JSON格式化, Base64, 哈希, 颜色转换, IP地址, 网络工具" />
+      </Helmet>
+      <HomePage onToolSelect={onToolSelect} />
+    </>
+  );
+}
+
 function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
   const location = useLocation();
   const { language, getToolName, getToolDescription, getToolSeoDescription, getCategoryName } = useI18n();
@@ -106,7 +124,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage onToolSelect={handleToolSelect} />} />
+          <Route path="/" element={<HomePageWrapper onToolSelect={handleToolSelect} />} />
           <Route path="/*" element={<AppContent onToolSelect={handleToolSelect} />} />
         </Routes>
       </BrowserRouter>
