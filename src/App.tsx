@@ -111,6 +111,15 @@ function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }
 }
 
 function AppRoutes({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePageWrapper onToolSelect={onToolSelect} />} />
+      <Route path="/*" element={<AppContent onToolSelect={onToolSelect} />} />
+    </Routes>
+  );
+}
+
+function App() {
   const navigate = useNavigate();
 
   const handleToolSelect = (tool: ToolMeta) => {
@@ -118,18 +127,9 @@ function AppRoutes({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void })
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePageWrapper onToolSelect={handleToolSelect} />} />
-      <Route path="/*" element={<AppContent onToolSelect={handleToolSelect} />} />
-    </Routes>
-  );
-}
-
-function App() {
-  return (
     <HelmetProvider>
       <BrowserRouter>
-        <AppRoutes onToolSelect={() => {}} />
+        <AppRoutes onToolSelect={handleToolSelect} />
       </BrowserRouter>
     </HelmetProvider>
   );
