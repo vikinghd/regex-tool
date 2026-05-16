@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Sidebar } from './components/Sidebar';
 import { HomePage } from './pages/HomePage';
@@ -24,11 +24,9 @@ function HomePageWrapper({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => v
 }
 
 function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
-  const location = useLocation();
   const { language, getToolName, getToolDescription, getToolSeoDescription, getCategoryName } = useI18n();
-
   const currentTool = TOOLS.find((t: ToolMeta) =>
-    t.defaultPath === location.pathname
+    t.defaultPath === window.location.pathname
   ) || TOOLS[0];
 
   const ToolComponent = currentTool.component;
@@ -63,7 +61,7 @@ function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }
           "name": "vikinghd",
           "url": "https://github.com/vikinghd"
         }
-      })}} />
+      }) }} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -88,7 +86,7 @@ function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }
             "item": `https://www.vikinghd.me${currentTool.defaultPath}`
           }
         ]
-      })}} />
+      }) }} />
 
       <Sidebar currentToolId={currentTool.id} onToolSelect={onToolSelect} />
 
@@ -112,7 +110,7 @@ function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }
   );
 }
 
-function App() {
+function AppRoutes({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }) {
   const navigate = useNavigate();
 
   const handleToolSelect = (tool: ToolMeta) => {
@@ -120,12 +118,18 @@ function App() {
   };
 
   return (
+    <Routes>
+      <Route path="/" element={<HomePageWrapper onToolSelect={handleToolSelect} />} />
+      <Route path="/*" element={<AppContent onToolSelect={handleToolSelect} />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
     <HelmetProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePageWrapper onToolSelect={handleToolSelect} />} />
-          <Route path="/*" element={<AppContent onToolSelect={handleToolSelect} />} />
-        </Routes>
+        <AppRoutes onToolSelect={() => {}} />
       </BrowserRouter>
     </HelmetProvider>
   );
