@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Sidebar } from './components/Sidebar';
 import { HomePage } from './pages/HomePage';
 import { ToolMeta } from './types/tool';
@@ -127,11 +127,7 @@ function App() {
   };
 
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <AppRoutes onToolSelect={handleToolSelect} />
-      </BrowserRouter>
-    </HelmetProvider>
+    <AppRoutes onToolSelect={handleToolSelect} />
   );
 }
 
