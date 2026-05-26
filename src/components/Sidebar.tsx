@@ -52,12 +52,12 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
           <div key={group} className="mb-2">
             <button
               onClick={() => toggleGroup(grp)}
-              className="w-full flex items-center justify-between px-4 py-2 text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50 transition-colors"
+              className="w-full flex items-center justify-between px-4 py-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-colors rounded-lg mx-1"
               aria-expanded={isExpanded}
               aria-controls={`group-${grp}`}
             >
               <span className="text-sm font-medium">{getGroupName(grp)}</span>
-              {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              {isExpanded ? <ChevronDown size={16} className="text-gray-400" /> : <ChevronRight size={16} className="text-gray-400" />}
             </button>
 
             {isExpanded && (
@@ -66,7 +66,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                   const cat = category as ToolCategory;
                   return (
                     <div key={category} className="mt-1">
-                      <div className="px-4 py-1 text-xs font-medium text-content-muted uppercase tracking-wider">
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                         {getCategoryName(cat)}
                       </div>
                       {tools.map((tool: ToolMeta) => {
@@ -82,12 +82,12 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
                               }
                             }}
                             disabled={isPlaceholder}
-                            className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-all duration-150 ${
                               isActive
-                                ? 'bg-gradient-to-r from-[var(--color-accent)]/20 to-[var(--color-accent-hover)]/10 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)]'
+                                ? 'bg-gradient-to-r from-orange-50 to-amber-50 text-orange-500 border-l-2 border-orange-400 font-medium'
                                 : isPlaceholder
-                                ? 'text-content-muted cursor-not-allowed'
-                                : 'text-content-secondary hover:text-content-primary hover:bg-surface-elevated/50'
+                                ? 'text-gray-300 cursor-not-allowed'
+                                : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
                             }`}
                           >
                             <span className={isPlaceholder ? 'opacity-50' : ''}>{tool.icon}</span>
@@ -159,7 +159,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       {/* Mobile menu button - only on mobile */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 bg-surface-elevated text-content-primary rounded-lg border border-border"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2.5 bg-white text-gray-700 rounded-xl shadow-md border border-gray-100"
         aria-label="Open menu"
       >
         <Menu size={24} />
@@ -174,14 +174,14 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
       )}
 
       {/* Desktop sidebar - always visible on lg+ */}
-      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 z-30 w-64 bg-surface-base border-r border-border">
-        <div className="p-4 border-b border-border">
-          <h1 className="text-xl font-bold text-[var(--color-accent)] tracking-tight">
+      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 z-30 w-64 bg-white border-r border-gray-100">
+        <div className="p-5 border-b border-gray-100">
+          <h1 className="text-xl font-bold bg-clip-text text-transparent" style={{ backgroundImage: 'var(--gradient-primary)' }}>
             DevTools Box
           </h1>
         </div>
         {renderToolList()}
-        <div className="p-4 border-t border-border flex items-center justify-between">
+        <div className="p-4 border-t border-gray-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <LanguageSelector />
             <a
@@ -200,7 +200,7 @@ export function Sidebar({ currentToolId, onToolSelect }: SidebarProps) {
 
       {/* Mobile sidebar - slides in */}
       <aside className={`
-        lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-surface-base border-r border-border
+        lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-100
         transform transition-transform duration-300 ease-in-out
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
