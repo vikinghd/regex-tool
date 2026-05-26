@@ -91,12 +91,12 @@ function AppContent({ onToolSelect }: { onToolSelect: (tool: ToolMeta) => void }
       <Sidebar currentToolId={currentTool.id} onToolSelect={onToolSelect} />
 
       <main className="lg:ml-64 min-h-screen">
-        <header className="bg-[var(--color-bg-surface)]/80 backdrop-blur-sm border-b border-[var(--color-border)] sticky top-0 z-20">
+        <header className="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-20">
           <div className="px-4 py-4 lg:px-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{getToolName(currentTool.id)}</h1>
-                <p className="text-sm text-[var(--color-text-secondary)]">{getToolDescription(currentTool.id)}</p>
+                <h1 className="text-xl font-bold text-gray-900">{getToolName(currentTool.id)}</h1>
+                <p className="text-sm text-gray-500">{getToolDescription(currentTool.id)}</p>
               </div>
             </div>
           </div>
