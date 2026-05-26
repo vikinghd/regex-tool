@@ -1,0 +1,151 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - heading "DevTools Box" [level=1] [ref=e6]
+    - navigation [ref=e7]:
+      - generic [ref=e8]:
+        - button "Developer Tools" [expanded] [ref=e9] [cursor=pointer]:
+          - generic [ref=e10]: Developer Tools
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Text Processing
+            - button "Regex Tester" [ref=e16] [cursor=pointer]:
+              - img [ref=e18]
+              - generic [ref=e21]: Regex Tester
+            - button "JSON Formatter" [ref=e22] [cursor=pointer]:
+              - img [ref=e24]
+              - generic [ref=e29]: JSON Formatter
+            - button "Markdown Preview" [ref=e30] [cursor=pointer]:
+              - img [ref=e32]
+              - generic [ref=e34]: Markdown Preview
+            - button "Regex Generator" [ref=e35] [cursor=pointer]:
+              - img [ref=e37]
+              - generic [ref=e39]: Regex Generator
+          - generic [ref=e40]:
+            - generic [ref=e41]: Data Conversion
+            - button "Base64 Encode/Decode" [ref=e42] [cursor=pointer]:
+              - img [ref=e44]
+              - generic [ref=e47]: Base64 Encode/Decode
+            - button "Timestamp Converter" [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+              - generic [ref=e53]: Timestamp Converter
+            - button "Hash Generator" [ref=e54] [cursor=pointer]:
+              - img [ref=e56]
+              - generic [ref=e59]: Hash Generator
+            - button "UUID Generator" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]
+              - generic [ref=e65]: UUID Generator
+          - generic [ref=e66]:
+            - generic [ref=e67]: Web Development
+            - button "URL Encode/Decode" [ref=e68] [cursor=pointer]:
+              - img [ref=e70]
+              - generic [ref=e73]: URL Encode/Decode
+          - generic [ref=e74]:
+            - generic [ref=e75]: Other Tools
+            - button "Password Generator" [ref=e76] [cursor=pointer]:
+              - img [ref=e78]
+              - generic [ref=e82]: Password Generator
+          - generic [ref=e83]:
+            - generic [ref=e84]: Color Tools
+            - button "Color Converter" [ref=e85] [cursor=pointer]:
+              - img [ref=e87]
+              - generic [ref=e93]: Color Converter
+      - button "Network Tools" [ref=e95] [cursor=pointer]:
+        - generic [ref=e96]: Network Tools
+        - img [ref=e97]
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - button "English" [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]: English
+          - img [ref=e104]
+        - link "GitHub repository" [ref=e106] [cursor=pointer]:
+          - /url: https://github.com/vikinghd/regex-tool
+          - img [ref=e107]
+      - generic [ref=e110]: v0.15.0
+  - main [ref=e111]:
+    - generic [ref=e115]:
+      - heading "Regex Tester" [level=1] [ref=e116]
+      - paragraph [ref=e117]: Test regular expressions in real-time
+    - generic [ref=e119]:
+      - generic [ref=e120]:
+        - heading "Regular Expression" [level=2] [ref=e121]
+        - generic [ref=e122]:
+          - generic [ref=e123]: /
+          - textbox "Enter regex pattern..." [ref=e124]
+          - generic [ref=e125]: /
+          - textbox "gimsuy" [ref=e126]: g
+        - generic [ref=e127]:
+          - generic [ref=e128]: Flags：
+          - button "Global match" [pressed] [ref=e129] [cursor=pointer]: g
+          - button "Case-insensitive" [ref=e130] [cursor=pointer]: i
+          - button "Multiline" [ref=e131] [cursor=pointer]: m
+          - button ". matches newline" [ref=e132] [cursor=pointer]: s
+          - button "Unicode mode" [ref=e133] [cursor=pointer]: u
+          - button "Sticky mode" [ref=e134] [cursor=pointer]: "y"
+      - generic [ref=e135]:
+        - heading "Test Text" [level=2] [ref=e136]
+        - textbox "Enter text to test..." [ref=e137]
+      - generic [ref=e139]:
+        - heading "Match Results" [level=2] [ref=e140]
+        - generic [ref=e141]: 0 matches
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - heading "Common Patterns" [level=2] [ref=e144]
+          - generic [ref=e145]:
+            - 'button "Email Validation /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g" [ref=e146] [cursor=pointer]':
+              - generic [ref=e147]: Email Validation
+              - generic [ref=e148]: "/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/g"
+            - 'button "Phone (China) /1[3-9]\\d{9}/g" [ref=e149] [cursor=pointer]':
+              - generic [ref=e150]: Phone (China)
+              - generic [ref=e151]: "/1[3-9]\\d{9}/g"
+            - 'button "URL Link /https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)/gi" [ref=e152] [cursor=pointer]':
+              - generic [ref=e153]: URL Link
+              - generic [ref=e154]: "/https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)/gi"
+            - 'button "IP Address (IPv4) /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/g" [ref=e155] [cursor=pointer]':
+              - generic [ref=e156]: IP Address (IPv4)
+              - generic [ref=e157]: "/(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/g"
+            - 'button "ID Card (China) /[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]/g" [ref=e158] [cursor=pointer]':
+              - generic [ref=e159]: ID Card (China)
+              - generic [ref=e160]: "/[1-9]\\d{5}(?:18|19|20)\\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]/g"
+            - 'button "Date (YYYY-MM-DD) /\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])/g" [ref=e161] [cursor=pointer]':
+              - generic [ref=e162]: Date (YYYY-MM-DD)
+              - generic [ref=e163]: "/\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])/g"
+            - button "Time (HH:MM:SS) /(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d/g" [ref=e164] [cursor=pointer]:
+              - generic [ref=e165]: Time (HH:MM:SS)
+              - generic [ref=e166]: /(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d/g
+            - 'button "Hex Color /#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/gi" [ref=e167] [cursor=pointer]':
+              - generic [ref=e168]: Hex Color
+              - generic [ref=e169]: "/#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/gi"
+            - button "Chinese Characters /[\\u4e00-\\u9fa5]+/g" [ref=e170] [cursor=pointer]:
+              - generic [ref=e171]: Chinese Characters
+              - generic [ref=e172]: /[\u4e00-\u9fa5]+/g
+            - button "Empty Lines /^\\s*$/gm" [ref=e173] [cursor=pointer]:
+              - generic [ref=e174]: Empty Lines
+              - generic [ref=e175]: /^\s*$/gm
+            - button "HTML Tags /<([a-z]+)([^<]+)*(?:>(.*)<\\/\\1>|\\s+\\/>)/gi" [ref=e176] [cursor=pointer]:
+              - generic [ref=e177]: HTML Tags
+              - generic [ref=e178]: /<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)/gi
+            - button "Numbers (Int/Float) /-?\\d+(?:\\.\\d+)?/g" [ref=e179] [cursor=pointer]:
+              - generic [ref=e180]: Numbers (Int/Float)
+              - generic [ref=e181]: /-?\d+(?:\.\d+)?/g
+        - generic [ref=e182]:
+          - heading "Flag Reference" [level=2] [ref=e183]
+          - generic [ref=e184]:
+            - generic [ref=e185]:
+              - code [ref=e186]: g
+              - generic [ref=e187]: Global match
+            - generic [ref=e188]:
+              - code [ref=e189]: i
+              - generic [ref=e190]: Case-insensitive
+            - generic [ref=e191]:
+              - code [ref=e192]: m
+              - generic [ref=e193]: Multiline
+            - generic [ref=e194]:
+              - code [ref=e195]: s
+              - generic [ref=e196]: . matches newline
+            - generic [ref=e197]:
+              - code [ref=e198]: u
+              - generic [ref=e199]: Unicode mode
+            - generic [ref=e200]:
+              - code [ref=e201]: "y"
+              - generic [ref=e202]: Sticky mode

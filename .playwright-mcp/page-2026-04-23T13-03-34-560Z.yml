@@ -1,0 +1,55 @@
+- generic [ref=e3]:
+  - heading "Developer & Network Tools" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - heading "开发者工具" [level=2] [ref=e6]
+    - generic [ref=e7]:
+      - button "正则表达式测试 实时测试正则表达式" [ref=e8] [cursor=pointer]:
+        - img [ref=e10]
+        - generic [ref=e13]: 正则表达式测试
+        - generic [ref=e14]: 实时测试正则表达式
+      - button "JSON 格式化 格式化、压缩 JSON" [ref=e15] [cursor=pointer]:
+        - img [ref=e17]
+        - generic [ref=e22]: JSON 格式化
+        - generic [ref=e23]: 格式化、压缩 JSON
+      - button "Base64 编解码 Base64 编码和解码" [ref=e24] [cursor=pointer]:
+        - img [ref=e26]
+        - generic [ref=e29]: Base64 编解码
+        - generic [ref=e30]: Base64 编码和解码
+      - button "时间戳转换 Unix 时间戳转换" [ref=e31] [cursor=pointer]:
+        - img [ref=e33]
+        - generic [ref=e36]: 时间戳转换
+        - generic [ref=e37]: Unix 时间戳转换
+      - button "URL 编解码 URL 编码和解码" [ref=e38] [cursor=pointer]:
+        - img [ref=e40]
+        - generic [ref=e43]: URL 编解码
+        - generic [ref=e44]: URL 编码和解码
+      - button "哈希生成 MD5/SHA1/SHA256" [ref=e45] [cursor=pointer]:
+        - img [ref=e47]
+        - generic [ref=e50]: 哈希生成
+        - generic [ref=e51]: MD5/SHA1/SHA256
+      - button "Markdown 预览 实时预览 Markdown" [ref=e52] [cursor=pointer]:
+        - img [ref=e54]
+        - generic [ref=e56]: Markdown 预览
+        - generic [ref=e57]: 实时预览 Markdown
+      - button "UUID 生成器 生成 UUID v4" [ref=e58] [cursor=pointer]:
+        - img [ref=e60]
+        - generic [ref=e63]: UUID 生成器
+        - generic [ref=e64]: 生成 UUID v4
+      - button "密码生成器 安全密码生成" [ref=e65] [cursor=pointer]:
+        - img [ref=e67]
+        - generic [ref=e71]: 密码生成器
+        - generic [ref=e72]: 安全密码生成
+      - button "颜色转换 HEX/RGB/HSL 转换" [ref=e73] [cursor=pointer]:
+        - img [ref=e75]
+        - generic [ref=e81]: 颜色转换
+        - generic [ref=e82]: HEX/RGB/HSL 转换
+      - button "正则表达式生成器 AI 生成正则表达式" [ref=e83] [cursor=pointer]:
+        - img [ref=e85]
+        - generic [ref=e87]: 正则表达式生成器
+        - generic [ref=e88]: AI 生成正则表达式
+  - generic [ref=e89]:
+    - heading "网络工具" [level=2] [ref=e90]
+    - button "IP 信息解析 IP 地址类型与进制转换" [ref=e92] [cursor=pointer]:
+      - img [ref=e94]
+      - generic [ref=e97]: IP 信息解析
+      - generic [ref=e98]: IP 地址类型与进制转换

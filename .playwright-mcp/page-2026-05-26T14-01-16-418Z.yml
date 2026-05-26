@@ -1,0 +1,55 @@
+- generic [ref=e3]:
+  - heading "开发者与网络工具" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - heading "Developer Tools" [level=2] [ref=e6]
+    - generic [ref=e7]:
+      - button "Regex Tester Test regular expressions in real-time" [ref=e8] [cursor=pointer]:
+        - img [ref=e10]
+        - generic [ref=e13]: Regex Tester
+        - generic [ref=e14]: Test regular expressions in real-time
+      - button "JSON Formatter Format and minify JSON" [ref=e15] [cursor=pointer]:
+        - img [ref=e17]
+        - generic [ref=e22]: JSON Formatter
+        - generic [ref=e23]: Format and minify JSON
+      - button "Base64 Encode/Decode Base64 encoding and decoding" [ref=e24] [cursor=pointer]:
+        - img [ref=e26]
+        - generic [ref=e29]: Base64 Encode/Decode
+        - generic [ref=e30]: Base64 encoding and decoding
+      - button "Timestamp Converter Unix timestamp converter" [ref=e31] [cursor=pointer]:
+        - img [ref=e33]
+        - generic [ref=e36]: Timestamp Converter
+        - generic [ref=e37]: Unix timestamp converter
+      - button "URL Encode/Decode URL encoding and decoding" [ref=e38] [cursor=pointer]:
+        - img [ref=e40]
+        - generic [ref=e43]: URL Encode/Decode
+        - generic [ref=e44]: URL encoding and decoding
+      - button "Hash Generator MD5/SHA1/SHA256 and more" [ref=e45] [cursor=pointer]:
+        - img [ref=e47]
+        - generic [ref=e50]: Hash Generator
+        - generic [ref=e51]: MD5/SHA1/SHA256 and more
+      - button "Markdown Preview Real-time Markdown preview" [ref=e52] [cursor=pointer]:
+        - img [ref=e54]
+        - generic [ref=e56]: Markdown Preview
+        - generic [ref=e57]: Real-time Markdown preview
+      - button "UUID Generator Generate UUID v4" [ref=e58] [cursor=pointer]:
+        - img [ref=e60]
+        - generic [ref=e63]: UUID Generator
+        - generic [ref=e64]: Generate UUID v4
+      - button "Password Generator Generate secure passwords" [ref=e65] [cursor=pointer]:
+        - img [ref=e67]
+        - generic [ref=e71]: Password Generator
+        - generic [ref=e72]: Generate secure passwords
+      - button "Color Converter HEX/RGB/HSL converter" [ref=e73] [cursor=pointer]:
+        - img [ref=e75]
+        - generic [ref=e81]: Color Converter
+        - generic [ref=e82]: HEX/RGB/HSL converter
+      - button "Regex Generator AI-powered regex generator" [ref=e83] [cursor=pointer]:
+        - img [ref=e85]
+        - generic [ref=e87]: Regex Generator
+        - generic [ref=e88]: AI-powered regex generator
+  - generic [ref=e89]:
+    - heading "Network Tools" [level=2] [ref=e90]
+    - button "IP Info IP address type and base conversion" [ref=e92] [cursor=pointer]:
+      - img [ref=e94]
+      - generic [ref=e97]: IP Info
+      - generic [ref=e98]: IP address type and base conversion

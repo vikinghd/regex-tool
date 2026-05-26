@@ -1,0 +1,87 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - heading "DevTools Box" [level=1] [ref=e6]
+    - navigation [ref=e7]:
+      - generic [ref=e8]:
+        - button "Developer Tools" [expanded] [ref=e9] [cursor=pointer]:
+          - generic [ref=e10]: Developer Tools
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Text Processing
+            - button "Regex Tester" [ref=e16] [cursor=pointer]:
+              - img [ref=e18]
+              - generic [ref=e21]: Regex Tester
+            - button "JSON Formatter" [ref=e22] [cursor=pointer]:
+              - img [ref=e24]
+              - generic [ref=e29]: JSON Formatter
+            - button "Markdown Preview" [ref=e30] [cursor=pointer]:
+              - img [ref=e32]
+              - generic [ref=e34]: Markdown Preview
+            - button "Regex Generator" [ref=e35] [cursor=pointer]:
+              - img [ref=e37]
+              - generic [ref=e39]: Regex Generator
+          - generic [ref=e40]:
+            - generic [ref=e41]: Data Conversion
+            - button "Base64 Encode/Decode" [ref=e42] [cursor=pointer]:
+              - img [ref=e44]
+              - generic [ref=e47]: Base64 Encode/Decode
+            - button "Timestamp Converter" [ref=e48] [cursor=pointer]:
+              - img [ref=e50]
+              - generic [ref=e53]: Timestamp Converter
+            - button "Hash Generator" [ref=e54] [cursor=pointer]:
+              - img [ref=e56]
+              - generic [ref=e59]: Hash Generator
+            - button "UUID Generator" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]
+              - generic [ref=e65]: UUID Generator
+          - generic [ref=e66]:
+            - generic [ref=e67]: Web Development
+            - button "URL Encode/Decode" [ref=e68] [cursor=pointer]:
+              - img [ref=e70]
+              - generic [ref=e73]: URL Encode/Decode
+          - generic [ref=e74]:
+            - generic [ref=e75]: Other Tools
+            - button "Password Generator" [ref=e76] [cursor=pointer]:
+              - img [ref=e78]
+              - generic [ref=e82]: Password Generator
+          - generic [ref=e83]:
+            - generic [ref=e84]: Color Tools
+            - button "Color Converter" [ref=e85] [cursor=pointer]:
+              - img [ref=e87]
+              - generic [ref=e93]: Color Converter
+      - button "Network Tools" [ref=e95] [cursor=pointer]:
+        - generic [ref=e96]: Network Tools
+        - img [ref=e97]
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - button "English" [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]: English
+          - img [ref=e104]
+        - link "GitHub repository" [ref=e106] [cursor=pointer]:
+          - /url: https://github.com/vikinghd/regex-tool
+          - img [ref=e107]
+      - generic [ref=e110]: v0.15.0
+  - main [ref=e111]:
+    - generic [ref=e115]:
+      - heading "JSON Formatter" [level=1] [ref=e116]
+      - paragraph [ref=e117]: Format and minify JSON
+    - generic [ref=e119]:
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - heading "JSON Input" [level=2] [ref=e122]
+          - generic [ref=e123]:
+            - button "Format" [ref=e124] [cursor=pointer]
+            - button "Minify" [ref=e125] [cursor=pointer]
+            - button "Clear" [ref=e126] [cursor=pointer]
+        - 'textbox "{\"name\": \"test\", \"value\": 123}" [ref=e127]'
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - heading "Output" [level=2] [ref=e130]
+          - generic [ref=e132]:
+            - generic [ref=e133]: "Indent:"
+            - combobox [ref=e134]:
+              - option "2 spaces" [selected]
+              - option "4 spaces"
+              - option "8 spaces"
+        - textbox "Formatted JSON will appear here..." [ref=e135]
