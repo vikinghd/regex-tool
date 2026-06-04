@@ -1,0 +1,117 @@
+<h2>会话详情视图</h2>
+<p class="subtitle">点击单个会话后显示的内容</p>
+
+<div class="mockup">
+  <div class="mockup-header">预览：会话详情面板</div>
+  <div class="mockup-body">
+    <div style="background: #0d1117; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px; color: #c9d1d9;">
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #21262d; padding-bottom: 12px; margin-bottom: 16px;">
+        <div>
+          <span style="color: #58a6ff;">192.168.1.100</span>
+          <span style="color: #8b949e;"> → </span>
+          <span style="color: #58a6ff;">8.8.8.8</span>
+          <span style="background: #1f6feb; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 8px;">HTTP</span>
+        </div>
+        <div style="font-size: 11px;">
+          <span style="color: #8b949e;">包数: </span><span style="color: #f0883e;">128</span>
+          <span style="color: #8b949e; margin-left: 12px;">流量: </span><span style="color: #3fb950;">45.2 MB</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display: flex; gap: 4px; margin-bottom: 16px;">
+        <div style="background: #21262d; color: white; padding: 6px 12px; border-radius: 4px 4px 0 0; font-size: 11px;">包列表</div>
+        <div style="background: #0d1117; color: #8b949e; padding: 6px 12px; border-radius: 4px 4px 0 0; font-size: 11px; border: 1px solid #21262d; border-bottom: none;">汇总分析</div>
+        <div style="background: #0d1117; color: #8b949e; padding: 6px 12px; border-radius: 4px 4px 0 0; font-size: 11px; border: 1px solid #21262d; border-bottom: none;">时间线</div>
+      </div>
+
+      <!-- Packet List -->
+      <div style="background: #161b22; border-radius: 4px; border: 1px solid #21262d;">
+        <!-- Header row -->
+        <div style="display: grid; grid-template-columns: 60px 80px 80px 1fr; gap: 8px; padding: 8px 12px; background: #21262d; color: #8b949e; font-size: 10px; border-radius: 4px 4px 0 0;">
+          <span>序号</span>
+          <span>源</span>
+          <span>目标</span>
+          <span>信息</span>
+        </div>
+        <!-- Data rows -->
+        <div style="display: grid; grid-template-columns: 60px 80px 80px 1fr; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; font-size: 11px;">
+          <span style="color: #8b949e;">1</span>
+          <span style="color: #79c0ff;">192.168.1.100</span>
+          <span style="color: #56d364;">8.8.8.8</span>
+          <span style="color: #a5d6ff;">TCP 54321 → 80 [SYN] Seq=0</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 60px 80px 80px 1fr; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; font-size: 11px;">
+          <span style="color: #8b949e;">2</span>
+          <span style="color: #56d364;">8.8.8.8</span>
+          <span style="color: #79c0ff;">192.168.1.100</span>
+          <span style="color: #a5d6ff;">TCP 80 → 54321 [SYN, ACK] Seq=0</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 60px 80px 80px 1fr; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; font-size: 11px;">
+          <span style="color: #8b949e;">3</span>
+          <span style="color: #79c0ff;">192.168.1.100</span>
+          <span style="color: #56d364;">8.8.8.8</span>
+          <span style="color: #a5d6ff;">HTTP GET /api/data HTTP/1.1</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 60px 80px 80px 1fr; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; font-size: 11px;">
+          <span style="color: #8b949e;">4</span>
+          <span style="color: #56d364;">8.8.8.8</span>
+          <span style="color: #79c0ff;">192.168.1.100</span>
+          <span style="color: #a5d6ff;">HTTP 200 OK [JSON] 4.2KB</span>
+        </div>
+        <div style="padding: 8px 12px; color: #484f58; font-size: 11px;">... 124 more packets</div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+        <div style="background: #161b22; border-radius: 4px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px; margin-bottom: 4px;">总包数</div>
+          <div style="color: #f0883e; font-size: 18px; font-weight: bold;">128</div>
+        </div>
+        <div style="background: #161b22; border-radius: 4px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px; margin-bottom: 4px;">持续时间</div>
+          <div style="color: #58a6ff; font-size: 18px; font-weight: bold;">2.34s</div>
+        </div>
+        <div style="background: #161b22; border-radius: 4px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px; margin-bottom: 4px;">平均延迟</div>
+          <div style="color: #3fb950; font-size: 18px; font-weight: bold;">12ms</div>
+        </div>
+        <div style="background: #161b22; border-radius: 4px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px; margin-bottom: 4px;">重传率</div>
+          <div style="color: #a371f7; font-size: 18px; font-weight: bold;">0.8%</div>
+        </div>
+      </div>
+
+      <!-- Protocol Breakdown -->
+      <div style="margin-top: 16px;">
+        <div style="color: #f0883e; font-size: 11px; margin-bottom: 8px;">协议分布</div>
+        <div style="background: #161b22; border-radius: 4px; padding: 12px; border: 1px solid #21262d;">
+          <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #21262d;">
+            <span style="color: #c9d1d9;">TCP</span><span style="color: #58a6ff;">95 包 (74%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #21262d;">
+            <span style="color: #c9d1d9;">HTTP</span><span style="color: #f0883e;">12 包 (9%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #21262d;">
+            <span style="color: #c9d1d9;">DNS</span><span style="color: #3fb950;">21 包 (16%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>会话详情包含：</h3>
+  <ul style="color: #6e7681; font-size: 13px; line-height: 1.8;">
+    <li><strong>包列表</strong> - 每行显示序号、源IP、目标IP、包内容摘要</li>
+    <li><strong>汇总统计</strong> - 总包数、持续时间、平均延迟、重传率</li>
+    <li><strong>协议分布</strong> - TCP/HTTP/DNS 等各协议占比</li>
+    <li><strong>可选 Tab</strong> - 包列表、汇总分析、时间线</li>
+  </ul>
+</div>
+
+<p style="color: #8b949e; font-size: 12px; margin-top: 16px; text-align: center;">
+  http://localhost:60350
+</p>

@@ -28,7 +28,11 @@
       "Bash(git push:*)",
       "Bash(pkill -f vite)",
       "Bash(git:*)",
-      "mcp__playwright__browser_take_screenshot"
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(bash scripts/start-server.sh --project-dir C:/Users/Hongda/regex-tool)",
+      "Bash(cat C:/Users/Hongda/regex-tool/.superpowers/brainstorm/*/state/server-info)",
+      "Read(//tmp/.superpowers/**)",
+      "Bash(xargs cat:*)"
     ]
   }
 }

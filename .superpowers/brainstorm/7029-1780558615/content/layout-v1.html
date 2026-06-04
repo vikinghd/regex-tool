@@ -1,0 +1,106 @@
+<h2>网络包分析工具 - 布局方案</h2>
+<p class="subtitle">选择一个你觉得最专业的布局</p>
+
+<div class="mockup">
+  <div class="mockup-header">布局预览：深色极客风格</div>
+  <div class="mockup-body">
+    <div style="background: #0d1117; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px; color: #c9d1d9;">
+      <!-- Top Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #21262d; padding-bottom: 12px; margin-bottom: 16px;">
+        <div style="color: #58a6ff; font-weight: bold;">PCAP ANALYZER</div>
+        <div style="display: flex; gap: 16px; font-size: 11px;">
+          <span style="color: #8b949e;">会话 128</span>
+          <span style="color: #8b949e;">IP 64</span>
+          <span style="color: #8b949e;">流量 1.2GB</span>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <!-- Left: Session List -->
+        <div>
+          <div style="color: #f0883e; font-size: 11px; margin-bottom: 8px;">连接追踪 (Sessions)</div>
+          <div style="background: #161b22; border-radius: 4px; padding: 8px;">
+            <div style="padding: 6px; border-left: 2px solid #58a6ff; color: #c9d1d9;">192.168.1.100 → 8.8.8.8<span style="float: right; color: #8b949e;">HTTP</span></div>
+            <div style="padding: 6px; border-left: 2px solid #3fb950; color: #c9d1d9;">192.168.1.100 → 1.1.1.1<span style="float: right; color: #8b949e;">DNS</span></div>
+            <div style="padding: 6px; border-left: 2px solid #f78166; color: #c9d1d9;">192.168.1.100 → 93.184.216.34<span style="float: right; color: #8b949e;">HTTPS</span></div>
+            <div style="padding: 6px; color: #484f58;">更多...</div>
+          </div>
+        </div>
+
+        <!-- Right: Stats & IP Map -->
+        <div>
+          <div style="color: #a371f7; font-size: 11px; margin-bottom: 8px;">流量统计</div>
+          <div style="background: #161b22; border-radius: 4px; padding: 8px;">
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #c9d1d9;">
+              <span>8.8.8.8</span><span style="color: #f0883e;">856 MB</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #c9d1d9;">
+              <span>93.184.216.34</span><span style="color: #3fb950;">312 MB</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #c9d1d9;">
+              <span>1.1.1.1</span><span style="color: #a371f7;">24 MB</span>
+            </div>
+          </div>
+
+          <div style="color: #58a6ff; font-size: 11px; margin: 12px 0 8px;">IP 与域名映射</div>
+          <div style="background: #161b22; border-radius: 4px; padding: 8px; font-size: 11px;">
+            <div style="color: #c9d1d9; padding: 2px 0;">93.184.216.34 → example.com</div>
+            <div style="color: #8b949e; padding: 2px 0;">8.8.8.8 → dns.google</div>
+            <div style="color: #8b949e; padding: 2px 0;">1.1.1.1 → one.one.one.one</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Protocol Breakdown -->
+      <div style="margin-top: 16px;">
+        <div style="color: #3fb950; font-size: 11px; margin-bottom: 8px;">协议分类</div>
+        <div style="background: #161b22; border-radius: 4px; padding: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="color: #c9d1d9; font-size: 11px;">HTTP 45%</span>
+            <div style="flex: 1; height: 6px; background: #21262d; border-radius: 3px;">
+              <div style="width: 45%; height: 100%; background: linear-gradient(90deg, #f0883e, #f78166); border-radius: 3px;"></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center; margin-top: 6px;">
+            <span style="color: #c9d1d9; font-size: 11px;">DNS 30%</span>
+            <div style="flex: 1; height: 6px; background: #21262d; border-radius: 3px;">
+              <div style="width: 30%; height: 100%; background: linear-gradient(90deg, #3fb950, #56d364); border-radius: 3px;"></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center; margin-top: 6px;">
+            <span style="color: #c9d1d9; font-size: 11px;">HTTPS 25%</span>
+            <div style="flex: 1; height: 6px; background: #21262d; border-radius: 3px;">
+              <div style="width: 25%; height: 100%; background: linear-gradient(90deg, #a371f7, #bc8cff); border-radius: 3px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top: 24px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>四宫格布局</h3>
+      <p>左侧连接列表，右侧流量统计和IP映射，底部协议分类</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <h3>关于这个布局的特点：</h3>
+  <ul style="color: #6e7681; font-size: 13px; line-height: 1.8;">
+    <li>左侧：按会话追踪 IP 之间的连接</li>
+    <li>右上：显示各 IP 的流量使用量排名</li>
+    <li>右下：显示 IP 和域名的对应关系</li>
+    <li>底部：协议分布的百分比条形图</li>
+    <li>整体：类似 Wireshark 的信息密度风格</li>
+  </ul>
+</div>
+
+<p style="color: #8b949e; font-size: 12px; margin-top: 24px; text-align: center;">
+  打开浏览器查看完整布局：http://localhost:60350
+</p>

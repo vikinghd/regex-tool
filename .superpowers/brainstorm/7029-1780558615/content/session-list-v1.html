@@ -1,0 +1,112 @@
+<h2>会话列表 - 可排序列</h2>
+<p class="subtitle">每个会话显示收发数据量，点击列标题可排序</p>
+
+<div class="mockup">
+  <div class="mockup-header">预览：会话列表</div>
+  <div class="mockup-body">
+    <div style="background: #0d1117; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px; color: #c9d1d9;">
+      <!-- Table Header -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 80px; gap: 8px; padding: 8px 12px; background: #21262d; color: #8b949e; font-size: 11px; border-radius: 4px 4px 0 0;">
+        <div style="cursor: pointer;" onclick="toggleSort('src')">
+          源 IP → 目标 IP
+          <span style="color: #58a6ff;">↓</span>
+        </div>
+        <div style="cursor: pointer; text-align: right;" onclick="toggleSort('sent')">
+          发送 ↑
+        </div>
+        <div style="cursor: pointer; text-align: right;" onclick="toggleSort('recv')">
+          接收 ↑
+        </div>
+        <div style="cursor: pointer; text-align: right;" onclick="toggleSort('total')">
+          总计 ↑
+        </div>
+        <div style="text-align: center;">协议</div>
+      </div>
+
+      <!-- Session Rows -->
+      <div style="border: 1px solid #21262d; border-top: none;">
+        <!-- Row 1 -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 80px; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; background: #161b22; cursor: pointer;" onclick="selectRow(this)">
+          <div>
+            <span style="color: #79c0ff;">192.168.1.100</span>
+            <span style="color: #8b949e;"> → </span>
+            <span style="color: #56d364;">8.8.8.8</span>
+          </div>
+          <div style="text-align: right; color: #58a6ff;">12.4 KB</div>
+          <div style="text-align: right; color: #3fb950;">45.2 MB</div>
+          <div style="text-align: right; color: #f0883e; font-weight: bold;">45.2 MB</div>
+          <div style="text-align: center;">
+            <span style="background: #1f6feb; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">HTTP</span>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 80px; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; cursor: pointer;" onclick="selectRow(this)">
+          <div>
+            <span style="color: #79c0ff;">192.168.1.100</span>
+            <span style="color: #8b949e;"> → </span>
+            <span style="color: #56d364;">1.1.1.1</span>
+          </div>
+          <div style="text-align: right; color: #58a6ff;">256 B</div>
+          <div style="text-align: right; color: #3fb950;">1.2 KB</div>
+          <div style="text-align: right; color: #c9d1d9;">1.5 KB</div>
+          <div style="text-align: center;">
+            <span style="background: #238636; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">DNS</span>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 80px; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; cursor: pointer;" onclick="selectRow(this)">
+          <div>
+            <span style="color: #79c0ff;">192.168.1.100</span>
+            <span style="color: #8b949e;"> → </span>
+            <span style="color: #56d364;">93.184.216.34</span>
+          </div>
+          <div style="text-align: right; color: #58a6ff;">3.2 MB</div>
+          <div style="text-align: right; color: #3fb950;">28.1 MB</div>
+          <div style="text-align: right; color: #c9d1d9;">31.3 MB</div>
+          <div style="text-align: center;">
+            <span style="background: #a371f7; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">HTTPS</span>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 80px; gap: 8px; padding: 10px 12px; cursor: pointer;" onclick="selectRow(this)">
+          <div>
+            <span style="color: #79c0ff;">192.168.1.100</span>
+            <span style="color: #8b949e;"> → </span>
+            <span style="color: #56d364;">104.21.44.100</span>
+          </div>
+          <div style="text-align: right; color: #58a6ff;">512 KB</div>
+          <div style="text-align: right; color: #3fb950;">8.9 MB</div>
+          <div style="text-align: right; color: #c9d1d9;">9.4 MB</div>
+          <div style="text-align: center;">
+            <span style="background: #f78166; color: white; padding: 2px 6px; border-radius: 3px; font-size: 10px;">HTTP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sort indicator explanation -->
+      <div style="margin-top: 16px; padding: 12px; background: #161b22; border-radius: 4px; border: 1px solid #21262d;">
+        <div style="color: #8b949e; font-size: 11px;">
+          <span style="color: #f0883e;">↑</span> 当前升序排列<br>
+          <span style="color: #8b949e;">再次点击切换</span> ↑ 升序 → ↓ 降序
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>排序功能说明：</h3>
+  <ul style="color: #6e7681; font-size: 13px; line-height: 1.8;">
+    <li>点击「发送」→ 按发送量升序/降序排列</li>
+    <li>点击「接收」→ 按接收量升序/降序排列</li>
+    <li>点击「总计」→ 按总流量升序/降序排列（初始排序）</li>
+    <li>当前排序列显示 <span style="color: #58a6ff;">↑</span> 或 <span style="color: #f0883e;">↓</span> 指示</li>
+  </ul>
+</div>
+
+<p style="color: #8b949e; font-size: 12px; margin-top: 16px; text-align: center;">
+  http://localhost:60350
+</p>

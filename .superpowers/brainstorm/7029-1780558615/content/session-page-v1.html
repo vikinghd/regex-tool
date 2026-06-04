@@ -1,0 +1,135 @@
+<h2>会话详情页面</h2>
+<p class="subtitle">点击会话后跳转的独立页面，显示完整交互过程</p>
+
+<div class="mockup">
+  <div class="mockup-header">会话详情页: /session/192.168.1.100-8.8.8.8</div>
+  <div class="mockup-body">
+    <div style="background: #0d1117; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px; color: #c9d1d9;">
+      <!-- Back Navigation -->
+      <div style="margin-bottom: 16px;">
+        <span style="color: #8b949e; cursor: pointer;">← 返回会话列表</span>
+      </div>
+
+      <!-- Session Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; background: #161b22; border-radius: 8px; padding: 16px; border: 1px solid #21262d; margin-bottom: 16px;">
+        <div>
+          <div style="font-size: 16px; margin-bottom: 8px;">
+            <span style="color: #79c0ff; font-weight: bold;">192.168.1.100</span>
+            <span style="color: #8b949e;"> ↔ </span>
+            <span style="color: #56d364; font-weight: bold;">8.8.8.8</span>
+            <span style="background: #1f6feb; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-left: 12px;">HTTP</span>
+          </div>
+          <div style="color: #8b949e; font-size: 11px;">
+            <span>example.com (DNS解析)</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 24px;">
+          <div style="text-align: center;">
+            <div style="color: #8b949e; font-size: 10px;">发送</div>
+            <div style="color: #58a6ff; font-size: 18px; font-weight: bold;">12 KB</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="color: #8b949e; font-size: 10px;">接收</div>
+            <div style="color: #3fb950; font-size: 18px; font-weight: bold;">45 MB</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="color: #8b949e; font-size: 10px;">包数</div>
+            <div style="color: #f0883e; font-size: 18px; font-weight: bold;">128</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
+        <div style="background: #161b22; border-radius: 6px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px;">持续时间</div>
+          <div style="color: #58a6ff; font-size: 18px; font-weight: bold;">2.34s</div>
+        </div>
+        <div style="background: #161b22; border-radius: 6px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px;">平均延迟</div>
+          <div style="color: #3fb950; font-size: 18px; font-weight: bold;">12ms</div>
+        </div>
+        <div style="background: #161b22; border-radius: 6px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px;">重传率</div>
+          <div style="color: #a371f7; font-size: 18px; font-weight: bold;">0.8%</div>
+        </div>
+        <div style="background: #161b22; border-radius: 6px; padding: 12px; border: 1px solid #21262d;">
+          <div style="color: #8b949e; font-size: 10px;">TTL 均值</div>
+          <div style="color: #c9d1d9; font-size: 18px; font-weight: bold;">64</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display: flex; gap: 4px; margin-bottom: 16px;">
+        <div style="background: #21262d; color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; font-size: 12px; font-weight: bold;">包列表</div>
+        <div style="background: #0d1117; color: #8b949e; padding: 8px 16px; border-radius: 6px 6px 0 0; font-size: 12px; border: 1px solid #21262d; border-bottom: none;">时序图</div>
+        <div style="background: #0d1117; color: #8b949e; padding: 8px 16px; border-radius: 6px 6px 0 0; font-size: 12px; border: 1px solid #21262d; border-bottom: none;">请求追踪</div>
+        <div style="background: #0d1117; color: #8b949e; padding: 8px 16px; border-radius: 6px 6px 0 0; font-size: 12px; border: 1px solid #21262d; border-bottom: none;">统计</div>
+      </div>
+
+      <!-- Packet List Table -->
+      <div style="background: #161b22; border-radius: 4px; border: 1px solid #21262d; overflow: hidden;">
+        <!-- Table Header -->
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; background: #21262d; color: #8b949e; font-size: 10px;">
+          <div>#</div>
+          <div>时间</div>
+          <div>方向</div>
+          <div>协议</div>
+          <div>内容摘要</div>
+        </div>
+        <!-- Packet Rows -->
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; align-items: center;">
+          <div style="color: #8b949e;">1</div>
+          <div style="color: #58a6ff;">0.000</div>
+          <div><span style="color: #79c0ff;">→</span></div>
+          <div style="color: #f0883e;">TCP</div>
+          <div style="color: #c9d1d9; font-size: 11px;">[SYN] Seq=0 Win=65535</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; align-items: center; background: #1a2332;">
+          <div style="color: #8b949e;">2</div>
+          <div style="color: #58a6ff;">0.012</div>
+          <div><span style="color: #56d364;">←</span></div>
+          <div style="color: #f0883e;">TCP</div>
+          <div style="color: #c9d1d9; font-size: 11px;">[SYN,ACK] Seq=0 Ack=1 Win=65535</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; align-items: center;">
+          <div style="color: #8b949e;">3</div>
+          <div style="color: #58a6ff;">0.015</div>
+          <div><span style="color: #79c0ff;">→</span></div>
+          <div style="color: #a371f7;">HTTP</div>
+          <div style="color: #c9d1d9; font-size: 11px;">GET /api/data HTTP/1.1</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; align-items: center; background: #1a2332;">
+          <div style="color: #8b949e;">4</div>
+          <div style="color: #58a6ff;">0.089</div>
+          <div><span style="color: #56d364;">←</span></div>
+          <div style="color: #a371f7;">HTTP</div>
+          <div style="color: #c9d1d9; font-size: 11px;">200 OK [JSON] 4.2KB</div>
+        </div>
+        <div style="display: grid; grid-template-columns: 50px 80px 80px 100px 1fr; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #21262d; align-items: center;">
+          <div style="color: #8b949e;">5</div>
+          <div style="color: #58a6ff;">2.340</div>
+          <div><span style="color: #79c0ff;">→</span></div>
+          <div style="color: #f0883e;">TCP</div>
+          <div style="color: #c9d1d9; font-size: 11px;">[FIN,ACK] Seq=1450 Ack=45821</div>
+        </div>
+        <div style="padding: 8px 12px; color: #484f58; font-size: 11px; text-align: center;">... 123 more packets</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 24px;">
+  <h3>会话详情页包含：</h3>
+  <ul style="color: #6e7681; font-size: 13px; line-height: 1.8;">
+    <li><strong>返回导航</strong> - 返回首页会话列表</li>
+    <li><strong>会话头信息</strong> - 源IP、目标IP、域名、协议、收发量</li>
+    <li><strong>汇总统计</strong> - 持续时间、平均延迟、重传率、TTL</li>
+    <li><strong>Tab 切换</strong> - 包列表、时序图、请求追踪、统计</li>
+    <li><strong>包列表</strong> - 序号、时间、方向、协议、内容摘要</li>
+  </ul>
+</div>
+
+<p style="color: #8b949e; font-size: 12px; margin-top: 16px; text-align: center;">
+  http://localhost:60350
+</p>
